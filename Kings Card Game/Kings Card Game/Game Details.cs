@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
-    public partial class Form1 : Form
+    public partial class Welcome_Screen : Form
     {
-        public Form1()
+        public Welcome_Screen()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
