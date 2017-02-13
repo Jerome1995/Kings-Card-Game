@@ -29,36 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome_Screen));
-            this.Heading = new System.Windows.Forms.TextBox();
-            this.enterDetails = new System.Windows.Forms.TextBox();
             this.playButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // Heading
-            // 
-            this.Heading.BackColor = System.Drawing.Color.Silver;
-            this.Heading.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Heading.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Heading.Location = new System.Drawing.Point(317, 64);
-            this.Heading.Multiline = true;
-            this.Heading.Name = "Heading";
-            this.Heading.Size = new System.Drawing.Size(265, 40);
-            this.Heading.TabIndex = 1;
-            this.Heading.Text = "Kings Card Game";
-            // 
-            // enterDetails
-            // 
-            this.enterDetails.BackColor = System.Drawing.Color.Silver;
-            this.enterDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.enterDetails.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterDetails.Location = new System.Drawing.Point(140, 121);
-            this.enterDetails.Multiline = true;
-            this.enterDetails.Name = "enterDetails";
-            this.enterDetails.Size = new System.Drawing.Size(620, 155);
-            this.enterDetails.TabIndex = 0;
-            this.enterDetails.Text = resources.GetString("enterDetails.Text");
-            this.enterDetails.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // playButton
             // 
@@ -70,15 +44,36 @@
             this.playButton.Text = "Play";
             this.playButton.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(317, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Kings Card Game";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(140, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(602, 150);
+            this.label2.TabIndex = 10;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
             // Welcome_Screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(884, 511);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.playButton);
-            this.Controls.Add(this.Heading);
-            this.Controls.Add(this.enterDetails);
             this.Name = "Welcome_Screen";
             this.Text = "Kings";
             this.ResumeLayout(false);
@@ -88,8 +83,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox Heading;
-        private System.Windows.Forms.TextBox enterDetails;
         private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

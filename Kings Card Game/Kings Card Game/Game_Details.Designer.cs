@@ -28,32 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Heading = new System.Windows.Forms.TextBox();
             this.excludeCardsButton = new System.Windows.Forms.Button();
             this.setDecksButton = new System.Windows.Forms.Button();
             this.addPlayerButton = new System.Windows.Forms.Button();
-            this.enterDetails = new System.Windows.Forms.TextBox();
             this.grdPlayer = new System.Windows.Forms.DataGridView();
             this.grdExcludedCards = new System.Windows.Forms.DataGridView();
             this.grdDecks = new System.Windows.Forms.DataGridView();
             this.startGameButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.menuKings = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.welcomeScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdExcludedCards)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDecks)).BeginInit();
+            this.menuKings.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Heading
-            // 
-            this.Heading.BackColor = System.Drawing.Color.Silver;
-            this.Heading.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Heading.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Heading.Location = new System.Drawing.Point(317, 64);
-            this.Heading.Multiline = true;
-            this.Heading.Name = "Heading";
-            this.Heading.Size = new System.Drawing.Size(265, 40);
-            this.Heading.TabIndex = 2;
-            this.Heading.Text = "Kings Card Game";
             // 
             // excludeCardsButton
             // 
@@ -84,18 +76,6 @@
             this.addPlayerButton.TabIndex = 11;
             this.addPlayerButton.Text = "Add Player";
             this.addPlayerButton.UseVisualStyleBackColor = true;
-            // 
-            // enterDetails
-            // 
-            this.enterDetails.BackColor = System.Drawing.Color.Silver;
-            this.enterDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.enterDetails.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterDetails.Location = new System.Drawing.Point(273, 98);
-            this.enterDetails.Multiline = true;
-            this.enterDetails.Name = "enterDetails";
-            this.enterDetails.Size = new System.Drawing.Size(353, 32);
-            this.enterDetails.TabIndex = 12;
-            this.enterDetails.Text = "Please enter your details here";
             // 
             // grdPlayer
             // 
@@ -134,26 +114,82 @@
             this.startGameButton.Text = "Start Game";
             this.startGameButton.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(317, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 25);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Kings Card Game";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(273, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(338, 25);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Please enter your details here\r\n";
+            // 
+            // menuKings
+            // 
+            this.menuKings.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuKings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem});
+            this.menuKings.Location = new System.Drawing.Point(0, 0);
+            this.menuKings.Name = "menuKings";
+            this.menuKings.Size = new System.Drawing.Size(884, 24);
+            this.menuKings.TabIndex = 28;
+            this.menuKings.Text = "menuKings";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.welcomeScreenToolStripMenuItem,
+            this.gameDetailsToolStripMenuItem});
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.homeToolStripMenuItem.Text = "Home";
+            // 
+            // welcomeScreenToolStripMenuItem
+            // 
+            this.welcomeScreenToolStripMenuItem.Name = "welcomeScreenToolStripMenuItem";
+            this.welcomeScreenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.welcomeScreenToolStripMenuItem.Text = "Welcome Screen";
+            // 
+            // gameDetailsToolStripMenuItem
+            // 
+            this.gameDetailsToolStripMenuItem.Name = "gameDetailsToolStripMenuItem";
+            this.gameDetailsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.gameDetailsToolStripMenuItem.Text = "Game Details";
+            // 
             // Game_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(884, 511);
+            this.Controls.Add(this.menuKings);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.startGameButton);
             this.Controls.Add(this.grdDecks);
             this.Controls.Add(this.grdExcludedCards);
             this.Controls.Add(this.grdPlayer);
-            this.Controls.Add(this.enterDetails);
             this.Controls.Add(this.addPlayerButton);
             this.Controls.Add(this.setDecksButton);
             this.Controls.Add(this.excludeCardsButton);
-            this.Controls.Add(this.Heading);
             this.Name = "Game_Details";
-            this.Text = "Game_Details";
+            this.Text = "Kings";
             ((System.ComponentModel.ISupportInitialize)(this.grdPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdExcludedCards)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDecks)).EndInit();
+            this.menuKings.ResumeLayout(false);
+            this.menuKings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,14 +197,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox Heading;
         private System.Windows.Forms.Button excludeCardsButton;
         private System.Windows.Forms.Button setDecksButton;
         private System.Windows.Forms.Button addPlayerButton;
-        private System.Windows.Forms.TextBox enterDetails;
         private System.Windows.Forms.DataGridView grdPlayer;
         private System.Windows.Forms.DataGridView grdExcludedCards;
         private System.Windows.Forms.DataGridView grdDecks;
         private System.Windows.Forms.Button startGameButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MenuStrip menuKings;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem welcomeScreenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gameDetailsToolStripMenuItem;
     }
 }

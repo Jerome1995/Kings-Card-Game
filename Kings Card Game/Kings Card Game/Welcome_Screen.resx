@@ -117,12 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="enterDetails.Text" xml:space="preserve">
+  <data name="label2.Text" xml:space="preserve">
     <value>Welcome to the 'Kings Drinking Game'. This game is
 simple and easy to follow. You may add your players, 
 the amount of decks you wish to play and any cards 
 you would like to exclude from the deck.
 Just press the 'Play' button and enter your details and
-your ready to go!</value>
+your ready to go!
+</value>
   </data>
 </root>
