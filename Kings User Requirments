@@ -1,0 +1,17 @@
+Kings Drinking Game Application for OOAD Project
+
+User Requirments:
+	User will need to see the card that they have drawn
+	User will be given a description of what they have to do based on the card
+	User will have a button to allow them to choose the next card
+	User can specify the amount of decks they wish to play (half deck, 1 deck, 2 deck etc)
+	User can restart the game at anytime
+	User can specify at the start if they would like to exclude certain cards
+	User will have option to return to the main menu at anytime
+	User can enter the amount of players and their names at the start so the game will display whos go is next (optional)
+	User will be able to see how many cards are left in the deck
+	User can add a deck during the game
+	User can perform same actions as the main menu throughout the game via menu bar
+	
+	Possibility of adding other games to the app (Red, black or purple)(Higher or lower)(Friend or foe)
+	
