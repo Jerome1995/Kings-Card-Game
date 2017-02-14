@@ -50,6 +50,7 @@
     <Compile Include="Add_Player.Designer.cs">
       <DependentUpon>Add_Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="Card.cs" />
     <Compile Include="Change_Player_Name.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +75,7 @@
     <Compile Include="Kings.Designer.cs">
       <DependentUpon>Kings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Players.cs" />
     <Compile Include="Set_Decks.cs">
       <SubType>Form</SubType>
     </Compile>
