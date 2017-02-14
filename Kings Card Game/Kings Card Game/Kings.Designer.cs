@@ -32,8 +32,8 @@
             this.txtCardName = new System.Windows.Forms.RichTextBox();
             this.txtCardRule = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbCardRule = new System.Windows.Forms.Label();
+            this.lcCardName = new System.Windows.Forms.Label();
             this.nextCardButton = new System.Windows.Forms.Button();
             this.txtCardsLeft = new System.Windows.Forms.RichTextBox();
             this.txtDecksLeft = new System.Windows.Forms.RichTextBox();
@@ -41,19 +41,25 @@
             this.lbCardsLeft = new System.Windows.Forms.Label();
             this.menuKings = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.welcomeScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMemberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.removeMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excludeCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.excludeCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chooseCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.welcomeScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gameDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePlayerNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbPlayerName = new System.Windows.Forms.Label();
+            this.txtPlayerName = new System.Windows.Forms.RichTextBox();
+            this.lbPlayerAmount = new System.Windows.Forms.Label();
+            this.txtPlayerAmount = new System.Windows.Forms.RichTextBox();
+            this.undoExclusionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.cardBox)).BeginInit();
             this.menuKings.SuspendLayout();
             this.SuspendLayout();
@@ -95,30 +101,30 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Kings Card Game";
             // 
-            // label2
+            // lbCardRule
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(212, 459);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Card Rule:";
+            this.lbCardRule.AutoSize = true;
+            this.lbCardRule.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCardRule.Location = new System.Drawing.Point(212, 459);
+            this.lbCardRule.Name = "lbCardRule";
+            this.lbCardRule.Size = new System.Drawing.Size(99, 20);
+            this.lbCardRule.TabIndex = 19;
+            this.lbCardRule.Text = "Card Rule:";
             // 
-            // label3
+            // lcCardName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(203, 373);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Card Name:";
+            this.lcCardName.AutoSize = true;
+            this.lcCardName.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcCardName.Location = new System.Drawing.Point(203, 373);
+            this.lcCardName.Name = "lcCardName";
+            this.lcCardName.Size = new System.Drawing.Size(108, 20);
+            this.lcCardName.TabIndex = 20;
+            this.lcCardName.Text = "Card Name:";
             // 
             // nextCardButton
             // 
             this.nextCardButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextCardButton.Location = new System.Drawing.Point(564, 197);
+            this.nextCardButton.Location = new System.Drawing.Point(677, 267);
             this.nextCardButton.Name = "nextCardButton";
             this.nextCardButton.Size = new System.Drawing.Size(160, 45);
             this.nextCardButton.TabIndex = 21;
@@ -187,83 +193,6 @@
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.homeToolStripMenuItem.Text = "Home";
             // 
-            // addMemberToolStripMenuItem
-            // 
-            this.addMemberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addMemberToolStripMenuItem1,
-            this.removeMemberToolStripMenuItem});
-            this.addMemberToolStripMenuItem.Name = "addMemberToolStripMenuItem";
-            this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.addMemberToolStripMenuItem.Text = "Player";
-            // 
-            // addMemberToolStripMenuItem1
-            // 
-            this.addMemberToolStripMenuItem1.Name = "addMemberToolStripMenuItem1";
-            this.addMemberToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
-            this.addMemberToolStripMenuItem1.Text = "Add Player";
-            // 
-            // removeMemberToolStripMenuItem
-            // 
-            this.removeMemberToolStripMenuItem.Name = "removeMemberToolStripMenuItem";
-            this.removeMemberToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.removeMemberToolStripMenuItem.Text = "Remove Player";
-            // 
-            // addDeckToolStripMenuItem
-            // 
-            this.addDeckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deckToolStripMenuItem,
-            this.deckToolStripMenuItem1,
-            this.deckToolStripMenuItem2});
-            this.addDeckToolStripMenuItem.Name = "addDeckToolStripMenuItem";
-            this.addDeckToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.addDeckToolStripMenuItem.Text = "Add Deck";
-            // 
-            // excludeCardToolStripMenuItem
-            // 
-            this.excludeCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chooseCardToolStripMenuItem});
-            this.excludeCardToolStripMenuItem.Name = "excludeCardToolStripMenuItem";
-            this.excludeCardToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.excludeCardToolStripMenuItem.Text = "Exclude Card";
-            // 
-            // restartToolStripMenuItem
-            // 
-            this.restartToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.restartGameToolStripMenuItem});
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.restartToolStripMenuItem.Text = "Restart";
-            // 
-            // deckToolStripMenuItem
-            // 
-            this.deckToolStripMenuItem.Name = "deckToolStripMenuItem";
-            this.deckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deckToolStripMenuItem.Text = "1/2 Deck";
-            // 
-            // deckToolStripMenuItem1
-            // 
-            this.deckToolStripMenuItem1.Name = "deckToolStripMenuItem1";
-            this.deckToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.deckToolStripMenuItem1.Text = "1 Deck";
-            // 
-            // deckToolStripMenuItem2
-            // 
-            this.deckToolStripMenuItem2.Name = "deckToolStripMenuItem2";
-            this.deckToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.deckToolStripMenuItem2.Text = "2 Deck";
-            // 
-            // chooseCardToolStripMenuItem
-            // 
-            this.chooseCardToolStripMenuItem.Name = "chooseCardToolStripMenuItem";
-            this.chooseCardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.chooseCardToolStripMenuItem.Text = "Choose Card";
-            // 
-            // restartGameToolStripMenuItem
-            // 
-            this.restartGameToolStripMenuItem.Name = "restartGameToolStripMenuItem";
-            this.restartGameToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.restartGameToolStripMenuItem.Text = "Restart Game";
-            // 
             // welcomeScreenToolStripMenuItem
             // 
             this.welcomeScreenToolStripMenuItem.Name = "welcomeScreenToolStripMenuItem";
@@ -276,19 +205,152 @@
             this.gameDetailsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.gameDetailsToolStripMenuItem.Text = "Game Details";
             // 
+            // addMemberToolStripMenuItem
+            // 
+            this.addMemberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addMemberToolStripMenuItem1,
+            this.removeMemberToolStripMenuItem,
+            this.changePlayerNameToolStripMenuItem});
+            this.addMemberToolStripMenuItem.Name = "addMemberToolStripMenuItem";
+            this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.addMemberToolStripMenuItem.Text = "Player";
+            // 
+            // addMemberToolStripMenuItem1
+            // 
+            this.addMemberToolStripMenuItem1.Name = "addMemberToolStripMenuItem1";
+            this.addMemberToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.addMemberToolStripMenuItem1.Text = "Add Player";
+            // 
+            // removeMemberToolStripMenuItem
+            // 
+            this.removeMemberToolStripMenuItem.Name = "removeMemberToolStripMenuItem";
+            this.removeMemberToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.removeMemberToolStripMenuItem.Text = "Remove Player";
+            // 
+            // addDeckToolStripMenuItem
+            // 
+            this.addDeckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deckToolStripMenuItem,
+            this.deckToolStripMenuItem1,
+            this.deckToolStripMenuItem2});
+            this.addDeckToolStripMenuItem.Name = "addDeckToolStripMenuItem";
+            this.addDeckToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.addDeckToolStripMenuItem.Text = "Add Deck";
+            // 
+            // deckToolStripMenuItem
+            // 
+            this.deckToolStripMenuItem.Name = "deckToolStripMenuItem";
+            this.deckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.deckToolStripMenuItem.Text = "1/2 Deck";
+            // 
+            // deckToolStripMenuItem1
+            // 
+            this.deckToolStripMenuItem1.Name = "deckToolStripMenuItem1";
+            this.deckToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.deckToolStripMenuItem1.Text = "1 Deck";
+            // 
+            // deckToolStripMenuItem2
+            // 
+            this.deckToolStripMenuItem2.Name = "deckToolStripMenuItem2";
+            this.deckToolStripMenuItem2.Size = new System.Drawing.Size(128, 22);
+            this.deckToolStripMenuItem2.Text = "2 Deck";
+            // 
+            // excludeCardToolStripMenuItem
+            // 
+            this.excludeCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chooseCardToolStripMenuItem,
+            this.undoExclusionToolStripMenuItem});
+            this.excludeCardToolStripMenuItem.Name = "excludeCardToolStripMenuItem";
+            this.excludeCardToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.excludeCardToolStripMenuItem.Text = "Exclude Card";
+            // 
+            // chooseCardToolStripMenuItem
+            // 
+            this.chooseCardToolStripMenuItem.Name = "chooseCardToolStripMenuItem";
+            this.chooseCardToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.chooseCardToolStripMenuItem.Text = "Choose Card";
+            // 
+            // restartToolStripMenuItem
+            // 
+            this.restartToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.restartGameToolStripMenuItem});
+            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.restartToolStripMenuItem.Text = "Restart";
+            // 
+            // restartGameToolStripMenuItem
+            // 
+            this.restartGameToolStripMenuItem.Name = "restartGameToolStripMenuItem";
+            this.restartGameToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.restartGameToolStripMenuItem.Text = "Restart Game";
+            // 
+            // changePlayerNameToolStripMenuItem
+            // 
+            this.changePlayerNameToolStripMenuItem.Name = "changePlayerNameToolStripMenuItem";
+            this.changePlayerNameToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.changePlayerNameToolStripMenuItem.Text = "Change Player Name";
+            // 
+            // lbPlayerName
+            // 
+            this.lbPlayerName.AutoSize = true;
+            this.lbPlayerName.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlayerName.Location = new System.Drawing.Point(532, 163);
+            this.lbPlayerName.Name = "lbPlayerName";
+            this.lbPlayerName.Size = new System.Drawing.Size(122, 20);
+            this.lbPlayerName.TabIndex = 29;
+            this.lbPlayerName.Text = "Player Name:";
+            // 
+            // txtPlayerName
+            // 
+            this.txtPlayerName.Location = new System.Drawing.Point(660, 151);
+            this.txtPlayerName.Name = "txtPlayerName";
+            this.txtPlayerName.ReadOnly = true;
+            this.txtPlayerName.Size = new System.Drawing.Size(177, 32);
+            this.txtPlayerName.TabIndex = 28;
+            this.txtPlayerName.Text = "";
+            // 
+            // lbPlayerAmount
+            // 
+            this.lbPlayerAmount.AutoSize = true;
+            this.lbPlayerAmount.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlayerAmount.Location = new System.Drawing.Point(619, 113);
+            this.lbPlayerAmount.Name = "lbPlayerAmount";
+            this.lbPlayerAmount.Size = new System.Drawing.Size(173, 20);
+            this.lbPlayerAmount.TabIndex = 31;
+            this.lbPlayerAmount.Text = "Number Of Players:";
+            // 
+            // txtPlayerAmount
+            // 
+            this.txtPlayerAmount.Location = new System.Drawing.Point(798, 101);
+            this.txtPlayerAmount.Name = "txtPlayerAmount";
+            this.txtPlayerAmount.ReadOnly = true;
+            this.txtPlayerAmount.Size = new System.Drawing.Size(39, 32);
+            this.txtPlayerAmount.TabIndex = 30;
+            this.txtPlayerAmount.Text = "";
+            // 
+            // undoExclusionToolStripMenuItem
+            // 
+            this.undoExclusionToolStripMenuItem.Name = "undoExclusionToolStripMenuItem";
+            this.undoExclusionToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.undoExclusionToolStripMenuItem.Text = "Undo Exclusion";
+            // 
             // Kings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(884, 511);
+            this.Controls.Add(this.lbPlayerAmount);
+            this.Controls.Add(this.txtPlayerAmount);
+            this.Controls.Add(this.lbPlayerName);
+            this.Controls.Add(this.txtPlayerName);
             this.Controls.Add(this.lbCardsLeft);
             this.Controls.Add(this.lbDecksLeft);
             this.Controls.Add(this.txtDecksLeft);
             this.Controls.Add(this.txtCardsLeft);
             this.Controls.Add(this.nextCardButton);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lcCardName);
+            this.Controls.Add(this.lbCardRule);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCardRule);
             this.Controls.Add(this.txtCardName);
@@ -311,8 +373,8 @@
         private System.Windows.Forms.RichTextBox txtCardName;
         private System.Windows.Forms.RichTextBox txtCardRule;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbCardRule;
+        private System.Windows.Forms.Label lcCardName;
         private System.Windows.Forms.Button nextCardButton;
         private System.Windows.Forms.RichTextBox txtCardsLeft;
         private System.Windows.Forms.RichTextBox txtDecksLeft;
@@ -333,5 +395,11 @@
         private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem chooseCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restartGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePlayerNameToolStripMenuItem;
+        private System.Windows.Forms.Label lbPlayerName;
+        private System.Windows.Forms.RichTextBox txtPlayerName;
+        private System.Windows.Forms.Label lbPlayerAmount;
+        private System.Windows.Forms.RichTextBox txtPlayerAmount;
+        private System.Windows.Forms.ToolStripMenuItem undoExclusionToolStripMenuItem;
     }
 }

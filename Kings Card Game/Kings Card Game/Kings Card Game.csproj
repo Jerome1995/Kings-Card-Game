@@ -50,6 +50,12 @@
     <Compile Include="Add_Player.Designer.cs">
       <DependentUpon>Add_Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="Change_Player_Name.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change_Player_Name.Designer.cs">
+      <DependentUpon>Change_Player_Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exclude_Cards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,12 @@
     <Compile Include="Set_Decks.Designer.cs">
       <DependentUpon>Set_Decks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Undo_Card_Exclusion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Undo_Card_Exclusion.Designer.cs">
+      <DependentUpon>Undo_Card_Exclusion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Add_Player.resx">
       <DependentUpon>Add_Player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change_Player_Name.resx">
+      <DependentUpon>Change_Player_Name.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Exclude_Cards.resx">
       <DependentUpon>Exclude_Cards.cs</DependentUpon>
@@ -96,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Set_Decks.resx">
       <DependentUpon>Set_Decks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Undo_Card_Exclusion.resx">
+      <DependentUpon>Undo_Card_Exclusion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Screen.resx">
       <DependentUpon>Welcome_Screen.cs</DependentUpon>

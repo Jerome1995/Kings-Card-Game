@@ -18,5 +18,6 @@ namespace Kings_Card_Game
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Welcome_Screen());
         }
+
     }
 }
