@@ -57,6 +57,7 @@
     <Compile Include="Change_Player_Name.Designer.cs">
       <DependentUpon>Change_Player_Name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deck.cs" />
     <Compile Include="Exclude_Cards.cs">
       <SubType>Form</SubType>
     </Compile>
