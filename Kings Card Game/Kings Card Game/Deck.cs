@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kings_Card_Game
 {
-    class Deck
+    public class Deck
     {
         private float numberOfDecks;
         private int cardsLeft;
@@ -14,6 +14,22 @@ namespace Kings_Card_Game
         private List<string> ExcludedCards;
         private int index = 0;
         private Random random = new Random();
+
+        public Deck()
+        {
+            numberOfDecks = 0;
+            cardsLeft = 0;
+            card = new Card();
+            ExcludedCards = new List<string>();
+        }
+
+        public Deck(float numDeck, int cardsLeft, Card card, List<String> exCards)
+        {
+            this.numberOfDecks = numDeck;
+            this.cardsLeft = cardsLeft;
+            this.card = card;
+            ExcludedCards = exCards;
+        }
 
         private List<String> DeckOfCards = new List<string>
         {
@@ -77,6 +93,7 @@ namespace Kings_Card_Game
             string randomCard = DeckOfCards[index];
             ExcludedCards.Add(DeckOfCards[index]);
             DeckOfCards.RemoveAt(index);
+            cardsLeft--;
 
             switch (randomCard)
             {
@@ -84,339 +101,364 @@ namespace Kings_Card_Game
                 {
                     card.setCardName("Ace Of Spades");
                     card.setCardRule("Waterfall: All players drink until player on their right stops drinking. Current player starts!");
-                    return card;
+                    break;
                 }
                 case "Two Of Spades":
                 {
                     card.setCardName("Two Of Spades");
                     card.setCardRule("For You: Current player picks another player to drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Three Of Spades":
                 {
                     card.setCardName("Three Of Spades");
                     card.setCardRule("For Me: Current player drinks for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Four Of Spades":
                 {
                     card.setCardName("Four Of Spades");
                     card.setCardRule("Girls: All girls drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Five Of Spades":
                 {
                     card.setCardName("Five Of Spades");
                     card.setCardRule("Never Have I Ever: Current player names something they have not done and other players must drink if" +  
                         "they have done it!");
-                    return card;
+                    break;
                 }
                 case "Six Of Spades":
                 {
                     card.setCardName("Six Of Spades");
                     card.setCardRule("Guys: Boys drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Seven Of Spades":
                 {
                     card.setCardName("Seven Of Spades");
                     card.setCardRule("Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "Eight Of Spades":
                 {
                     card.setCardName("Eight Of Spades");
                     card.setCardRule("Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!");
-                    return card;
+                    break;
                 }
                 case "Nine Of Spades":
                 {
                     card.setCardName("Nine Of Spades");
                     card.setCardRule("Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +  
                         "to make mistake must drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Ten Of Spades":
                 {
                     card.setCardName("Ten Of Spades");
                     card.setCardRule("Category: Current player picks a category, in a clockwise rotation other players will name things related" +
                         "to this category. First player to make a mistake will drink for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "Ace Of Clubs":
                 {
                     card.setCardName("Ace Of Clubs");
                     card.setCardRule("Waterfall: All players drink until player on their right stops drinking. Current player starts!");
-                    return card;
+                    break;
                 }
                 case "Two Of Clubs":
                 {
                     card.setCardName("Two Of Clubs");
                     card.setCardRule("For You: Current player picks another player to drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Three Of Clubs":
                 {
                     card.setCardName("Three Of Clubs");
                     card.setCardRule("For Me: Current player drinks for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Four Of Clubs":
                 {
                     card.setCardName("Four Of Clubs");
                     card.setCardRule("Girls: All girls drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Five Of Clubs":
                 {
                     card.setCardName("Five Of Clubs");
                     card.setCardRule("Never Have I Ever: Current player names something they have not done and other players must drink if" +
                     "they have done it!");
-                        return card;
+                        break;
                 }
                 case "Six Of Clubs":
                 {
                     card.setCardName("Six Of Clubs");
                     card.setCardRule("Guys: Boys drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Seven Of Clubs":
                 {
                     card.setCardName("Seven Of Clubs");
                     card.setCardRule("Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "Eight Of Clubs":
                 {
                     card.setCardName("Eight Of Clubs");
                     card.setCardRule("Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!");
-                    return card;
+                    break;
                 }
                 case "Nine Of Clubs":
                 {
                     card.setCardName("Nine Of Clubs");
                     card.setCardRule("Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                     "to make mistake must drink for two seconds!");
-                        return card;
+                        break;
                 }
                 case "Ten Of Clubs":
                 {
                     card.setCardName("Ten Of Clubs");
                     card.setCardRule("Category: Current player picks a category, in a clockwise rotation other players will name things related" +
                     "to this category. First player to make a mistake will drink for 2 seconds!");
-                        return card;
+                        break;
                 }
                 case "Ace Of Hearts":
                 {
                     card.setCardName("Ace Of Hearts");
                     card.setCardRule("Waterfall: All players drink until player on their right stops drinking. Current player starts!");
-                    return card;
+                    break;
                 }
                 case "Two Of Hearts":
                 {
                     card.setCardName("Two Of Hearts");
                     card.setCardRule("For You: Current player picks another player to drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Three Of Hearts":
                 {
                     card.setCardName("Three Of Hearts");
                     card.setCardRule("For Me: Current player drinks for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Four Of Hearts":
                 {
                     card.setCardName("Four Of Hearts");
                     card.setCardRule("Girls: All girls drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Five Of Hearts":
                 {
                     card.setCardName("Five Of Hearts");
                     card.setCardRule("Never Have I Ever: Current player names something they have not done and other players must drink if" +
                     "they have done it!");
-                        return card;
+                        break;
                 }
                 case "Six Of Hearts":
                 {
                     card.setCardName("Six Of Hearts");
                     card.setCardRule("Guys: Boys drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Seven Of Hearts":
                 {
                     card.setCardName("Seven Of Hearts");
                     card.setCardRule("Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "Eight Of Hearts":
                 {
                     card.setCardName("Eight Of Hearts");
                     card.setCardRule("Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!");
-                    return card;
+                    break;
                 }
                 case "Nine Of Hearts":
                 {
                     card.setCardName("Nine Of Hearts");
                     card.setCardRule("Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                     "to make mistake must drink for two seconds!");
-                        return card;
+                        break;
                 }
                 case "Ten Of Hearts":
                 {
                     card.setCardName("Ten Of Hearts");
                     card.setCardRule("Category: Current player picks a category, in a clockwise rotation other players will name things related" +
                     "to this category. First player to make a mistake will drink for 2 seconds!");
-                        return card;
+                        break;
                 }
                 case "Ace Of Diamonds":
                 {
                     card.setCardName("Ace Of Diamonds");
                     card.setCardRule("Waterfall: All players drink until player on their right stops drinking. Current player starts!");
-                    return card;
+                    break;
                 }
                 case "Two Of Diamonds":
                 {
                     card.setCardName("Two Of Diamonds");
                     card.setCardRule("For You: Current player picks another player to drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Three Of Diamonds":
                 {
                     card.setCardName("Three Of Diamonds");
                     card.setCardRule("For Me: Current player drinks for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Four Of Diamonds":
                 {
                     card.setCardName("Four Of Diamonds");
                     card.setCardRule("Girls: All girls drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Five Of Diamonds":
                 {
                     card.setCardName("Five Of Diamonds");
                     card.setCardRule("Never Have I Ever: Current player names something they have not done and other players must drink if" +
                     "they have done it!");
-                     return card;
+                     break;
                 }
                 case "Six Of Diamonds":
                 {
                     card.setCardName("Six Of Diamonds");
                     card.setCardRule("Guys: Boys drink for two seconds!");
-                    return card;
+                    break;
                 }
                 case "Seven Of Diamonds":
                 {
                     card.setCardName("Seven Of Diamonds");
                     card.setCardRule("Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!");
-                     return card;
+                     break;
                 }
                 case "Eight Of Diamonds":
                 {
                     card.setCardName("Eight Of Diamonds");
                     card.setCardRule("Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!");
-                    return card;
+                    break;
                 }
                 case "Nine Of Diamonds":
                 {
                     card.setCardName("Nine Of Diamonds");
                     card.setCardRule("Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                     "to make mistake must drink for two seconds!");
-                        return card;
+                        break;
                 }
                 case "Ten Of Diamonds":
                 {
                     card.setCardName("Ten Of Diamonds");
                     card.setCardRule("Category: Current player picks a category, in a clockwise rotation other players will name things related" +
                     "to this category. First player to make a mistake will drink for 2 seconds!");
-                        return card;
+                        break;
                 }
                 case "Jack Of Clubs":
                 {
                     card.setCardName("Jack Of Clubs");
                     card.setCardRule("Make A Rule: Current player is allowed to make a rule that all other players must follow!");
-                    return card;
+                    break;
                 }
                 case "Queen Of Clubs":
                 {
                     card.setCardName("Queen Of Clubs");
                     card.setCardRule("Question Master: Current player becomes the question master, any player that answers his/her question" +
                         "must drink for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "King Of Clubs":
                 {
                     card.setCardName("King Of Clubs");
                     card.setCardRule("Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!");
-                    return card;
+                    break;
                 }
                 case "Jack Of Spades":
                 {
                     card.setCardName("Jack Of Spades");
                     card.setCardRule("Make A Rule: Current player is allowed to make a rule that all other players must follow!");
-                    return card;
+                    break;
                 }
                 case "Queen Of Spades":
                 {
                     card.setCardName("Queen Of Spades");
                     card.setCardRule("Question Master: Current player becomes the question master, any player that answers his/her question" +
                         "must drink for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "King Of Spades":
                 {
                     card.setCardName("King Of Spades");
                     card.setCardRule("Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!");
-                    return card;
+                    break;
                 }
                 case "Jack Of Hearts":
                 {
                     card.setCardName("Jack Of Hearts");
                     card.setCardRule("Make A Rule: Current player is allowed to make a rule that all other players must follow!");
-                    return card;
+                    break;
                     }
                 case "Queen Of Hearts":
                 {
                     card.setCardName("Queen Of Hearts");
                     card.setCardRule("Question Master: Current player becomes the question master, any player that answers his/her question" +
                         "must drink for 2 seconds!");
-                    return card;
+                    break;
                 }
                 case "King Of Hearts":
                 {
                     card.setCardName("King Of Hearts");
                     card.setCardRule("Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!");
-                    return card;
+                    break;
                 }
                 case "Jack Of Diamonds":
                 {
                     card.setCardName("Jack Of Diamonds");
                     card.setCardRule("Make A Rule: Current player is allowed to make a rule that all other players must follow!");
-                    return card;
+                    break;
                 }
                 case "Queen Of Diamonds":
                 {
                     card.setCardName("Queen Of Diamonds");
                     card.setCardRule("Question Master: Current player becomes the question master, any player that answers his/her question" +
                         "must drink for 2 seconds!");
-                        return card;
+                    break;
                 }
                 case "King Of Diamonds":
                 {
                     card.setCardName("King Of Diamonds");
                     card.setCardRule("Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!");
-                    return card;
+                    break;
+                }
+                default:
+                {
+                    card = new Card();
+                    break;
                 }
 
             }
-            return card = new Card();
+            return card;
 
+        }
+
+        public void setDecks(float num)
+        {
+            this.numberOfDecks = num;
+        }
+
+        public void addDeck(float num)
+        {
+            this.numberOfDecks = num + this.numberOfDecks;
+        }
+
+        public Boolean removeDeck(float num)
+        {
+            if (this.numberOfDecks > num)
+            {
+                this.numberOfDecks = this.numberOfDecks - num;
+                return true;
+            }
+            return false;
         }
 
        
 
-        /*setDecks(),addDeck(),removeDecks(),getCardsLeft(),setExcludedCard(),getNextCard(),restartGame(),getNumberOfDecks()*/
+        /*removeDecks(),getCardsLeft(),setExcludedCard(),restartGame(),getNumberOfDecks()*/
 
 
     }
