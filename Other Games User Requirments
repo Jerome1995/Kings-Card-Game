@@ -1,0 +1,29 @@
+Red, Black or Purple
+  User must be allowed to choose as many cards as they like
+  User can choose a red card
+  User can choose black cards
+  User can choose both types of cards
+  User will be given a total time based on the numbers of the cards
+  If they were correct they can give this time to another player to drink
+  If they were wrong they have to drink for this amount of time themselves
+  All players playing will be entered and players turns will come in entry order
+  Decks will be set at the start of the game
+  Game will continue until there is no cards left
+
+Higher or Lower
+  User must guess if the next card is higher or lower in value
+  If they are wrong they will drink for 2 seconds
+  If they are right it will become the next players go
+  It will remain the go of the current player until they can get a right answer
+  Players will be entered at the start of the game
+  Decks will be set at the start of the game
+  Game will continue until there is no cards left
+
+Red, Black, Higher or Lower
+  User will guess if the card is red or black or higher or lower until they are correct
+  Cards will stay in order as the player will have to guess the same cards again until they get a new card right
+  Once they get a new card right it will be the next player's turn and the cards will be taken out of the deck
+  All players playing will be entered and players turns will come in entry order
+  Decks will be set at the start of the game
+  Game will continue until there is no cards left
+  If player guesses a card wrong they will drink for 2 seconds and return to the start of the deck
