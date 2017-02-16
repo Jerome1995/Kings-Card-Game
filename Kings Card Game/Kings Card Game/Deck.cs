@@ -95,8 +95,7 @@ namespace Kings_Card_Game
             index = random.Next(DeckOfCards.Count);
             string randomCard = DeckOfCards[index];
             ExcludedCards.Add(DeckOfCards[index]);
-            DeckOfCards.RemoveAt(index);
-            reduceCardsLeft();
+            reduceCardsLeft(index);
 
             switch (randomCard)
             {
@@ -439,16 +438,34 @@ namespace Kings_Card_Game
 
         }
 
+        public void joinDecks(double num)
+        {
+            int i = 0, j = 0;
+            while (i < num)
+            {
+                DeckOfCards.AddRange(OrignalDeckOfCards);
+                i++;
+            }
+            if ((num - i) == 0.5)
+            {
+                while (j <= 25)
+                {
+                    DeckOfCards.InsertRange(j, OrignalDeckOfCards);
+                    j++;
+                }
+            }
+        }
+
         public void setDecks(double num)
         {
-            DeckOfCards.AddRange(OrignalDeckOfCards);
+            joinDecks(num);
             this.numberOfDecks = num;
             this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
-
         }
 
         public void addDeck(double num)
         {
+            joinDecks(num);
             this.numberOfDecks = num + this.numberOfDecks;
             this.cardsLeft = this.cardsLeft + Convert.ToInt16(num*52);
         }
@@ -459,6 +476,25 @@ namespace Kings_Card_Game
             {
                 this.numberOfDecks = this.numberOfDecks - num;
                 this.cardsLeft = this.cardsLeft - Convert.ToInt16(num*52);
+                int i = 0, j = 0;
+                while (i < num)
+                {
+                    while (j <= 51)
+                    {
+                        DeckOfCards.Remove(OrignalDeckOfCards[j]);
+                        j++;
+                    }
+                    i++;
+                }
+                if ((num - i) == 0.5)
+                {
+                    j = 0;
+                    while (j <= 25)
+                    {
+                        DeckOfCards.Remove(OrignalDeckOfCards[j]);
+                        j++;
+                    }
+                }
                 return true;
             }
             return false;
@@ -474,10 +510,11 @@ namespace Kings_Card_Game
             return cardsLeft;
         }
 
-        public void reduceCardsLeft()
+        public void reduceCardsLeft(int num)
         {
             this.cardsLeft--;
             this.cardsUsed++;
+            DeckOfCards.Remove(DeckOfCards[index]);
             if (this.cardsUsed == 26)
             {
                 this.numberOfDecks = this.numberOfDecks - 0.5;
@@ -485,7 +522,7 @@ namespace Kings_Card_Game
             }
         }
 
-        public void setExcludedCard(string card)
+        public void setExcludedCard(string card)/* all above functions are done*/
         {
             ExcludedCards.Add(card);
             DeckOfCards.Remove(card);
