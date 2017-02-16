@@ -8,10 +8,13 @@ namespace Kings_Card_Game
 {
     public class Deck
     {
-        private float numberOfDecks;
+        private double numberOfDecks;
         private int cardsLeft;
+        private int cardsUsed;
         private Card card;
         private List<string> ExcludedCards;
+        private List<string> DeckOfCards;
+        private List<string> UsedCards;
         private int index = 0;
         private Random random = new Random();
 
@@ -23,7 +26,7 @@ namespace Kings_Card_Game
             ExcludedCards = new List<string>();
         }
 
-        public Deck(float numDeck, int cardsLeft, Card card, List<String> exCards)
+        public Deck(double numDeck, int cardsLeft, Card card, List<String> exCards)
         {
             this.numberOfDecks = numDeck;
             this.cardsLeft = cardsLeft;
@@ -31,7 +34,7 @@ namespace Kings_Card_Game
             ExcludedCards = exCards;
         }
 
-        private List<String> DeckOfCards = new List<string>
+        private List<String> OrignalDeckOfCards = new List<string>
         {
             "Ace Of Spades",
             "Two Of Spades",
@@ -93,7 +96,7 @@ namespace Kings_Card_Game
             string randomCard = DeckOfCards[index];
             ExcludedCards.Add(DeckOfCards[index]);
             DeckOfCards.RemoveAt(index);
-            cardsLeft--;
+            reduceCardsLeft();
 
             switch (randomCard)
             {
@@ -436,29 +439,69 @@ namespace Kings_Card_Game
 
         }
 
-        public void setDecks(float num)
+        public void setDecks(double num)
         {
+            DeckOfCards.AddRange(OrignalDeckOfCards);
             this.numberOfDecks = num;
+            this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
+
         }
 
-        public void addDeck(float num)
+        public void addDeck(double num)
         {
             this.numberOfDecks = num + this.numberOfDecks;
+            this.cardsLeft = this.cardsLeft + Convert.ToInt16(num*52);
         }
 
-        public Boolean removeDeck(float num)
+        public Boolean removeDeck(double num)
         {
             if (this.numberOfDecks > num)
             {
                 this.numberOfDecks = this.numberOfDecks - num;
+                this.cardsLeft = this.cardsLeft - Convert.ToInt16(num*52);
                 return true;
             }
             return false;
         }
 
-       
+        public double getNumberOfDecks()
+        {
+            return numberOfDecks;
+        }
 
-        /*removeDecks(),getCardsLeft(),setExcludedCard(),restartGame(),getNumberOfDecks()*/
+        public int getCardsLeft()
+        {
+            return cardsLeft;
+        }
+
+        public void reduceCardsLeft()
+        {
+            this.cardsLeft--;
+            this.cardsUsed++;
+            if (this.cardsUsed == 26)
+            {
+                this.numberOfDecks = this.numberOfDecks - 0.5;
+                this.cardsUsed = 0;
+            }
+        }
+
+        public void setExcludedCard(string card)
+        {
+            ExcludedCards.Add(card);
+            DeckOfCards.Remove(card);
+            reduceCardsLeft();
+        }
+
+        public Boolean resetGame()
+        {
+            this.cardsUsed = 0;
+            this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
+            DeckOfCards.AddRange(ExcludedCards);
+            ExcludedCards.Clear();
+            return true;
+        }
+
+        /*restartGame()*/
 
 
     }
