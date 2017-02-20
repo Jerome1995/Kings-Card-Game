@@ -94,7 +94,6 @@ namespace Kings_Card_Game
         {
             index = random.Next(DeckOfCards.Count);
             string randomCard = DeckOfCards[index];
-            ExcludedCards.Add(DeckOfCards[index]);
             reduceCardsLeft(index);
 
             switch (randomCard)
@@ -468,6 +467,19 @@ namespace Kings_Card_Game
             joinDecks(num);
             this.numberOfDecks = num + this.numberOfDecks;
             this.cardsLeft = this.cardsLeft + Convert.ToInt16(num*52);
+            int i = 0, j = 0;
+            while (i <= ExcludedCards.Count)
+            {
+                if (DeckOfCards.Contains(ExcludedCards[i]))
+                {
+                    DeckOfCards.Remove(ExcludedCards[i]);
+                    cardsLeft--;
+                }
+                if (DeckOfCards.Contains(ExcludedCards[i]) == false)
+                {
+                    i++;
+                }
+            }
         }
 
         public Boolean removeDeck(double num)
@@ -514,7 +526,8 @@ namespace Kings_Card_Game
         {
             this.cardsLeft--;
             this.cardsUsed++;
-            DeckOfCards.Remove(DeckOfCards[index]);
+            UsedCards.Add(DeckOfCards[num]);
+            DeckOfCards.Remove(DeckOfCards[num]);
             if (this.cardsUsed == 26)
             {
                 this.numberOfDecks = this.numberOfDecks - 0.5;
@@ -522,14 +535,27 @@ namespace Kings_Card_Game
             }
         }
 
-        public void setExcludedCard(string card)/* all above functions are done*/
+        public void excludeCard(string card)
         {
-            ExcludedCards.Add(card);
-            DeckOfCards.Remove(card);
-            reduceCardsLeft();
+            Boolean fini = false;
+            while (fini == false)
+            {
+                if (DeckOfCards.Contains(card))
+                {
+                    DeckOfCards.Remove(card);
+                    UsedCards.Add(card);
+                    cardsLeft--;
+                    cardsUsed++;
+                }
+                if (DeckOfCards.Contains(card) == false)
+                {
+                    fini = true;
+                    ExcludedCards.Add(card);
+                }
+            }
         }
 
-        public Boolean resetGame()
+        public Boolean resetGame()/* all above functions are done*/
         {
             this.cardsUsed = 0;
             this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
