@@ -27,8 +27,7 @@ namespace Kings_Card_Game
 
         public void addPlayer(string name)
         {
-            this.playerName = name;
-            playerList.Add(playerName);
+            playerList.Add(name);
         }
 
         public string getPlayer()

@@ -17,23 +17,6 @@ namespace Kings_Card_Game
         private List<string> UsedCards;
         private int index = 0;
         private Random random = new Random();
-
-        public Deck()
-        {
-            numberOfDecks = 0;
-            cardsLeft = 0;
-            card = new Card();
-            ExcludedCards = new List<string>();
-        }
-
-        public Deck(double numDeck, int cardsLeft, Card card, List<String> exCards)
-        {
-            this.numberOfDecks = numDeck;
-            this.cardsLeft = cardsLeft;
-            this.card = card;
-            ExcludedCards = exCards;
-        }
-
         private List<String> OrignalDeckOfCards = new List<string>
         {
             "Ace Of Spades",
@@ -89,6 +72,24 @@ namespace Kings_Card_Game
             "King Of Diamonds",
             "King Of Clubs"
         };
+
+        public Deck()
+        {
+            numberOfDecks = 0;
+            cardsLeft = 0;
+            card = new Card();
+            ExcludedCards = new List<string>();
+        }
+
+        public Deck(double numDeck, int cardsLeft, Card card, List<String> exCards)
+        {
+            this.numberOfDecks = numDeck;
+            this.cardsLeft = cardsLeft;
+            this.card = card;
+            ExcludedCards = exCards;
+        }
+
+        
 
         public Card getNextCard()
         {
@@ -535,7 +536,7 @@ namespace Kings_Card_Game
             }
         }
 
-        public void excludeCard(string card)
+        public Boolean excludeCard(string card)
         {
             Boolean fini = false;
             while (fini == false)
@@ -553,20 +554,18 @@ namespace Kings_Card_Game
                     ExcludedCards.Add(card);
                 }
             }
+            return fini;
         }
 
-        public Boolean resetGame()/* all above functions are done*/
+        public Boolean resetGame()
         {
             this.cardsUsed = 0;
             this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
-            DeckOfCards.AddRange(ExcludedCards);
+            DeckOfCards.AddRange(UsedCards);
+            UsedCards.Clear();
             ExcludedCards.Clear();
             return true;
         }
-
-        /*restartGame()*/
-
-
     }
 }
  

@@ -64,6 +64,7 @@
     <Compile Include="Exclude_Cards.Designer.cs">
       <DependentUpon>Exclude_Cards.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="Game_Details.cs">
       <SubType>Form</SubType>
     </Compile>
