@@ -16,5 +16,15 @@ namespace Kings_Card_Game
         {
             InitializeComponent();
         }
+
+        private void Exclude_Cards_Load(object sender, EventArgs e)
+        {
+            excludeCardButton.Focus();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

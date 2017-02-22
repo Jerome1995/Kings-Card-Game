@@ -133,5 +133,19 @@ namespace Kings_Card_Game
                 MessageBox.Show("Error!", "The name of player " + oldName + "could not be changed.");
             }
         }
+
+        public void UndoExclusionOfCard(DataGridViewCell cardCell)
+        {
+            if (deck.undoExclusion(Convert.ToString(cardCell)))
+            {
+                MessageBox.Show("Exclusion Undone",
+                    "The card " + Convert.ToString(cardCell) + " has been added back to the deck");
+            }
+            else
+            {
+                MessageBox.Show("Error!",
+                    "The card " + Convert.ToString(cardCell) + " counld not be added back to the deck");
+            }
+        }
     }
 }

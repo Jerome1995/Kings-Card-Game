@@ -17,9 +17,13 @@ namespace Kings_Card_Game
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void playButton_Click(object sender, EventArgs e)
         {
-
+            Game_Details frm = new Game_Details();
+            frm.Show();
+            this.Hide();
+            frm.Closed += (s, args) => this.Close();
+            frm.Show();
         }
     }
 }

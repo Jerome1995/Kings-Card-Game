@@ -73,6 +73,7 @@
             this.Controls.Add(this.lbSelectCard);
             this.Controls.Add(this.grdExcludedCards);
             this.Name = "Undo_Card_Exclusion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Undo Card Exclusion";
             ((System.ComponentModel.ISupportInitialize)(this.grdExcludedCards)).EndInit();
             this.ResumeLayout(false);

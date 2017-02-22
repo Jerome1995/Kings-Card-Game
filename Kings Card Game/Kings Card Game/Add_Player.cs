@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Kings_Card_Game
 {
@@ -17,5 +18,14 @@ namespace Kings_Card_Game
             InitializeComponent();
         }
 
+        private void Add_Player_Load(object sender, EventArgs e)
+        {
+            addPlayerButton.Focus();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

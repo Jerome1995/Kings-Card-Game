@@ -94,6 +94,7 @@
             this.Controls.Add(this.lbSelectPlayerName);
             this.Controls.Add(this.grdPlayerName);
             this.Name = "Change_Player_Name";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Player Name";
             ((System.ComponentModel.ISupportInitialize)(this.grdPlayerName)).EndInit();
             this.ResumeLayout(false);

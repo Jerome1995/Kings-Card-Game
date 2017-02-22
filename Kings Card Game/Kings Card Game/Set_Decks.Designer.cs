@@ -46,6 +46,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Location = new System.Drawing.Point(245, 147);
             this.cancelButton.Name = "cancelButton";
@@ -53,9 +54,11 @@
             this.cancelButton.TabIndex = 29;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // setDeckButton
             // 
+            this.setDeckButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.setDeckButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setDeckButton.Location = new System.Drawing.Point(70, 147);
             this.setDeckButton.Name = "setDeckButton";
@@ -93,7 +96,9 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.setDeckButton);
             this.Name = "Set_Decks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Decks";
+            this.Load += new System.EventHandler(this.Set_Decks_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,6 +109,6 @@
         private System.Windows.Forms.Label lbSetDeck;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button setDeckButton;
-        private System.Windows.Forms.ComboBox comboDeck;
+        public System.Windows.Forms.ComboBox comboDeck;
     }
 }

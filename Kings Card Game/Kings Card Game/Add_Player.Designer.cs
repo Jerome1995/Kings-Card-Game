@@ -36,6 +36,7 @@
             // 
             // addPlayerButton
             // 
+            this.addPlayerButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.addPlayerButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addPlayerButton.Location = new System.Drawing.Point(70, 147);
             this.addPlayerButton.Name = "addPlayerButton";
@@ -46,6 +47,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Location = new System.Drawing.Point(245, 147);
             this.cancelButton.Name = "cancelButton";
@@ -53,6 +55,7 @@
             this.cancelButton.TabIndex = 23;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // lbEnterPlayer
             // 
@@ -66,9 +69,10 @@
             // 
             // txtPlayerName
             // 
-            this.txtPlayerName.Location = new System.Drawing.Point(243, 71);
+            this.txtPlayerName.Location = new System.Drawing.Point(243, 83);
+            this.txtPlayerName.Multiline = false;
             this.txtPlayerName.Name = "txtPlayerName";
-            this.txtPlayerName.Size = new System.Drawing.Size(169, 32);
+            this.txtPlayerName.Size = new System.Drawing.Size(127, 20);
             this.txtPlayerName.TabIndex = 28;
             this.txtPlayerName.Text = "";
             // 
@@ -83,7 +87,9 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addPlayerButton);
             this.Name = "Add_Player";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Player";
+            this.Load += new System.EventHandler(this.Add_Player_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,6 +100,6 @@
         private System.Windows.Forms.Button addPlayerButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label lbEnterPlayer;
-        private System.Windows.Forms.RichTextBox txtPlayerName;
+        public System.Windows.Forms.RichTextBox txtPlayerName;
     }
 }

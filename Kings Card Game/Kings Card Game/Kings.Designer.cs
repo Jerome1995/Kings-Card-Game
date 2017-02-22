@@ -46,20 +46,20 @@
             this.addMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMemberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.removeMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePlayerNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.excludeCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chooseCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoExclusionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePlayerNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbPlayerName = new System.Windows.Forms.Label();
             this.txtPlayerName = new System.Windows.Forms.RichTextBox();
             this.lbPlayerAmount = new System.Windows.Forms.Label();
             this.txtPlayerAmount = new System.Windows.Forms.RichTextBox();
-            this.undoExclusionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.cardBox)).BeginInit();
             this.menuKings.SuspendLayout();
             this.SuspendLayout();
@@ -227,6 +227,12 @@
             this.removeMemberToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.removeMemberToolStripMenuItem.Text = "Remove Player";
             // 
+            // changePlayerNameToolStripMenuItem
+            // 
+            this.changePlayerNameToolStripMenuItem.Name = "changePlayerNameToolStripMenuItem";
+            this.changePlayerNameToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.changePlayerNameToolStripMenuItem.Text = "Change Player Name";
+            // 
             // addDeckToolStripMenuItem
             // 
             this.addDeckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -267,8 +273,14 @@
             // chooseCardToolStripMenuItem
             // 
             this.chooseCardToolStripMenuItem.Name = "chooseCardToolStripMenuItem";
-            this.chooseCardToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.chooseCardToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.chooseCardToolStripMenuItem.Text = "Choose Card";
+            // 
+            // undoExclusionToolStripMenuItem
+            // 
+            this.undoExclusionToolStripMenuItem.Name = "undoExclusionToolStripMenuItem";
+            this.undoExclusionToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.undoExclusionToolStripMenuItem.Text = "Undo Exclusion";
             // 
             // restartToolStripMenuItem
             // 
@@ -283,12 +295,6 @@
             this.restartGameToolStripMenuItem.Name = "restartGameToolStripMenuItem";
             this.restartGameToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.restartGameToolStripMenuItem.Text = "Restart Game";
-            // 
-            // changePlayerNameToolStripMenuItem
-            // 
-            this.changePlayerNameToolStripMenuItem.Name = "changePlayerNameToolStripMenuItem";
-            this.changePlayerNameToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.changePlayerNameToolStripMenuItem.Text = "Change Player Name";
             // 
             // lbPlayerName
             // 
@@ -328,12 +334,6 @@
             this.txtPlayerAmount.TabIndex = 30;
             this.txtPlayerAmount.Text = "";
             // 
-            // undoExclusionToolStripMenuItem
-            // 
-            this.undoExclusionToolStripMenuItem.Name = "undoExclusionToolStripMenuItem";
-            this.undoExclusionToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.undoExclusionToolStripMenuItem.Text = "Undo Exclusion";
-            // 
             // Kings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +358,7 @@
             this.Controls.Add(this.menuKings);
             this.MainMenuStrip = this.menuKings;
             this.Name = "Kings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kings";
             ((System.ComponentModel.ISupportInitialize)(this.cardBox)).EndInit();
             this.menuKings.ResumeLayout(false);

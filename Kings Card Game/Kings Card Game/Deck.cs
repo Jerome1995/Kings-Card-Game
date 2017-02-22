@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace Kings_Card_Game
     public class Deck
     {
         private double numberOfDecks;
+        private double orignalNumberOfDecks;
         private int cardsLeft;
         private int cardsUsed;
         private Card card;
@@ -459,8 +461,9 @@ namespace Kings_Card_Game
         public void setDecks(double num)
         {
             joinDecks(num);
-            this.numberOfDecks = num;
-            this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
+            numberOfDecks = num;
+            orignalNumberOfDecks = num;
+            cardsLeft = Convert.ToInt16(numberOfDecks*52);
         }
 
         public void addDeck(double num)
@@ -468,7 +471,7 @@ namespace Kings_Card_Game
             joinDecks(num);
             this.numberOfDecks = num + this.numberOfDecks;
             this.cardsLeft = this.cardsLeft + Convert.ToInt16(num*52);
-            int i = 0, j = 0;
+            int i = 0;
             while (i <= ExcludedCards.Count)
             {
                 if (DeckOfCards.Contains(ExcludedCards[i]))
@@ -526,14 +529,9 @@ namespace Kings_Card_Game
         public void reduceCardsLeft(int num)
         {
             this.cardsLeft--;
-            this.cardsUsed++;
             UsedCards.Add(DeckOfCards[num]);
             DeckOfCards.Remove(DeckOfCards[num]);
-            if (this.cardsUsed == 26)
-            {
-                this.numberOfDecks = this.numberOfDecks - 0.5;
-                this.cardsUsed = 0;
-            }
+            updateCardsUsed(1);
         }
 
         public Boolean excludeCard(string card)
@@ -546,7 +544,7 @@ namespace Kings_Card_Game
                     DeckOfCards.Remove(card);
                     UsedCards.Add(card);
                     cardsLeft--;
-                    cardsUsed++;
+                    updateCardsUsed(1);
                 }
                 if (DeckOfCards.Contains(card) == false)
                 {
@@ -559,12 +557,51 @@ namespace Kings_Card_Game
 
         public Boolean resetGame()
         {
-            this.cardsUsed = 0;
-            this.cardsLeft = Convert.ToInt16(this.numberOfDecks*52);
-            DeckOfCards.AddRange(UsedCards);
+            cardsUsed = 0;
+            cardsLeft = Convert.ToInt16(orignalNumberOfDecks*52);
+            DeckOfCards.Clear();
             UsedCards.Clear();
             ExcludedCards.Clear();
+            joinDecks(orignalNumberOfDecks);
             return true;
+        }
+
+        public List<string> getExcludedCards()
+        {
+            return ExcludedCards;
+        }
+
+        public Boolean undoExclusion(string card)
+        {
+            foreach (string x in UsedCards)
+            {
+                if (x.Equals(card))
+                {
+                    DeckOfCards.Add(card);
+                    UsedCards.Remove(card);
+                    cardsLeft++;
+                    updateCardsUsed(-1);
+                }
+            }
+            if (!UsedCards.Contains(card))
+            {
+                ExcludedCards.Remove(card);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void updateCardsUsed(int num)
+        {
+            cardsUsed = cardsUsed + num;
+            if (cardsUsed == 26)
+            {
+                numberOfDecks = numberOfDecks - 0.5;
+                cardsUsed = 0;
+            }
         }
     }
 }

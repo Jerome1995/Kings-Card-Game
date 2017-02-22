@@ -16,5 +16,15 @@ namespace Kings_Card_Game
         {
             InitializeComponent();
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Set_Decks_Load(object sender, EventArgs e)
+        {
+            setDeckButton.Focus();
+        }
     }
 }

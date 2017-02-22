@@ -42,6 +42,59 @@
             "2 Deck",
             "3 Deck"});
             this.comboCard.FormattingEnabled = true;
+            this.comboCard.Items.AddRange(new object[] {
+            "Ace Of Spades",
+            "Two Of Spades",
+            "Three Of Spades",
+            "Four Of Spades",
+            "Five Of Spades",
+            "Six Of Spades",
+            "Seven Of Spades",
+            "Eight Of Spades",
+            "Nine Of Spades",
+            "Ten Of Spades",
+            "Ace Of Hearts",
+            "Two Of Hearts",
+            "Three Of Hearts",
+            "Four Of Hearts",
+            "Five Of Hearts",
+            "Six Of Hearts",
+            "Seven Of Hearts",
+            "Eight Of Hearts",
+            "Nine Of Hearts",
+            "Ten Of Hearts",
+            "Ace Of Diamonds",
+            "Two Of Diamonds",
+            "Three Of Diamonds",
+            "Four Of Diamonds",
+            "Five Of Diamonds",
+            "Six Of Diamonds",
+            "Seven Of Diamonds",
+            "Eight Of Diamonds",
+            "Nine Of Diamonds",
+            "Ten Of Diamonds",
+            "Ace Of Clubs",
+            "Two Of Clubs",
+            "Three Of Clubs",
+            "Four Of Clubs",
+            "Five Of Clubs",
+            "Six Of Clubs",
+            "Seven Of Clubs",
+            "Eight Of Clubs",
+            "Nine Of Clubs",
+            "Ten Of Clubs",
+            "Jack Of Spades",
+            "Jack Of Hearts",
+            "Jack Of Diamonds",
+            "Jack Of Clubs",
+            "Queen Of Spades",
+            "Queen Of Hearts",
+            "Queen Of Diamonds",
+            "Queen Of Clubs",
+            "King Of Spades",
+            "King Of Hearts",
+            "King Of Diamonds",
+            "King Of Clubs"});
             this.comboCard.Location = new System.Drawing.Point(107, 94);
             this.comboCard.Name = "comboCard";
             this.comboCard.Size = new System.Drawing.Size(205, 21);
@@ -59,6 +112,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.Location = new System.Drawing.Point(245, 147);
             this.cancelButton.Name = "cancelButton";
@@ -66,9 +120,11 @@
             this.cancelButton.TabIndex = 33;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // excludeCardButton
             // 
+            this.excludeCardButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.excludeCardButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.excludeCardButton.Location = new System.Drawing.Point(70, 147);
             this.excludeCardButton.Name = "excludeCardButton";
@@ -88,7 +144,9 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.excludeCardButton);
             this.Name = "Exclude_Cards";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exclude Cards";
+            this.Load += new System.EventHandler(this.Exclude_Cards_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,9 +154,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboCard;
         private System.Windows.Forms.Label lbExcludeCard;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button excludeCardButton;
+        public System.Windows.Forms.ComboBox comboCard;
     }
 }
