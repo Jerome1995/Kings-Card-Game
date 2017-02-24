@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
-    internal class Game
+   public internal class Game
     {
         private Players player;
         private Deck deck;
@@ -90,17 +90,21 @@ namespace Kings_Card_Game
         }
         public void SetPlayers(DataGridView grid)
         {
-            foreach (string x in grid.Rows)
+            int i = 0;
+            while (i <= grid.RowCount)
             {
-                player.addPlayer(x);
+                player.addPlayer(grid.Rows[i].Cells[i].ToString());
+                i++;
             }
         }
         public void SetExcludedCards(DataGridView grid)
         {
             Boolean result;
-            foreach (string x in grid.Rows)
+            int i = 0;
+            while (i <= grid.RowCount)
             {
-                result = deck.excludeCard(x);
+                result = deck.excludeCard(grid.Rows[i].Cells[i].ToString());
+                i++;
             }
         }
         public string FirstPlayer()

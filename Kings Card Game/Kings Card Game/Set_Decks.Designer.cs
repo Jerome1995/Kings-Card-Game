@@ -76,10 +76,10 @@
             "3 Deck"});
             this.comboDeck.FormattingEnabled = true;
             this.comboDeck.Items.AddRange(new object[] {
-            "1/2 Deck",
-            "1 Deck",
-            "2 Deck",
-            "3 Deck"});
+            "1.5",
+            "1",
+            "2",
+            "3"});
             this.comboDeck.Location = new System.Drawing.Point(278, 82);
             this.comboDeck.Name = "comboDeck";
             this.comboDeck.Size = new System.Drawing.Size(121, 21);

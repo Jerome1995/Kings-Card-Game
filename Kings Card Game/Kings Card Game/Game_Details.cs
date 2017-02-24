@@ -19,8 +19,10 @@ namespace Kings_Card_Game
         }
 
         private Welcome_Screen welcomeFrm = new Welcome_Screen();
-        private Kings kingFrm = new Kings();
+        private Kings kingFrm;
         private Add_Player addFrm = new Add_Player();
+        private List<string> list = new List<string>();
+        Game game = new Game();
 
         public void addToDataGrid(string name, DataGridView grid)
         {
@@ -43,7 +45,6 @@ namespace Kings_Card_Game
             {
                 playername.Dispose();
             }
-            playername.Dispose();
         }
         public void SetDecksDialogBox()
         {
@@ -61,24 +62,36 @@ namespace Kings_Card_Game
             {
                 deckAmount.Dispose();
             }
-            deckAmount.Dispose();
         }
 
         public void ExcludeCardsDialogBox()
         {
             Exclude_Cards exCards = new Exclude_Cards();
+            
             if (exCards.ShowDialog(this) == DialogResult.OK)
             {
-                addToDataGrid(exCards.comboCard.Text, grdExcludedCards);
-                exCards.comboCard.Items.Remove(exCards.comboCard.ToString());
+                if (list.Contains(exCards.comboCard.Text) == false)
+                {
+                    list.Add(exCards.comboCard.Text);
+                    addToDataGrid(exCards.comboCard.Text, grdExcludedCards);
+                } 
             }
             else
             {
                 exCards.Dispose();
             }
-            exCards.Dispose();
         }
-        
+
+        public void CreateGame()
+        {                
+            game.SetPlayers(grdPlayer);
+            game.SetDecks(Convert.ToDouble(grdDecks.Rows[0].Cells[0]));
+            game.SetExcludedCards(grdExcludedCards);
+            kingFrm = new Kings(game);
+            kingFrm.Show();
+            Hide();
+            
+        }
 
         private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -105,7 +118,7 @@ namespace Kings_Card_Game
 
         private void startGameButton_Click(object sender, EventArgs e)
         {
-
+            CreateGame();
         }
     }
 }

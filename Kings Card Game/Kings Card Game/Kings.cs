@@ -17,6 +17,11 @@ namespace Kings_Card_Game
             InitializeComponent();
         }
 
+        public Kings(Game game)
+        {
+            
+        }
+
         
 
        
