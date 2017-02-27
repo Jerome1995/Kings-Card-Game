@@ -42,7 +42,7 @@ namespace Kings_Card_Game
             {
                 if (playerList[i].Equals(previouisName))
                 {
-                    if (i == playerList.Count)
+                    if (i == playerList.Count-1)
                     {
                         return playerList[0];
                     }
@@ -54,6 +54,10 @@ namespace Kings_Card_Game
                 }
             }
             return "Unknown";
+        }
+        public int getPlayerAmount()
+        {
+            return playerList.Count();
         }
 
         public Boolean removePlayer(string name)

@@ -74,19 +74,19 @@
             // 
             // txtCardName
             // 
-            this.txtCardName.Location = new System.Drawing.Point(317, 361);
+            this.txtCardName.Location = new System.Drawing.Point(317, 373);
             this.txtCardName.Name = "txtCardName";
             this.txtCardName.ReadOnly = true;
-            this.txtCardName.Size = new System.Drawing.Size(265, 32);
+            this.txtCardName.Size = new System.Drawing.Size(265, 20);
             this.txtCardName.TabIndex = 5;
             this.txtCardName.Text = "";
             // 
             // txtCardRule
             // 
-            this.txtCardRule.Location = new System.Drawing.Point(317, 410);
+            this.txtCardRule.Location = new System.Drawing.Point(317, 423);
             this.txtCardRule.Name = "txtCardRule";
             this.txtCardRule.ReadOnly = true;
-            this.txtCardRule.Size = new System.Drawing.Size(407, 69);
+            this.txtCardRule.Size = new System.Drawing.Size(407, 56);
             this.txtCardRule.TabIndex = 6;
             this.txtCardRule.Text = "";
             // 
@@ -130,6 +130,7 @@
             this.nextCardButton.TabIndex = 21;
             this.nextCardButton.Text = "Next Card";
             this.nextCardButton.UseVisualStyleBackColor = true;
+            this.nextCardButton.Click += new System.EventHandler(this.nextCardButton_Click);
             // 
             // txtCardsLeft
             // 
@@ -308,10 +309,11 @@
             // 
             // txtPlayerName
             // 
-            this.txtPlayerName.Location = new System.Drawing.Point(660, 151);
+            this.txtPlayerName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlayerName.Location = new System.Drawing.Point(660, 155);
             this.txtPlayerName.Name = "txtPlayerName";
             this.txtPlayerName.ReadOnly = true;
-            this.txtPlayerName.Size = new System.Drawing.Size(177, 32);
+            this.txtPlayerName.Size = new System.Drawing.Size(177, 28);
             this.txtPlayerName.TabIndex = 28;
             this.txtPlayerName.Text = "";
             // 
@@ -327,10 +329,10 @@
             // 
             // txtPlayerAmount
             // 
-            this.txtPlayerAmount.Location = new System.Drawing.Point(798, 101);
+            this.txtPlayerAmount.Location = new System.Drawing.Point(798, 113);
             this.txtPlayerAmount.Name = "txtPlayerAmount";
             this.txtPlayerAmount.ReadOnly = true;
-            this.txtPlayerAmount.Size = new System.Drawing.Size(39, 32);
+            this.txtPlayerAmount.Size = new System.Drawing.Size(39, 20);
             this.txtPlayerAmount.TabIndex = 30;
             this.txtPlayerAmount.Text = "";
             // 
@@ -360,6 +362,7 @@
             this.Name = "Kings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kings";
+            this.Load += new System.EventHandler(this.Kings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cardBox)).EndInit();
             this.menuKings.ResumeLayout(false);
             this.menuKings.PerformLayout();

@@ -40,6 +40,7 @@ namespace Kings_Card_Game
             if (playername.ShowDialog(this) == DialogResult.OK)
             {
                 addToDataGrid(playername.txtPlayerName.Text,grdPlayer);
+                setDecksButton.Visible = true;
             }
             else
             {
@@ -54,9 +55,10 @@ namespace Kings_Card_Game
                 if (grdDecks.RowCount > 0)
                 {
                     grdDecks.Rows[0].Cells[0].Value = deckAmount.comboDeck.Text;
+                    excludeCardsButton.Visible = true;
                 }
                 addToDataGrid(deckAmount.comboDeck.Text, grdDecks);
-                grdDecks.AllowUserToAddRows = false;
+                grdDecks.AllowUserToAddRows = false;                
             }
             else
             {
@@ -74,6 +76,7 @@ namespace Kings_Card_Game
                 {
                     list.Add(exCards.comboCard.Text);
                     addToDataGrid(exCards.comboCard.Text, grdExcludedCards);
+                    startGameButton.Visible = true;
                 } 
             }
             else
@@ -85,14 +88,13 @@ namespace Kings_Card_Game
         public void CreateGame()
         {                
             game.SetPlayers(grdPlayer);
-            game.SetDecks(Convert.ToDouble(grdDecks.Rows[0].Cells[0]));
+            game.SetDecks(Double.Parse(grdDecks.Rows[0].Cells[0].Value.ToString()));
             game.SetExcludedCards(grdExcludedCards);
             kingFrm = new Kings(game);
             kingFrm.Show();
             Hide();
-            
         }
-
+        
         private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();

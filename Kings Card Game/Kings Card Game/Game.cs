@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
-   public internal class Game
+   public class Game
     {
         private Players player;
         private Deck deck;
@@ -91,9 +91,9 @@ namespace Kings_Card_Game
         public void SetPlayers(DataGridView grid)
         {
             int i = 0;
-            while (i <= grid.RowCount)
+            while (i < grid.RowCount-1)
             {
-                player.addPlayer(grid.Rows[i].Cells[i].ToString());
+                player.addPlayer(grid.Rows[i].Cells[0].Value.ToString());
                 i++;
             }
         }
@@ -101,9 +101,9 @@ namespace Kings_Card_Game
         {
             Boolean result;
             int i = 0;
-            while (i <= grid.RowCount)
+            while (i < grid.RowCount-1)
             {
-                result = deck.excludeCard(grid.Rows[i].Cells[i].ToString());
+                result = deck.excludeCard(grid.Rows[i].Cells[0].Value.ToString());
                 i++;
             }
         }
@@ -137,6 +137,10 @@ namespace Kings_Card_Game
                 MessageBox.Show("Error!", "The name of player " + oldName + "could not be changed.");
             }
         }
+        public int PlayerAmount()
+        {
+            return player.getPlayerAmount();
+        }
 
         public void UndoExclusionOfCard(DataGridViewCell cardCell)
         {
@@ -151,5 +155,6 @@ namespace Kings_Card_Game
                     "The card " + Convert.ToString(cardCell) + " counld not be added back to the deck");
             }
         }
+
     }
 }

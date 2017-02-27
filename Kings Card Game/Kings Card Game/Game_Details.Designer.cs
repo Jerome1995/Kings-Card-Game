@@ -32,17 +32,17 @@
             this.setDecksButton = new System.Windows.Forms.Button();
             this.addPlayerButton = new System.Windows.Forms.Button();
             this.grdPlayer = new System.Windows.Forms.DataGridView();
+            this.Player_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grdExcludedCards = new System.Windows.Forms.DataGridView();
+            this.Excluded_Cards = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grdDecks = new System.Windows.Forms.DataGridView();
+            this.Number_Of_Decks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startGameButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuKings = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.welcomeScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Number_Of_Decks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Player_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Excluded_Cards = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdExcludedCards)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDecks)).BeginInit();
@@ -58,6 +58,7 @@
             this.excludeCardsButton.TabIndex = 9;
             this.excludeCardsButton.Text = "Exclude Cards";
             this.excludeCardsButton.UseVisualStyleBackColor = true;
+            this.excludeCardsButton.Visible = false;
             this.excludeCardsButton.Click += new System.EventHandler(this.excludeCardsButton_Click);
             // 
             // setDecksButton
@@ -69,6 +70,7 @@
             this.setDecksButton.TabIndex = 10;
             this.setDecksButton.Text = "Set Decks";
             this.setDecksButton.UseVisualStyleBackColor = true;
+            this.setDecksButton.Visible = false;
             this.setDecksButton.Click += new System.EventHandler(this.setDecksButton_Click);
             // 
             // addPlayerButton
@@ -99,6 +101,13 @@
             this.grdPlayer.TabIndex = 13;
             this.grdPlayer.Visible = false;
             // 
+            // Player_Name
+            // 
+            this.Player_Name.HeaderText = "Name";
+            this.Player_Name.Name = "Player_Name";
+            this.Player_Name.ReadOnly = true;
+            this.Player_Name.Width = 159;
+            // 
             // grdExcludedCards
             // 
             this.grdExcludedCards.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -116,6 +125,13 @@
             this.grdExcludedCards.TabIndex = 14;
             this.grdExcludedCards.Visible = false;
             // 
+            // Excluded_Cards
+            // 
+            this.Excluded_Cards.HeaderText = "Card";
+            this.Excluded_Cards.Name = "Excluded_Cards";
+            this.Excluded_Cards.ReadOnly = true;
+            this.Excluded_Cards.Width = 159;
+            // 
             // grdDecks
             // 
             this.grdDecks.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -132,6 +148,12 @@
             this.grdDecks.Size = new System.Drawing.Size(74, 24);
             this.grdDecks.TabIndex = 15;
             this.grdDecks.Visible = false;
+            // 
+            // Number_Of_Decks
+            // 
+            this.Number_Of_Decks.HeaderText = "Decks";
+            this.Number_Of_Decks.Name = "Number_Of_Decks";
+            this.Number_Of_Decks.ReadOnly = true;
             // 
             // startGameButton
             // 
@@ -191,23 +213,6 @@
             this.welcomeScreenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.welcomeScreenToolStripMenuItem.Text = "Welcome Screen";
             this.welcomeScreenToolStripMenuItem.Click += new System.EventHandler(this.welcomeScreenToolStripMenuItem_Click);
-            // 
-            // Number_Of_Decks
-            // 
-            this.Number_Of_Decks.HeaderText = "Decks";
-            this.Number_Of_Decks.Name = "Number_Of_Decks";
-            // 
-            // Player_Name
-            // 
-            this.Player_Name.HeaderText = "Name";
-            this.Player_Name.Name = "Player_Name";
-            this.Player_Name.Width = 159;
-            // 
-            // Excluded_Cards
-            // 
-            this.Excluded_Cards.HeaderText = "Card";
-            this.Excluded_Cards.Name = "Excluded_Cards";
-            this.Excluded_Cards.Width = 159;
             // 
             // Game_Details
             // 
