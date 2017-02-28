@@ -40,6 +40,8 @@ namespace Kings_Card_Game
             CardDetails();
             txtPlayerName.Text = game.FirstPlayer();
             txtPlayerAmount.Text = game.PlayerAmount().ToString();
+            cardBox.ImageLocation = @"Images\Ace Of Hearts.png";
+            cardBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void nextCardButton_Click(object sender, EventArgs e)

@@ -144,6 +144,68 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Ace Of Clubs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ace Of Diamonds.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ace Of Hearts.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ace Of Spades.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Eight Of Clubs.png" />
+    <Content Include="Images\Eight Of Diamonds.png" />
+    <Content Include="Images\Eight Of Hearts.png" />
+    <Content Include="Images\Eight Of Spades.png" />
+    <Content Include="Images\Five Of Clubs.png" />
+    <Content Include="Images\Five Of Diamonds.png" />
+    <Content Include="Images\Five Of Hearts.png" />
+    <Content Include="Images\Five Of Spades.png" />
+    <Content Include="Images\Four Of Clubs.png" />
+    <Content Include="Images\Four Of Diamonds.png" />
+    <Content Include="Images\Four Of Hearts.png" />
+    <Content Include="Images\Four Of Spades.png" />
+    <Content Include="Images\Jack Of Clubs.png" />
+    <Content Include="Images\Jack Of Diamonds.png" />
+    <Content Include="Images\Jack Of Hearts.png" />
+    <Content Include="Images\Jack Of Spades.png" />
+    <Content Include="Images\King Of Clubs.png" />
+    <Content Include="Images\King Of Diamonds.png" />
+    <Content Include="Images\King Of Hearts.png" />
+    <Content Include="Images\King Of Spades.png" />
+    <Content Include="Images\Nine Of Clubs.png" />
+    <Content Include="Images\Nine Of Diamonds.png" />
+    <Content Include="Images\Nine Of Hearts.png" />
+    <Content Include="Images\Nine Of Spades.png" />
+    <Content Include="Images\Queen Of Clubs.png" />
+    <Content Include="Images\Queen Of Diamonds.png" />
+    <Content Include="Images\Queen Of Hearts.png" />
+    <Content Include="Images\Queen Of Spades.png" />
+    <Content Include="Images\Seven Of Clubs.png" />
+    <Content Include="Images\Seven Of Diamonds.png" />
+    <Content Include="Images\Seven Of Hearts.png" />
+    <Content Include="Images\Seven Of Spades.png" />
+    <Content Include="Images\Six Of Clubs.png" />
+    <Content Include="Images\Six Of Diamonds.png" />
+    <Content Include="Images\Six Of Hearts.png" />
+    <Content Include="Images\Six Of Spades.png" />
+    <Content Include="Images\Ten Of Clubs.png" />
+    <Content Include="Images\Ten Of Diamonds.png" />
+    <Content Include="Images\Ten Of Hearts.png" />
+    <Content Include="Images\Ten Of Spades.png" />
+    <Content Include="Images\Three Of Clubs.png" />
+    <Content Include="Images\Three Of Diamonds.png" />
+    <Content Include="Images\Three Of Hearts.png" />
+    <Content Include="Images\Three Of Spades.png" />
+    <Content Include="Images\Two Of Clubs.png" />
+    <Content Include="Images\Two Of Diamonds.png" />
+    <Content Include="Images\Two Of Hearts.png" />
+    <Content Include="Images\Two Of Spades.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

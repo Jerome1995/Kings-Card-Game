@@ -66,6 +66,7 @@
             // 
             // cardBox
             // 
+            this.cardBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.cardBox.Location = new System.Drawing.Point(317, 97);
             this.cardBox.Name = "cardBox";
             this.cardBox.Size = new System.Drawing.Size(201, 248);
