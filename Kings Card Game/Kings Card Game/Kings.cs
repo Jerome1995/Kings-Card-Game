@@ -28,6 +28,7 @@ namespace Kings_Card_Game
             txtCardRule.Text = card.getCardRule();
             txtCardsLeft.Text = game.CardsLeft().ToString();
             txtDecksLeft.Text = game.NumberOfDecks().ToString();
+            cardBox.ImageLocation = @"Images\" + card.getImagePath() + ".png";
         }
         public void PlayerDetails()
         {
@@ -40,7 +41,7 @@ namespace Kings_Card_Game
             CardDetails();
             txtPlayerName.Text = game.FirstPlayer();
             txtPlayerAmount.Text = game.PlayerAmount().ToString();
-            cardBox.ImageLocation = @"Images\Ace Of Hearts.png";
+            
             cardBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -49,6 +50,117 @@ namespace Kings_Card_Game
             CardDetails();
             PlayerDetails();
         }
+
+        private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Welcome_Screen frm = new Welcome_Screen();
+            frm.Show();
+
+        }
+
+        private void gameDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Game_Details frm = new Game_Details();
+            frm.Show();
+        }
+
+        private void addPlayerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Add_Player playername = new Add_Player();
+            if (playername.ShowDialog(this) == DialogResult.OK)
+            {
+                game.AddPlayer(playername.txtPlayerName.Text);
+            }
+            else
+            {
+                playername.Dispose();
+            }
+        }
+
+        private void removePlayerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Remove_Player playername = new Remove_Player();
+            if (playername.ShowDialog(this) == DialogResult.OK)
+            {
+                game.RemovePlayer(playername.txtPlayerName.Text);
+            }
+            else
+            {
+                playername.Dispose();
+            }
+        }
+
+        private void changePlayerNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Change_Player_Name player = new Change_Player_Name();
+            if (player.ShowDialog(this) == DialogResult.OK)
+            {
+                game.ChangePlayerName(player.txtOldName.Text,player.txtNewName.Text);
+            }
+            else
+            {
+                player.Dispose();
+            }
+        }
+
+        private void halfDeckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.AddDeck(0.5);
+            txtCardsLeft.Text = game.CardsLeft().ToString();
+            txtDecksLeft.Text = game.NumberOfDecks().ToString();
+        }
+
+        private void oneDeckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.AddDeck(1);
+            txtCardsLeft.Text = game.CardsLeft().ToString();
+            txtDecksLeft.Text = game.NumberOfDecks().ToString();
+        }
+
+        private void twoDeckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.AddDeck(2);
+            txtCardsLeft.Text = game.CardsLeft().ToString();
+            txtDecksLeft.Text = game.NumberOfDecks().ToString();
+        }
+
+        private void chooseCardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exclude_Cards eCard = new Exclude_Cards();
+            eCard.comboCard = game.ShowRemainingCards(eCard.comboCard);
+            if (eCard.ShowDialog(this) == DialogResult.OK)
+            {
+                game.ExcludeCard(eCard.comboCard.SelectedItem.ToString());
+            }
+            else
+            {
+                eCard.Dispose();
+            }
+
+        }
+
+        private void undoExclusionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Undo_Card_Exclusion uCard = new Undo_Card_Exclusion();
+            uCard.comboCard = game.ShowExcludedCards(uCard.comboCard);
+            if (uCard.ShowDialog(this) == DialogResult.OK)
+            {
+                game.UndoExclusionOfCard(uCard.comboCard.SelectedItem.ToString());
+            }
+            else
+            {
+                uCard.Dispose();
+            }
+        }
+
+        private void restartGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.ResetGame();
+        }
+
+
 
 
 

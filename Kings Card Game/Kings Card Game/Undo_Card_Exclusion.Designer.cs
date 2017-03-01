@@ -30,8 +30,7 @@
         {
             this.UndoExclusionButton = new System.Windows.Forms.Button();
             this.lbSelectCard = new System.Windows.Forms.Label();
-            this.grdExcludedCards = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.grdExcludedCards)).BeginInit();
+            this.comboCard = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // UndoExclusionButton
@@ -54,14 +53,71 @@
             this.lbSelectCard.Text = "Please select the card from the box and press the \r\n\'Undo Exclusion\' button if yo" +
     "u would like add the card to the deck.";
             // 
-            // grdExcludedCards
+            // comboCard
             // 
-            this.grdExcludedCards.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.grdExcludedCards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdExcludedCards.Location = new System.Drawing.Point(14, 12);
-            this.grdExcludedCards.Name = "grdExcludedCards";
-            this.grdExcludedCards.Size = new System.Drawing.Size(159, 84);
-            this.grdExcludedCards.TabIndex = 35;
+            this.comboCard.AutoCompleteCustomSource.AddRange(new string[] {
+            "1/2 Deck",
+            "1 Deck",
+            "2 Deck",
+            "3 Deck"});
+            this.comboCard.FormattingEnabled = true;
+            this.comboCard.Items.AddRange(new object[] {
+            "Ace Of Spades",
+            "Two Of Spades",
+            "Three Of Spades",
+            "Four Of Spades",
+            "Five Of Spades",
+            "Six Of Spades",
+            "Seven Of Spades",
+            "Eight Of Spades",
+            "Nine Of Spades",
+            "Ten Of Spades",
+            "Ace Of Hearts",
+            "Two Of Hearts",
+            "Three Of Hearts",
+            "Four Of Hearts",
+            "Five Of Hearts",
+            "Six Of Hearts",
+            "Seven Of Hearts",
+            "Eight Of Hearts",
+            "Nine Of Hearts",
+            "Ten Of Hearts",
+            "Ace Of Diamonds",
+            "Two Of Diamonds",
+            "Three Of Diamonds",
+            "Four Of Diamonds",
+            "Five Of Diamonds",
+            "Six Of Diamonds",
+            "Seven Of Diamonds",
+            "Eight Of Diamonds",
+            "Nine Of Diamonds",
+            "Ten Of Diamonds",
+            "Ace Of Clubs",
+            "Two Of Clubs",
+            "Three Of Clubs",
+            "Four Of Clubs",
+            "Five Of Clubs",
+            "Six Of Clubs",
+            "Seven Of Clubs",
+            "Eight Of Clubs",
+            "Nine Of Clubs",
+            "Ten Of Clubs",
+            "Jack Of Spades",
+            "Jack Of Hearts",
+            "Jack Of Diamonds",
+            "Jack Of Clubs",
+            "Queen Of Spades",
+            "Queen Of Hearts",
+            "Queen Of Diamonds",
+            "Queen Of Clubs",
+            "King Of Spades",
+            "King Of Hearts",
+            "King Of Diamonds",
+            "King Of Clubs"});
+            this.comboCard.Location = new System.Drawing.Point(12, 56);
+            this.comboCard.Name = "comboCard";
+            this.comboCard.Size = new System.Drawing.Size(160, 21);
+            this.comboCard.TabIndex = 38;
             // 
             // Undo_Card_Exclusion
             // 
@@ -69,13 +125,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(424, 191);
+            this.Controls.Add(this.comboCard);
             this.Controls.Add(this.UndoExclusionButton);
             this.Controls.Add(this.lbSelectCard);
-            this.Controls.Add(this.grdExcludedCards);
             this.Name = "Undo_Card_Exclusion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Undo Card Exclusion";
-            ((System.ComponentModel.ISupportInitialize)(this.grdExcludedCards)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -84,7 +139,7 @@
 
         private System.Windows.Forms.Button UndoExclusionButton;
         private System.Windows.Forms.Label lbSelectCard;
-        private System.Windows.Forms.DataGridView grdExcludedCards;
+        public System.Windows.Forms.ComboBox comboCard;
 
     }
 }

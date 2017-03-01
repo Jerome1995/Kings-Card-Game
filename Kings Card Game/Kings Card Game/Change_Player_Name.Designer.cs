@@ -28,22 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdPlayerName = new System.Windows.Forms.DataGridView();
             this.lbSelectPlayerName = new System.Windows.Forms.Label();
             this.lbNewName = new System.Windows.Forms.Label();
-            this.txtPlayerName = new System.Windows.Forms.RichTextBox();
+            this.txtNewName = new System.Windows.Forms.RichTextBox();
             this.setNewNameButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPlayerName)).BeginInit();
+            this.txtOldName = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // grdPlayerName
-            // 
-            this.grdPlayerName.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.grdPlayerName.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdPlayerName.Location = new System.Drawing.Point(16, 12);
-            this.grdPlayerName.Name = "grdPlayerName";
-            this.grdPlayerName.Size = new System.Drawing.Size(159, 84);
-            this.grdPlayerName.TabIndex = 14;
             // 
             // lbSelectPlayerName
             // 
@@ -52,7 +43,7 @@
             this.lbSelectPlayerName.Name = "lbSelectPlayerName";
             this.lbSelectPlayerName.Size = new System.Drawing.Size(231, 84);
             this.lbSelectPlayerName.TabIndex = 31;
-            this.lbSelectPlayerName.Text = "Please select the player from the box and enter \r\nthe new name in the text box";
+            this.lbSelectPlayerName.Text = "Please enter the old player name and enter \r\nthe new name in the text box";
             // 
             // lbNewName
             // 
@@ -64,13 +55,13 @@
             this.lbNewName.TabIndex = 32;
             this.lbNewName.Text = "New Name:";
             // 
-            // txtPlayerName
+            // txtNewName
             // 
-            this.txtPlayerName.Location = new System.Drawing.Point(243, 98);
-            this.txtPlayerName.Name = "txtPlayerName";
-            this.txtPlayerName.Size = new System.Drawing.Size(169, 32);
-            this.txtPlayerName.TabIndex = 33;
-            this.txtPlayerName.Text = "";
+            this.txtNewName.Location = new System.Drawing.Point(243, 110);
+            this.txtNewName.Name = "txtNewName";
+            this.txtNewName.Size = new System.Drawing.Size(121, 20);
+            this.txtNewName.TabIndex = 33;
+            this.txtNewName.Text = "";
             // 
             // setNewNameButton
             // 
@@ -82,21 +73,39 @@
             this.setNewNameButton.Text = "Set Name";
             this.setNewNameButton.UseVisualStyleBackColor = true;
             // 
+            // txtOldName
+            // 
+            this.txtOldName.Location = new System.Drawing.Point(32, 59);
+            this.txtOldName.Name = "txtOldName";
+            this.txtOldName.Size = new System.Drawing.Size(121, 20);
+            this.txtOldName.TabIndex = 35;
+            this.txtOldName.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Old Name:";
+            // 
             // Change_Player_Name
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(424, 191);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtOldName);
             this.Controls.Add(this.setNewNameButton);
-            this.Controls.Add(this.txtPlayerName);
+            this.Controls.Add(this.txtNewName);
             this.Controls.Add(this.lbNewName);
             this.Controls.Add(this.lbSelectPlayerName);
-            this.Controls.Add(this.grdPlayerName);
             this.Name = "Change_Player_Name";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Player Name";
-            ((System.ComponentModel.ISupportInitialize)(this.grdPlayerName)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,10 +113,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView grdPlayerName;
         private System.Windows.Forms.Label lbSelectPlayerName;
         private System.Windows.Forms.Label lbNewName;
-        private System.Windows.Forms.RichTextBox txtPlayerName;
         private System.Windows.Forms.Button setNewNameButton;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.RichTextBox txtNewName;
+        public System.Windows.Forms.RichTextBox txtOldName;
     }
 }

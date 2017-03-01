@@ -44,13 +44,13 @@
             this.welcomeScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addMemberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addPlayerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removePlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePlayerNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deckToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deckToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.halfDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oneDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.twoDeckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excludeCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chooseCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoExclusionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -200,68 +200,76 @@
             this.welcomeScreenToolStripMenuItem.Name = "welcomeScreenToolStripMenuItem";
             this.welcomeScreenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.welcomeScreenToolStripMenuItem.Text = "Welcome Screen";
+            this.welcomeScreenToolStripMenuItem.Click += new System.EventHandler(this.welcomeScreenToolStripMenuItem_Click);
             // 
             // gameDetailsToolStripMenuItem
             // 
             this.gameDetailsToolStripMenuItem.Name = "gameDetailsToolStripMenuItem";
             this.gameDetailsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.gameDetailsToolStripMenuItem.Text = "Game Details";
+            this.gameDetailsToolStripMenuItem.Click += new System.EventHandler(this.gameDetailsToolStripMenuItem_Click);
             // 
             // addMemberToolStripMenuItem
             // 
             this.addMemberToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addMemberToolStripMenuItem1,
-            this.removeMemberToolStripMenuItem,
+            this.addPlayerToolStripMenuItem1,
+            this.removePlayerToolStripMenuItem,
             this.changePlayerNameToolStripMenuItem});
             this.addMemberToolStripMenuItem.Name = "addMemberToolStripMenuItem";
             this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.addMemberToolStripMenuItem.Text = "Player";
             // 
-            // addMemberToolStripMenuItem1
+            // addPlayerToolStripMenuItem1
             // 
-            this.addMemberToolStripMenuItem1.Name = "addMemberToolStripMenuItem1";
-            this.addMemberToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
-            this.addMemberToolStripMenuItem1.Text = "Add Player";
+            this.addPlayerToolStripMenuItem1.Name = "addPlayerToolStripMenuItem1";
+            this.addPlayerToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.addPlayerToolStripMenuItem1.Text = "Add Player";
+            this.addPlayerToolStripMenuItem1.Click += new System.EventHandler(this.addPlayerToolStripMenuItem1_Click);
             // 
-            // removeMemberToolStripMenuItem
+            // removePlayerToolStripMenuItem
             // 
-            this.removeMemberToolStripMenuItem.Name = "removeMemberToolStripMenuItem";
-            this.removeMemberToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.removeMemberToolStripMenuItem.Text = "Remove Player";
+            this.removePlayerToolStripMenuItem.Name = "removePlayerToolStripMenuItem";
+            this.removePlayerToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.removePlayerToolStripMenuItem.Text = "Remove Player";
+            this.removePlayerToolStripMenuItem.Click += new System.EventHandler(this.removePlayerToolStripMenuItem_Click);
             // 
             // changePlayerNameToolStripMenuItem
             // 
             this.changePlayerNameToolStripMenuItem.Name = "changePlayerNameToolStripMenuItem";
             this.changePlayerNameToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.changePlayerNameToolStripMenuItem.Text = "Change Player Name";
+            this.changePlayerNameToolStripMenuItem.Click += new System.EventHandler(this.changePlayerNameToolStripMenuItem_Click);
             // 
             // addDeckToolStripMenuItem
             // 
             this.addDeckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deckToolStripMenuItem,
-            this.deckToolStripMenuItem1,
-            this.deckToolStripMenuItem2});
+            this.halfDeckToolStripMenuItem,
+            this.oneDeckToolStripMenuItem,
+            this.twoDeckToolStripMenuItem});
             this.addDeckToolStripMenuItem.Name = "addDeckToolStripMenuItem";
             this.addDeckToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.addDeckToolStripMenuItem.Text = "Add Deck";
             // 
-            // deckToolStripMenuItem
+            // halfDeckToolStripMenuItem
             // 
-            this.deckToolStripMenuItem.Name = "deckToolStripMenuItem";
-            this.deckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.deckToolStripMenuItem.Text = "1/2 Deck";
+            this.halfDeckToolStripMenuItem.Name = "halfDeckToolStripMenuItem";
+            this.halfDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.halfDeckToolStripMenuItem.Text = "1/2 Deck";
+            this.halfDeckToolStripMenuItem.Click += new System.EventHandler(this.halfDeckToolStripMenuItem_Click);
             // 
-            // deckToolStripMenuItem1
+            // oneDeckToolStripMenuItem
             // 
-            this.deckToolStripMenuItem1.Name = "deckToolStripMenuItem1";
-            this.deckToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
-            this.deckToolStripMenuItem1.Text = "1 Deck";
+            this.oneDeckToolStripMenuItem.Name = "oneDeckToolStripMenuItem";
+            this.oneDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oneDeckToolStripMenuItem.Text = "1 Deck";
+            this.oneDeckToolStripMenuItem.Click += new System.EventHandler(this.oneDeckToolStripMenuItem_Click);
             // 
-            // deckToolStripMenuItem2
+            // twoDeckToolStripMenuItem
             // 
-            this.deckToolStripMenuItem2.Name = "deckToolStripMenuItem2";
-            this.deckToolStripMenuItem2.Size = new System.Drawing.Size(128, 22);
-            this.deckToolStripMenuItem2.Text = "2 Deck";
+            this.twoDeckToolStripMenuItem.Name = "twoDeckToolStripMenuItem";
+            this.twoDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.twoDeckToolStripMenuItem.Text = "2 Deck";
+            this.twoDeckToolStripMenuItem.Click += new System.EventHandler(this.twoDeckToolStripMenuItem_Click);
             // 
             // excludeCardToolStripMenuItem
             // 
@@ -277,12 +285,14 @@
             this.chooseCardToolStripMenuItem.Name = "chooseCardToolStripMenuItem";
             this.chooseCardToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.chooseCardToolStripMenuItem.Text = "Choose Card";
+            this.chooseCardToolStripMenuItem.Click += new System.EventHandler(this.chooseCardToolStripMenuItem_Click);
             // 
             // undoExclusionToolStripMenuItem
             // 
             this.undoExclusionToolStripMenuItem.Name = "undoExclusionToolStripMenuItem";
             this.undoExclusionToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.undoExclusionToolStripMenuItem.Text = "Undo Exclusion";
+            this.undoExclusionToolStripMenuItem.Click += new System.EventHandler(this.undoExclusionToolStripMenuItem_Click);
             // 
             // restartToolStripMenuItem
             // 
@@ -297,6 +307,7 @@
             this.restartGameToolStripMenuItem.Name = "restartGameToolStripMenuItem";
             this.restartGameToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.restartGameToolStripMenuItem.Text = "Restart Game";
+            this.restartGameToolStripMenuItem.Click += new System.EventHandler(this.restartGameToolStripMenuItem_Click);
             // 
             // lbPlayerName
             // 
@@ -388,16 +399,16 @@
         private System.Windows.Forms.MenuStrip menuKings;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addMemberToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addMemberToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem removeMemberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addPlayerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem removePlayerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addDeckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excludeCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem welcomeScreenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gameDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem halfDeckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oneDeckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem twoDeckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chooseCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restartGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePlayerNameToolStripMenuItem;

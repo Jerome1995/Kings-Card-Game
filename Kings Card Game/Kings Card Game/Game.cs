@@ -141,19 +141,38 @@ namespace Kings_Card_Game
         {
             return player.getPlayerAmount();
         }
-
-        public void UndoExclusionOfCard(DataGridViewCell cardCell)
+        public void UndoExclusionOfCard(string uCard)
         {
-            if (deck.undoExclusion(Convert.ToString(cardCell)))
+            if (deck.undoExclusion(uCard))
             {
                 MessageBox.Show("Exclusion Undone",
-                    "The card " + Convert.ToString(cardCell) + " has been added back to the deck");
+                    "The card " + uCard + " has been added back to the deck");
             }
             else
             {
                 MessageBox.Show("Error!",
-                    "The card " + Convert.ToString(cardCell) + " counld not be added back to the deck");
+                    "The card " + uCard + " counld not be added back to the deck");
             }
+        }
+        public ComboBox ShowRemainingCards(ComboBox combo)
+        {
+            int i = 0;
+            foreach (string x in deck.remainingCards())
+            {
+                combo.Items.Insert(i, x);
+                i++;
+            }
+            return combo;
+        }
+        public ComboBox ShowExcludedCards(ComboBox combo)
+        {
+            int i = 0;
+            foreach (string x in deck.getExcludedCards())
+            {
+                combo.Items.Insert(i, x);
+                i++;
+            }
+            return combo;
         }
 
     }
