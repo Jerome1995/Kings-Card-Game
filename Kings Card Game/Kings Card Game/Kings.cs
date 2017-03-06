@@ -23,7 +23,6 @@ namespace Kings_Card_Game
 
         public void CardDetails()
         {
-            card = game.NextCard();
             txtCardName.Text = card.getCardName();
             txtCardRule.Text = card.getCardRule();
             txtCardsLeft.Text = game.CardsLeft().ToString();
@@ -38,6 +37,7 @@ namespace Kings_Card_Game
 
         private void Kings_Load(object sender, EventArgs e)
         {
+            card = game.NextCard();
             CardDetails();
             txtPlayerName.Text = game.FirstPlayer();
             txtPlayerAmount.Text = game.PlayerAmount().ToString();
@@ -47,6 +47,7 @@ namespace Kings_Card_Game
 
         private void nextCardButton_Click(object sender, EventArgs e)
         {
+            card = game.NextCard();
             CardDetails();
             PlayerDetails();
         }
@@ -55,6 +56,7 @@ namespace Kings_Card_Game
         {
             Hide();
             Welcome_Screen frm = new Welcome_Screen();
+            game = new Game();
             frm.Show();
 
         }
@@ -63,6 +65,7 @@ namespace Kings_Card_Game
         {
             Hide();
             Game_Details frm = new Game_Details();
+            game = new Game();
             frm.Show();
         }
 
@@ -108,22 +111,19 @@ namespace Kings_Card_Game
         private void halfDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.AddDeck(0.5);
-            txtCardsLeft.Text = game.CardsLeft().ToString();
-            txtDecksLeft.Text = game.NumberOfDecks().ToString();
+            CardDetails();
         }
 
         private void oneDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.AddDeck(1);
-            txtCardsLeft.Text = game.CardsLeft().ToString();
-            txtDecksLeft.Text = game.NumberOfDecks().ToString();
+            CardDetails();
         }
 
         private void twoDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.AddDeck(2);
-            txtCardsLeft.Text = game.CardsLeft().ToString();
-            txtDecksLeft.Text = game.NumberOfDecks().ToString();
+            CardDetails();
         }
 
         private void chooseCardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,7 +132,11 @@ namespace Kings_Card_Game
             eCard.comboCard = game.ShowRemainingCards(eCard.comboCard);
             if (eCard.ShowDialog(this) == DialogResult.OK)
             {
-                game.ExcludeCard(eCard.comboCard.SelectedItem.ToString());
+                if (!eCard.comboCard.SelectedItem.Equals(null))
+                {
+                    game.ExcludeCard(eCard.comboCard.SelectedItem.ToString());
+                    CardDetails();
+                }
             }
             else
             {
@@ -147,7 +151,11 @@ namespace Kings_Card_Game
             uCard.comboCard = game.ShowExcludedCards(uCard.comboCard);
             if (uCard.ShowDialog(this) == DialogResult.OK)
             {
-                game.UndoExclusionOfCard(uCard.comboCard.SelectedItem.ToString());
+                if (!uCard.comboCard.SelectedItem.Equals(null))
+                {
+                    game.UndoExclusionOfCard(uCard.comboCard.SelectedItem.ToString());
+                    CardDetails();
+                }
             }
             else
             {
@@ -157,7 +165,9 @@ namespace Kings_Card_Game
 
         private void restartGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.ResetGame();
+            txtPlayerName.Text = game.RestartGame();
+            CardDetails();
+            PlayerDetails();
         }
 
 

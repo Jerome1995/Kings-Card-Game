@@ -69,9 +69,9 @@ namespace Kings_Card_Game
                 MessageBox.Show("Error!","The card " + card + "could not be removed.");
             }
         }
-        public string ResetGame()
+        public string RestartGame()
         {
-            Boolean result = deck.resetGame();
+            Boolean result = deck.restartGame();
             if (result)
             {
                 MessageBox.Show("Game Reset", "The game and the decks have been reset");

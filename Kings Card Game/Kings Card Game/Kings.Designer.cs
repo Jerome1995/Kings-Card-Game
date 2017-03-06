@@ -84,10 +84,10 @@
             // 
             // txtCardRule
             // 
-            this.txtCardRule.Location = new System.Drawing.Point(317, 423);
+            this.txtCardRule.Location = new System.Drawing.Point(317, 425);
             this.txtCardRule.Name = "txtCardRule";
             this.txtCardRule.ReadOnly = true;
-            this.txtCardRule.Size = new System.Drawing.Size(407, 56);
+            this.txtCardRule.Size = new System.Drawing.Size(407, 54);
             this.txtCardRule.TabIndex = 6;
             this.txtCardRule.Text = "";
             // 
@@ -135,19 +135,19 @@
             // 
             // txtCardsLeft
             // 
-            this.txtCardsLeft.Location = new System.Drawing.Point(238, 170);
+            this.txtCardsLeft.Location = new System.Drawing.Point(238, 182);
             this.txtCardsLeft.Name = "txtCardsLeft";
             this.txtCardsLeft.ReadOnly = true;
-            this.txtCardsLeft.Size = new System.Drawing.Size(39, 32);
+            this.txtCardsLeft.Size = new System.Drawing.Size(39, 20);
             this.txtCardsLeft.TabIndex = 23;
             this.txtCardsLeft.Text = "";
             // 
             // txtDecksLeft
             // 
-            this.txtDecksLeft.Location = new System.Drawing.Point(238, 213);
+            this.txtDecksLeft.Location = new System.Drawing.Point(238, 222);
             this.txtDecksLeft.Name = "txtDecksLeft";
             this.txtDecksLeft.ReadOnly = true;
-            this.txtDecksLeft.Size = new System.Drawing.Size(39, 32);
+            this.txtDecksLeft.Size = new System.Drawing.Size(39, 23);
             this.txtDecksLeft.TabIndex = 24;
             this.txtDecksLeft.Text = "";
             // 
@@ -253,21 +253,21 @@
             // halfDeckToolStripMenuItem
             // 
             this.halfDeckToolStripMenuItem.Name = "halfDeckToolStripMenuItem";
-            this.halfDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.halfDeckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.halfDeckToolStripMenuItem.Text = "1/2 Deck";
             this.halfDeckToolStripMenuItem.Click += new System.EventHandler(this.halfDeckToolStripMenuItem_Click);
             // 
             // oneDeckToolStripMenuItem
             // 
             this.oneDeckToolStripMenuItem.Name = "oneDeckToolStripMenuItem";
-            this.oneDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oneDeckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.oneDeckToolStripMenuItem.Text = "1 Deck";
             this.oneDeckToolStripMenuItem.Click += new System.EventHandler(this.oneDeckToolStripMenuItem_Click);
             // 
             // twoDeckToolStripMenuItem
             // 
             this.twoDeckToolStripMenuItem.Name = "twoDeckToolStripMenuItem";
-            this.twoDeckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.twoDeckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.twoDeckToolStripMenuItem.Text = "2 Deck";
             this.twoDeckToolStripMenuItem.Click += new System.EventHandler(this.twoDeckToolStripMenuItem_Click);
             // 

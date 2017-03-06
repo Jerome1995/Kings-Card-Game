@@ -35,6 +35,7 @@
             // 
             // UndoExclusionButton
             // 
+            this.UndoExclusionButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.UndoExclusionButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UndoExclusionButton.Location = new System.Drawing.Point(137, 135);
             this.UndoExclusionButton.Name = "UndoExclusionButton";
@@ -61,59 +62,6 @@
             "2 Deck",
             "3 Deck"});
             this.comboCard.FormattingEnabled = true;
-            this.comboCard.Items.AddRange(new object[] {
-            "Ace Of Spades",
-            "Two Of Spades",
-            "Three Of Spades",
-            "Four Of Spades",
-            "Five Of Spades",
-            "Six Of Spades",
-            "Seven Of Spades",
-            "Eight Of Spades",
-            "Nine Of Spades",
-            "Ten Of Spades",
-            "Ace Of Hearts",
-            "Two Of Hearts",
-            "Three Of Hearts",
-            "Four Of Hearts",
-            "Five Of Hearts",
-            "Six Of Hearts",
-            "Seven Of Hearts",
-            "Eight Of Hearts",
-            "Nine Of Hearts",
-            "Ten Of Hearts",
-            "Ace Of Diamonds",
-            "Two Of Diamonds",
-            "Three Of Diamonds",
-            "Four Of Diamonds",
-            "Five Of Diamonds",
-            "Six Of Diamonds",
-            "Seven Of Diamonds",
-            "Eight Of Diamonds",
-            "Nine Of Diamonds",
-            "Ten Of Diamonds",
-            "Ace Of Clubs",
-            "Two Of Clubs",
-            "Three Of Clubs",
-            "Four Of Clubs",
-            "Five Of Clubs",
-            "Six Of Clubs",
-            "Seven Of Clubs",
-            "Eight Of Clubs",
-            "Nine Of Clubs",
-            "Ten Of Clubs",
-            "Jack Of Spades",
-            "Jack Of Hearts",
-            "Jack Of Diamonds",
-            "Jack Of Clubs",
-            "Queen Of Spades",
-            "Queen Of Hearts",
-            "Queen Of Diamonds",
-            "Queen Of Clubs",
-            "King Of Spades",
-            "King Of Hearts",
-            "King Of Diamonds",
-            "King Of Clubs"});
             this.comboCard.Location = new System.Drawing.Point(12, 56);
             this.comboCard.Name = "comboCard";
             this.comboCard.Size = new System.Drawing.Size(160, 21);

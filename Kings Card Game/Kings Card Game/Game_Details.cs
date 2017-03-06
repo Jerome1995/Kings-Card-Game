@@ -56,6 +56,7 @@ namespace Kings_Card_Game
                 {
                     grdDecks.Rows[0].Cells[0].Value = deckAmount.comboDeck.Text;
                     excludeCardsButton.Visible = true;
+                    startGameButton.Visible = true;
                 }
                 addToDataGrid(deckAmount.comboDeck.Text, grdDecks);
                 grdDecks.AllowUserToAddRows = false;                
@@ -76,7 +77,7 @@ namespace Kings_Card_Game
                 {
                     list.Add(exCards.comboCard.Text);
                     addToDataGrid(exCards.comboCard.Text, grdExcludedCards);
-                    startGameButton.Visible = true;
+                    
                 } 
             }
             else
