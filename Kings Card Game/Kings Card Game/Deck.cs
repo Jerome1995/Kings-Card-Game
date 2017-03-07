@@ -21,58 +21,14 @@ namespace Kings_Card_Game
         private Random random = new Random();
         private List<String> OrignalDeckOfCards = new List<string>
         {
-            "Ace Of Spades",
-            "Two Of Spades",
-            "Three Of Spades",
-            "Four Of Spades",
-            "Five Of Spades",
-            "Six Of Spades",
-            "Seven Of Spades",
-            "Eight Of Spades",
-            "Nine Of Spades",
-            "Ten Of Spades",
-            "Ace Of Hearts",
-            "Two Of Hearts",
-            "Three Of Hearts",
-            "Four Of Hearts",
-            "Five Of Hearts",
-            "Six Of Hearts",
-            "Seven Of Hearts",
-            "Eight Of Hearts",
-            "Nine Of Hearts",
-            "Ten Of Hearts",
-            "Ace Of Diamonds",
-            "Two Of Diamonds",
-            "Three Of Diamonds",
-            "Four Of Diamonds",
-            "Five Of Diamonds",
-            "Six Of Diamonds",
-            "Seven Of Diamonds",
-            "Eight Of Diamonds",
-            "Nine Of Diamonds",
-            "Ten Of Diamonds",
-            "Ace Of Clubs",
-            "Two Of Clubs",
-            "Three Of Clubs",
-            "Four Of Clubs",
-            "Five Of Clubs",
-            "Six Of Clubs",
-            "Seven Of Clubs",
-            "Eight Of Clubs",
-            "Nine Of Clubs",
-            "Ten Of Clubs",
-            "Jack Of Spades",
-            "Jack Of Hearts",
-            "Jack Of Diamonds",
-            "Jack Of Clubs",
-            "Queen Of Spades",
-            "Queen Of Hearts",
-            "Queen Of Diamonds",
-            "Queen Of Clubs",
-            "King Of Spades",
-            "King Of Hearts",
-            "King Of Diamonds",
-            "King Of Clubs"
+            "Ace Of Spades","Two Of Spades","Three Of Spades","Four Of Spades","Five Of Spades","Six Of Spades","Seven Of Spades",
+            "Eight Of Spades","Nine Of Spades","Ten Of Spades","Ace Of Hearts","Two Of Hearts","Three Of Hearts","Four Of Hearts",
+            "Five Of Hearts","Six Of Hearts","Seven Of Hearts","Eight Of Hearts","Nine Of Hearts","Ten Of Hearts","Ace Of Diamonds",
+            "Two Of Diamonds","Three Of Diamonds","Four Of Diamonds","Five Of Diamonds","Six Of Diamonds","Seven Of Diamonds",
+            "Eight Of Diamonds","Nine Of Diamonds","Ten Of Diamonds","Ace Of Clubs","Two Of Clubs","Three Of Clubs","Four Of Clubs",
+            "Five Of Clubs","Six Of Clubs","Seven Of Clubs","Eight Of Clubs","Nine Of Clubs","Ten Of Clubs","Jack Of Spades",
+            "Jack Of Hearts","Jack Of Diamonds","Jack Of Clubs","Queen Of Spades","Queen Of Hearts","Queen Of Diamonds",
+            "Queen Of Clubs","King Of Spades","King Of Hearts","King Of Diamonds","King Of Clubs"
         };
 
         public Deck()
@@ -82,7 +38,6 @@ namespace Kings_Card_Game
             card = new Card();
             ExcludedCards = new List<string>();
         }
-
         public Deck(double numDeck, int cardsLeft, Card card, List<String> exCards)
         {
             this.numberOfDecks = numDeck;
@@ -91,8 +46,38 @@ namespace Kings_Card_Game
             ExcludedCards = exCards;
         }
 
-        
+        //Getters
+        public List<string> getOrignalDeck()
+        {
+            return OrignalDeckOfCards;
+        }
+        public int getCardsLeft()
+        {
+            return this.cardsLeft;
+        }
+        public double getNumberOfDecks()
+        {
+            return numberOfDecks;
+        }
+        public List<string> getExcludedCards()
+        {
+            return ExcludedCards;
+        }
+        public List<string> remainingCards()
+        {
+            return DeckOfCards;
+        }
+        public int getCardsUsedCount()
+        {
+            return cardsUsed;
+        }
+        public List<string> getUsedCards()
+        {
+            return UsedCards;
+        }
 
+        
+        //Functions
         public Card getNextCard()
         {
             index = random.Next(DeckOfCards.Count);
@@ -493,7 +478,6 @@ namespace Kings_Card_Game
             return card;
 
         }
-
         public void joinDecks(double num)
         {
             int i = 0, j = 0;
@@ -511,7 +495,6 @@ namespace Kings_Card_Game
                 }
             }
         }
-
         public void setDecks(double num)
         {
             joinDecks(num);
@@ -519,7 +502,6 @@ namespace Kings_Card_Game
             orignalNumberOfDecks = num;
             cardsLeft = Convert.ToInt16(numberOfDecks*52);
         }
-
         public void addDeck(double num)
         {
             joinDecks(num);
@@ -539,7 +521,6 @@ namespace Kings_Card_Game
                 }
             }
         }
-
         public Boolean removeDeck(double num)
         {
             if (this.numberOfDecks > num)
@@ -568,18 +549,7 @@ namespace Kings_Card_Game
                 return true;
             }
             return false;
-        }
-
-        public double getNumberOfDecks()
-        {
-            return numberOfDecks;
-        }
-
-        public int getCardsLeft()
-        {
-            return this.cardsLeft;
-        }
-
+        }       
         public void reduceCardsLeft(int num)
         {
             this.cardsLeft--;
@@ -587,7 +557,6 @@ namespace Kings_Card_Game
             DeckOfCards.Remove(DeckOfCards[num]);
             updateCardsUsed(1);
         }
-
         public Boolean excludeCard(string card)
         {
             Boolean fini = false;
@@ -608,35 +577,30 @@ namespace Kings_Card_Game
             }
             return fini;
         }
-
         public Boolean restartGame()
         {
             this.cardsUsed = 0;
             this.cardsLeft = Convert.ToInt16(orignalNumberOfDecks * 52);
+            this.numberOfDecks = orignalNumberOfDecks;
             DeckOfCards.Clear();
             UsedCards.Clear();
             ExcludedCards.Clear();
             joinDecks(orignalNumberOfDecks);
             return true;
-        }
-
-        public List<string> getExcludedCards()
-        {
-            return ExcludedCards;
-        }
-
+        }    
         public Boolean undoExclusion(string card)
         {
-
-            for (int i = 0; i < UsedCards.Count(); i++ )
+            int i = 0;
+            while (i <= UsedCards.Count())
             {
-                if (UsedCards[i].Equals(card))
+                if (UsedCards.Contains(card))
                 {
                     DeckOfCards.Add(card);
                     UsedCards.Remove(card);
                     cardsLeft++;
                     updateCardsUsed(-1);
                 }
+                i++;
             }
             if (!UsedCards.Contains(card))
             {
@@ -648,7 +612,6 @@ namespace Kings_Card_Game
                 return false;
             }
         }
-
         public void updateCardsUsed(int num)
         {
             cardsUsed = cardsUsed + num;
@@ -658,11 +621,7 @@ namespace Kings_Card_Game
                 cardsUsed = 0;
             }
         }
-
-        public List<string> remainingCards()
-        {
-            return DeckOfCards;
-        }
+        
     }
 }
  

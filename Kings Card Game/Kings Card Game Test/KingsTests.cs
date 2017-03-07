@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Kings_Card_Game;
+using System.Collections.Generic;
 
 namespace Kings_Card_Game_Test
 {
@@ -8,7 +9,7 @@ namespace Kings_Card_Game_Test
     public class CardTests
     {
         [TestMethod]
-        public void Setting_And_Getting_Name()
+        public void Setting_And_Getting_Name_Test()
         {
             //arange
             string expectedResult = "Ace Of Spades";
@@ -22,7 +23,7 @@ namespace Kings_Card_Game_Test
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
-        public void Setting_And_Getting_Rule()
+        public void Setting_And_Getting_Rule_Test()
         {
             //arange
             string expectedResult = "Drink For 2 Seconds";
@@ -36,7 +37,7 @@ namespace Kings_Card_Game_Test
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
-        public void Setting_And_Getting_ImagePath()
+        public void Setting_And_Getting_ImagePath_Test()
         {
             //arange
             string expectedResult = "C:\\desktop\\image.png";
@@ -55,9 +56,202 @@ namespace Kings_Card_Game_Test
     public class DeckTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetNextCard_Test()
         {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            Card card = new Card();
+            List<string> list = new List<string>();
+            list.AddRange(deck.getOrignalDeck());
+            deck.setDecks(1);
 
+            //act
+            card = deck.getNextCard();
+
+            //assert
+            Boolean actual = list.Contains(card.getCardName());
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void JoinDecks_Test()
+        {
+            //arange
+            int expectedResult = 104;
+            Deck deck = new Deck();
+
+            //act
+            deck.joinDecks(2);
+
+            //assert
+            int actual = deck.remainingCards().Count;
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void SetDecks_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            
+            //act
+            deck.setDecks(2);
+
+            //assert
+            Boolean actual = false;
+            if (deck.getNumberOfDecks() == 2 && deck.getCardsLeft() == 104)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void AddDeck_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            deck.setDecks(2);
+
+            //act
+            deck.addDeck(2);
+
+            //assert
+            Boolean actual = false;
+            if (deck.getNumberOfDecks() == 4 && deck.getCardsLeft() == 208)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void RemoveDeck_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            deck.setDecks(3);
+
+            //act
+            Boolean result = deck.removeDeck(1);
+
+            //assert
+            Boolean actual = false;
+            if (result == true && deck.getNumberOfDecks() == 2 && deck.getCardsLeft() == 104)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void ReduceCardsLeft_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            Card card = new Card();
+            deck.setDecks(2);
+            List<string> list = new List<string>();
+            list = deck.remainingCards();
+            card.setCardName(list[2]);
+
+            //act
+            deck.reduceCardsLeft(2);
+
+            //assert
+            Boolean actual = false;
+            if (deck.getCardsLeft() == 103 && deck.getCardsUsedCount() == 1 
+                && !deck.remainingCards()[2].Equals(card.getCardName())
+                && deck.getUsedCards().Contains(card.getCardName()) == true)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void ExcludeCard_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            Card card = new Card();
+            card.setCardName("Ace Of Spades");
+            deck.setDecks(2);
+            
+
+            //act
+            Boolean result = deck.excludeCard(card.getCardName());
+
+            //assert
+            Boolean actual = false;
+            if (result == true && !deck.remainingCards().Contains(card.getCardName())
+                && deck.getUsedCards().Contains(card.getCardName()) && deck.getCardsUsedCount() == 2
+                && deck.getCardsLeft() == 102 && deck.getExcludedCards().Contains(card.getCardName()))
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void RestartGame_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Deck deck = new Deck();
+            deck.setDecks(2);
+            deck.addDeck(2);
+            deck.excludeCard("Ace Of Spades");
+
+            //act
+            Boolean result = deck.restartGame();
+
+            //assert
+            Boolean actual = false;
+            if (result == true && deck.getNumberOfDecks() == 2 && deck.remainingCards().Count == 104
+                && deck.getExcludedCards().Count == 0 && deck.getUsedCards().Count == 0 && deck.getCardsLeft() == 104
+                && deck.getCardsUsedCount() == 0)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void UndoExclusion_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            string card = "Ace Of Spades";
+            Deck deck = new Deck();
+            deck.setDecks(2);
+            deck.excludeCard(card);
+            
+            //act
+            Boolean result = deck.undoExclusion(card);
+
+            //assert
+            Boolean actual = false;
+            if (result == true && deck.remainingCards().Contains(card) && !deck.getUsedCards().Contains(card) 
+                && !deck.getExcludedCards().Contains(card) && deck.getCardsLeft() == 104
+                && deck.getCardsUsedCount() == 0)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void UpdateCardsUsed_Test()
+        {
+            //arange
+            int expectedResult = 2;
+            Deck deck = new Deck();
+            
+
+            //act
+            deck.updateCardsUsed(2);
+
+            //assert
+            int actual = deck.getCardsUsedCount();
+            Assert.AreEqual(expectedResult, actual);
         }
     }
 
