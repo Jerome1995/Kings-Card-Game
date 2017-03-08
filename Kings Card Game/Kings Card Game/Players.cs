@@ -9,10 +9,12 @@ namespace Kings_Card_Game
 {
     public class Players
     {
+        //Variables
         private string playerName;
         private List<String> playerList;
         private int i = 0;
 
+        //Constructors
         public Players()
         {
             playerName = "";
@@ -25,6 +27,7 @@ namespace Kings_Card_Game
             playerList.Add(playerName);
         }
 
+        //Methods
         public void addPlayer(string name)
         {
             playerList.Add(name);

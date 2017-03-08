@@ -17,13 +17,16 @@ namespace Kings_Card_Game
         {
             InitializeComponent();
         }
-
+        //Forms
         private Welcome_Screen welcomeFrm = new Welcome_Screen();
         private Kings kingFrm;
         private Add_Player addFrm = new Add_Player();
-        private List<string> list = new List<string>();
-        Game game = new Game();
 
+        //Variables
+        private List<string> list = new List<string>();
+        public Game game = new Game();
+
+        //Methods
         public void addToDataGrid(string name, DataGridView grid)
         {
             if (name != string.Empty)
@@ -33,7 +36,6 @@ namespace Kings_Card_Game
                 grid.Visible = true;
             }
         }
-
         public void AddPlayerDialogBox()
         {
             Add_Player playername = new Add_Player();
@@ -66,7 +68,6 @@ namespace Kings_Card_Game
                 deckAmount.Dispose();
             }
         }
-
         public void ExcludeCardsDialogBox()
         {
             Exclude_Cards exCards = new Exclude_Cards();
@@ -85,7 +86,6 @@ namespace Kings_Card_Game
                 exCards.Dispose();
             }
         }
-
         public void CreateGame()
         {                
             game.SetPlayers(grdPlayer);
@@ -94,8 +94,9 @@ namespace Kings_Card_Game
             kingFrm = new Kings(game);
             kingFrm.Show();
             Hide();
-        }
-        
+        }      
+
+        //Events
         private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -103,22 +104,18 @@ namespace Kings_Card_Game
             welcomeFrm.Closed += (s, args) => this.Close();
             welcomeFrm.Show();
         }
-
         private void addPlayerButton_Click(object sender, EventArgs e)
         {
             AddPlayerDialogBox();
         }
-
         private void setDecksButton_Click(object sender, EventArgs e)
         {
             SetDecksDialogBox();
         }
-
         private void excludeCardsButton_Click(object sender, EventArgs e)
         {
             ExcludeCardsDialogBox();
         }
-
         private void startGameButton_Click(object sender, EventArgs e)
         {
             CreateGame();

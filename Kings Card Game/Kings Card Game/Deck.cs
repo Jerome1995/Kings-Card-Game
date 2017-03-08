@@ -9,6 +9,7 @@ namespace Kings_Card_Game
 {
     public class Deck
     {
+        //Variables
         private double numberOfDecks;
         private double orignalNumberOfDecks;
         private int cardsLeft=0;
@@ -31,6 +32,7 @@ namespace Kings_Card_Game
             "Queen Of Clubs","King Of Spades","King Of Hearts","King Of Diamonds","King Of Clubs"
         };
 
+        //Constructors
         public Deck()
         {
             numberOfDecks = 0;
@@ -75,9 +77,8 @@ namespace Kings_Card_Game
         {
             return UsedCards;
         }
-
         
-        //Functions
+        //Methods
         public Card getNextCard()
         {
             index = random.Next(DeckOfCards.Count);
@@ -621,7 +622,6 @@ namespace Kings_Card_Game
                 cardsUsed = 0;
             }
         }
-        
     }
 }
  

@@ -12,15 +12,18 @@ namespace Kings_Card_Game
 {
     public partial class Kings : Form
     {
+        //Constructors
         public Kings(Game game)
         {
             InitializeComponent();
             this.game = game;
         }
         
+        //Variables
         private Game game;
         private Card card;
 
+        //Methods
         public void CardDetails()
         {
             txtCardName.Text = card.getCardName();
@@ -35,6 +38,7 @@ namespace Kings_Card_Game
             txtPlayerAmount.Text = game.PlayerAmount().ToString();
         }
 
+        //Events
         private void Kings_Load(object sender, EventArgs e)
         {
             card = game.NextCard();
@@ -44,14 +48,12 @@ namespace Kings_Card_Game
             
             cardBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-
         private void nextCardButton_Click(object sender, EventArgs e)
         {
             card = game.NextCard();
             CardDetails();
             PlayerDetails();
         }
-
         private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -60,7 +62,6 @@ namespace Kings_Card_Game
             frm.Show();
 
         }
-
         private void gameDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -68,106 +69,47 @@ namespace Kings_Card_Game
             game = new Game();
             frm.Show();
         }
-
         private void addPlayerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Add_Player playername = new Add_Player();
-            if (playername.ShowDialog(this) == DialogResult.OK)
-            {
-                game.AddPlayer(playername.txtPlayerName.Text);
-            }
-            else
-            {
-                playername.Dispose();
-            }
+            game.AddPlayer(this);
         }
-
         private void removePlayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Remove_Player playername = new Remove_Player();
-            if (playername.ShowDialog(this) == DialogResult.OK)
-            {
-                game.RemovePlayer(playername.txtPlayerName.Text);
-            }
-            else
-            {
-                playername.Dispose();
-            }
+            game.RemovePlayer(this);
         }
-
         private void changePlayerNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Change_Player_Name player = new Change_Player_Name();
-            if (player.ShowDialog(this) == DialogResult.OK)
-            {
-                game.ChangePlayerName(player.txtOldName.Text,player.txtNewName.Text);
-            }
-            else
-            {
-                player.Dispose();
-            }
+            game.ChangePlayerName(this);
         }
-
         private void halfDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.AddDeck(0.5);
             CardDetails();
         }
-
         private void oneDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.AddDeck(1);
             CardDetails();
         }
-
         private void twoDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
             game.AddDeck(2);
             CardDetails();
         }
-
         private void chooseCardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Exclude_Cards eCard = new Exclude_Cards();
-            eCard.comboCard = game.ShowRemainingCards(eCard.comboCard);
-            if (eCard.ShowDialog(this) == DialogResult.OK)
-            {
-                if (!eCard.comboCard.SelectedItem.Equals(null))
-                {
-                    game.ExcludeCard(eCard.comboCard.SelectedItem.ToString());
-                    CardDetails();
-                }
-            }
-            else
-            {
-                eCard.Dispose();
-            }
-
+           game.ExcludeCard(this);
+           CardDetails();
         }
-
         private void undoExclusionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Undo_Card_Exclusion uCard = new Undo_Card_Exclusion();
-            uCard.comboCard = game.ShowExcludedCards(uCard.comboCard);
-            if (uCard.ShowDialog(this) == DialogResult.OK)
-            {
-                if (!uCard.comboCard.SelectedItem.Equals(null))
-                {
-                    game.UndoExclusionOfCard(uCard.comboCard.SelectedItem.ToString());
-                    CardDetails();
-                }
-            }
-            else
-            {
-                uCard.Dispose();
-            }
+            game.UndoExclusionOfCard(this);
+            CardDetails();
         }
-
         private void restartGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtPlayerName.Text = game.RestartGame();
             CardDetails();
-            PlayerDetails();
         }
 
 
