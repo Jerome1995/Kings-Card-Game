@@ -23,69 +23,10 @@ namespace Kings_Card_Game
         private Add_Player addFrm = new Add_Player();
 
         //Variables
-        private List<string> list = new List<string>();
+        
         public Game game = new Game();
 
         //Methods
-        public void addToDataGrid(string name, DataGridView grid)
-        {
-            if (name != string.Empty)
-            {
-                grid.Rows.Add(name);
-                grid.Update();
-                grid.Visible = true;
-            }
-        }
-        public void AddPlayerDialogBox()
-        {
-            Add_Player playername = new Add_Player();
-            if (playername.ShowDialog(this) == DialogResult.OK)
-            {
-                addToDataGrid(playername.txtPlayerName.Text,grdPlayer);
-                setDecksButton.Visible = true;
-            }
-            else
-            {
-                playername.Dispose();
-            }
-        }
-        public void SetDecksDialogBox()
-        {
-            Set_Decks deckAmount = new Set_Decks();
-            if (deckAmount.ShowDialog(this) == DialogResult.OK)
-            {
-                if (grdDecks.RowCount > 0)
-                {
-                    grdDecks.Rows[0].Cells[0].Value = deckAmount.comboDeck.Text;
-                    excludeCardsButton.Visible = true;
-                    startGameButton.Visible = true;
-                }
-                addToDataGrid(deckAmount.comboDeck.Text, grdDecks);
-                grdDecks.AllowUserToAddRows = false;                
-            }
-            else
-            {
-                deckAmount.Dispose();
-            }
-        }
-        public void ExcludeCardsDialogBox()
-        {
-            Exclude_Cards exCards = new Exclude_Cards();
-            
-            if (exCards.ShowDialog(this) == DialogResult.OK)
-            {
-                if (list.Contains(exCards.comboCard.Text) == false)
-                {
-                    list.Add(exCards.comboCard.Text);
-                    addToDataGrid(exCards.comboCard.Text, grdExcludedCards);
-                    
-                } 
-            }
-            else
-            {
-                exCards.Dispose();
-            }
-        }
         public void CreateGame()
         {                
             game.SetPlayers(grdPlayer);
@@ -106,15 +47,15 @@ namespace Kings_Card_Game
         }
         private void addPlayerButton_Click(object sender, EventArgs e)
         {
-            AddPlayerDialogBox();
+            game.AddPlayerDialogBox(grdPlayer, this, setDecksButton);
         }
         private void setDecksButton_Click(object sender, EventArgs e)
         {
-            SetDecksDialogBox();
+            game.SetDecksDialogBox(grdDecks, this, excludeCardsButton, startGameButton);
         }
         private void excludeCardsButton_Click(object sender, EventArgs e)
         {
-            ExcludeCardsDialogBox();
+            game.ExcludeCardsDialogBox(grdExcludedCards, this);
         }
         private void startGameButton_Click(object sender, EventArgs e)
         {
