@@ -256,22 +256,93 @@ namespace Kings_Card_Game_Test
     }
 
     [TestClass]
-    public class GameTests
-    {
-        [TestMethod]
-        public void TestMethod1()
-        {
-
-        }
-    }
-
-    [TestClass]
     public class PlayerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AddPlayer_Test()
         {
+            //arange
+            string expectedResult = "Jerome";
+            Players player = new Players();
 
+
+            //act
+            player.addPlayer("Jerome");
+
+            //assert
+            string actual = player.getPlayer();
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void NextPlayer_Test()
+        {
+            //arange
+            string expectedResult = "Jerome";
+            Players player = new Players();
+            player.addPlayer("John");
+            player.addPlayer("Jerome");
+
+            //act
+            string actual = player.nextPlayer("John");
+
+            //assert
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void GetPlayerAmount_Test()
+        {
+            //arange
+            int expectedResult = 2;
+            Players player = new Players();
+            player.addPlayer("Jerome");
+            player.addPlayer("John");
+
+            //act
+            int actual = player.getPlayerAmount();
+
+            //assert
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void RemovePlayer_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Players player = new Players();
+            player.addPlayer("Jerome");
+            player.addPlayer("John");
+            player.addPlayer("Patrick");
+
+            //act
+            Boolean result = player.removePlayer("Patrick");
+
+            //assert
+            Boolean actual = false;
+            if (result == true && player.getPlayerAmount() == 2)
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
+        }
+        [TestMethod]
+        public void ChangePlayerName_Test()
+        {
+            //arange
+            Boolean expectedResult = true;
+            Players player = new Players();
+            player.addPlayer("Jxrome");
+            player.addPlayer("Patrick");
+
+            //act
+            Boolean result = player.changePlayerName("Jxrome", "Jerome");
+            
+            //assert
+            Boolean actual = false;
+            if (result == true && player.getPlayerAmount() == 2 && player.getPlayer().Equals("Jerome"))
+            {
+                actual = true;
+            }
+            Assert.AreEqual(expectedResult, actual);
         }
     }
 }

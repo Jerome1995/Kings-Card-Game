@@ -29,7 +29,6 @@ namespace Kings_Card_Game
         {
             playerList.Add(name);
         }
-
         public string getPlayer()
         {
             playerName = playerList[0];
@@ -59,12 +58,10 @@ namespace Kings_Card_Game
         {
             return playerList.Count();
         }
-
         public Boolean removePlayer(string name)
         {
             return playerList.Remove(name);
         }
-
         public Boolean changePlayerName(string oldName,string newName)
         {
             i = 0;
@@ -83,11 +80,6 @@ namespace Kings_Card_Game
             }
             return false;
         }
-
-        public Boolean nameExists(string name)
-        {
-            Predicate<String> checkName = (String p) => { return p == name; };
-            return playerList.Exists(checkName);
-        }
+        
     }
 }
