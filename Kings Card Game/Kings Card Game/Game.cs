@@ -12,7 +12,7 @@ namespace Kings_Card_Game
        //Variables
         private Players player;
         private Deck deck;
-        private List<string> list = new List<string>();
+        private List<string> selectedCards = new List<string>();
 
        //Constructors
         public Game()
@@ -278,9 +278,9 @@ namespace Kings_Card_Game
             
             if (exCards.ShowDialog(form) == DialogResult.OK)
             {
-                if (list.Contains(exCards.comboCard.Text) == false)
+                if (selectedCards.Contains(exCards.comboCard.Text) == false)
                 {
-                    list.Add(exCards.comboCard.Text);
+                    selectedCards.Add(exCards.comboCard.Text);
                     addToDataGrid(exCards.comboCard.Text, grid);                    
                 } 
             }

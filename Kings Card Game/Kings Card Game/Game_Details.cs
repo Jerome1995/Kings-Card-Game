@@ -20,7 +20,6 @@ namespace Kings_Card_Game
         //Forms
         private Welcome_Screen welcomeFrm = new Welcome_Screen();
         private Kings kingFrm;
-        private Add_Player addFrm = new Add_Player();
 
         //Variables
         
