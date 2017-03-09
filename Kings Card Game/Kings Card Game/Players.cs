@@ -30,7 +30,25 @@ namespace Kings_Card_Game
         //Methods
         public void addPlayer(string name)
         {
-            playerList.Add(name);
+            string dupName = name;
+            i = 0;
+            int num = 1;
+            while (i <= playerList.Count)
+            {
+                int count = playerList.Count(j => j.Equals(dupName));
+                if (count == 0)
+                {
+                    playerList.Add(dupName);
+                    i = playerList.Count + 1;
+                }
+                else
+                {
+                    num++;
+                    dupName = name + "_" + num;
+                }
+            }
+            
+            
         }
         public string getPlayer()
         {
@@ -82,7 +100,6 @@ namespace Kings_Card_Game
                 }
             }
             return false;
-        }
-        
+        }        
     }
 }

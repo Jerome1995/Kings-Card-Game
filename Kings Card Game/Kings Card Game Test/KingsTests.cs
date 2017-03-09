@@ -262,15 +262,17 @@ namespace Kings_Card_Game_Test
         public void AddPlayer_Test()
         {
             //arange
-            string expectedResult = "Jerome";
+            string expectedResult = "Jerome_3";
             Players player = new Players();
 
 
             //act
             player.addPlayer("Jerome");
+            player.addPlayer("Jerome");
+            player.addPlayer("Jerome");
 
             //assert
-            string actual = player.getPlayer();
+            string actual = player.nextPlayer("Jerome_2");
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
