@@ -21,16 +21,15 @@ namespace Kings_Card_Game
         
         //Variables
         private Game game;
-        private Card card;
 
         //Methods
         public void CardDetails()
         {
-            txtCardName.Text = card.getCardName();
-            txtCardRule.Text = card.getCardRule();
+            txtCardName.Text = game.getCardName();
+            txtCardRule.Text = game.getCardRule();
             txtCardsLeft.Text = game.CardsLeft().ToString();
             txtDecksLeft.Text = game.NumberOfDecks().ToString();
-            cardBox.ImageLocation = @"Images\" + card.getImagePath() + ".png";
+            cardBox.ImageLocation = @"Images\" + game.getImagePath() + ".png";
         }
         public void PlayerDetails()
         {
@@ -41,7 +40,7 @@ namespace Kings_Card_Game
         //Events
         private void Kings_Load(object sender, EventArgs e)
         {
-            card = game.NextCard();
+            game.NextCard();
             CardDetails();
             txtPlayerName.Text = game.FirstPlayer();
             txtPlayerAmount.Text = game.PlayerAmount().ToString();
@@ -50,7 +49,7 @@ namespace Kings_Card_Game
         }
         private void nextCardButton_Click(object sender, EventArgs e)
         {
-            card = game.NextCard();
+            game.NextCard();
             CardDetails();
             PlayerDetails();
         }

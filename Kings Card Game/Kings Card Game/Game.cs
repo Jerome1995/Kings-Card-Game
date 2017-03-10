@@ -7,24 +7,35 @@ using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
-   public class Game
+   public class Game : Players
     {
        //Variables
-        private Players player;
-        private Deck deck;
         private List<string> selectedCards = new List<string>();
 
        //Constructors
         public Game()
         {
-            this.player = new Players();
-            this.deck = new Deck();
+            setPlayerName("");
+            setCardName("");
+            setCardRule("");
+            setImagePath("");
+            setNumberOfDecks(0);
+            setCardsLeft(0);
+            setExcludedCards(new List<string>());
+            setPlayerList(new List<string>());
         }
 
-        public Game(Deck newDeck, Players newPlayer)
+        public Game(string newPlayer, double numDeck, int cardsLeft, Card card, List<String> exCards, List<string> playerList, string cardname, string rule, string path)
         {
-            this.player = newPlayer;
-            this.deck = newDeck;
+            setPlayerName(newPlayer);
+            setCardName(cardname);
+            setCardRule(rule);
+            setImagePath(path);
+            setNumberOfDecks(numDeck);
+            setCardsLeft(cardsLeft);
+            setExcludedCards(exCards);
+            setPlayerList(playerList);
+            
         }
 
        //Player Methods
@@ -33,7 +44,7 @@ namespace Kings_Card_Game
             Add_Player playername = new Add_Player();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
-                player.addPlayer(playername.txtPlayerName.Text);
+                addPlayer(playername.txtPlayerName.Text);
                 MessageBox.Show("Player Added", "The player " + playername.txtPlayerName.Text + " has been added.");
             }
             else
@@ -46,24 +57,24 @@ namespace Kings_Card_Game
             int i = 0;
             while (i < grid.RowCount-1)
             {
-                player.addPlayer(grid.Rows[i].Cells[0].Value.ToString());
+                addPlayer(grid.Rows[i].Cells[0].Value.ToString());
                 i++;
             }
         }
         public string FirstPlayer()
         {
-            return player.getPlayer();
+            return getPlayer();
         }
         public string NextPlayer(string name)
         {
-            return player.nextPlayer(name);
+            return nextPlayer(name);
         }
         public void RemovePlayer(Form form)
         {
             Remove_Player playername = new Remove_Player();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
-                if (player.removePlayer(playername.txtPlayerName.Text))
+                if (removePlayer(playername.txtPlayerName.Text))
                 {
                     MessageBox.Show("Player Removed", "The player " + playername.txtPlayerName.Text + " has been removed from the game");
                 }
@@ -82,7 +93,7 @@ namespace Kings_Card_Game
             Change_Player_Name playernames = new Change_Player_Name();
             if (playernames.ShowDialog(form) == DialogResult.OK)
             {
-                if (player.changePlayerName(playernames.txtOldName.Text, playernames.txtNewName.Text))
+                if (changePlayerName(playernames.txtOldName.Text, playernames.txtNewName.Text))
                 {
                     MessageBox.Show("Player Name Changed!", "The player name " + playernames.txtOldName.Text + " has been changed to " + playernames.txtNewName.Text);
                 }
@@ -98,26 +109,26 @@ namespace Kings_Card_Game
         }
         public int PlayerAmount()
         {
-            return player.getPlayerAmount();
+            return getPlayerAmount();
         }        
 
        //Deck Methods
-        public Card NextCard()
+        public void NextCard()
         {
-            return deck.getNextCard();
+            getNextCard();
         }
         public void SetDecks(double num)
         {
-            deck.setDecks(num);
+            setDecks(num);
         }
         public void AddDeck(double num)
         {
-            deck.addDeck(num);
+            addDeck(num);
             MessageBox.Show("Deck Added", num + " Decks have been added.");
         }
         public void RemoveDeck(double num)
         {
-            Boolean result = deck.removeDeck(num);
+            Boolean result = removeDeck(num);
             if (result)
             {
                 MessageBox.Show("Deck Removed", num + " Decks have been removed.");
@@ -129,11 +140,11 @@ namespace Kings_Card_Game
         }
         public double NumberOfDecks()
         {
-            return deck.getNumberOfDecks();
+            return getNumberOfDecks();
         }
         public int CardsLeft()
         {
-            return deck.getCardsLeft();
+            return getCardsLeft();
         }
         public void ExcludeCard(Form form)
         {
@@ -143,7 +154,7 @@ namespace Kings_Card_Game
             {
                 if (!eCard.comboCard.SelectedItem.Equals(null))
                 {
-                    Boolean result = deck.excludeCard(eCard.comboCard.SelectedItem.ToString());
+                    Boolean result = excludeCard(eCard.comboCard.SelectedItem.ToString());
                     if (result)
                     {
                         MessageBox.Show("Card Excluded", "All occurences of " + eCard.comboCard.SelectedItem.ToString() + " have been removed.");
@@ -165,7 +176,7 @@ namespace Kings_Card_Game
             int i = 0;
             while (i < grid.RowCount - 1)
             {
-                result = deck.excludeCard(grid.Rows[i].Cells[0].Value.ToString());
+                result = excludeCard(grid.Rows[i].Cells[0].Value.ToString());
                 i++;
             }
         }
@@ -177,7 +188,7 @@ namespace Kings_Card_Game
             {
                 if (!uCard.comboCard.SelectedItem.Equals(null))
                 {
-                    if (deck.undoExclusion(uCard.comboCard.SelectedItem.ToString()))
+                    if (undoExclusion(uCard.comboCard.SelectedItem.ToString()))
                     {
                         MessageBox.Show("Exclusion Undone",
                             "The card " + uCard.comboCard.SelectedItem.ToString() + " has been added back to the deck");
@@ -198,7 +209,7 @@ namespace Kings_Card_Game
         public ComboBox ShowRemainingCards(ComboBox combo)
         {
             int i = 0;
-            foreach (string x in deck.remainingCards())
+            foreach (string x in remainingCards())
             {
                 combo.Items.Insert(i, x);
                 i++;
@@ -208,7 +219,7 @@ namespace Kings_Card_Game
         public ComboBox ShowExcludedCards(ComboBox combo)
         {
             int i = 0;
-            foreach (string x in deck.getExcludedCards())
+            foreach (string x in getExcludedCards())
             {
                 combo.Items.Insert(i, x);
                 i++;
@@ -219,7 +230,7 @@ namespace Kings_Card_Game
        //Game Methods
         public string RestartGame()
         {
-            Boolean result = deck.restartGame();
+            Boolean result = restartGame();
             if (result)
             {
                 MessageBox.Show("Game Reset", "The game and the decks have been reset");

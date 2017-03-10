@@ -7,24 +7,30 @@ using System.Threading.Tasks;
 
 namespace Kings_Card_Game
 {
-    public class Players
+    public abstract class Players : Deck
     {
         //Variables
         private string playerName;
-        private List<String> playerList;
+        private List<String> playerList = new List<string>();
         private int i = 0;
 
-        //Constructors
-        public Players()
-        {
-            playerName = "";
-            playerList = new List<string>();
-        }
-
-        public Players(string name)
+        //Setters
+        public void setPlayerName(string name)
         {
             this.playerName = name;
-            playerList.Add(playerName);
+        }
+        public void setPlayerList(List<string> list)
+        {
+            this.playerList = list;
+        }
+        //Getters 
+        public string getPlayerName()
+        {
+            return playerName;
+        }
+        public List<string> getPlayerList()
+        {
+            return playerList;
         }
 
         //Methods
