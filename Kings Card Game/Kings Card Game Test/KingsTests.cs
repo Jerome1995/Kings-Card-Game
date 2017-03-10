@@ -83,7 +83,7 @@ namespace Kings_Card_Game_Test
             game.joinDecks(2);
 
             //assert
-            int actual = game.ShowRemainingCards().Count;
+            int actual = game.CardsLeft();
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -127,43 +127,32 @@ namespace Kings_Card_Game_Test
         public void RemoveDeck_Test()
         {
             //arange
-            Boolean expectedResult = true;
+            int expectedResult = 2;
             Game game = new Game();
             game.SetDecks(3);
 
             //act
-            Boolean result = game.RemoveDeck(1);
+            game.RemoveDeck(1);
 
             //assert
-            Boolean actual = false;
-            if (result == true && game.NumberOfDecks() == 2 && game.CardsLeft() == 104)
-            {
-                actual = true;
-            }
+            double actual = game.NumberOfDecks();
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
         public void ReduceCardsLeft_Test()
         {
             //arange
-            Boolean expectedResult = true;
+            int expectedResult = 51;
             Game game = new Game();
-            game.SetDecks(2);
-            List<string> list = new List<string>();
-            list = game.ShowRemainingCards();
-            game.setCardName(list[2]);
+            game.SetDecks(1);
+            
 
             //act
-            game.reduceCardsLeft(2);
+            game.reduceCardsLeft(1);
 
             //assert
-            Boolean actual = false;
-            if (game.CardsLeft() == 103 && game.getCardsUsedCount() == 1 
-                && !game.ShowRemainingCards()[2].Equals(game.getCardName())
-                && game.getUsedCards().Contains(game.getCardName()) == true)
-            {
-                actual = true;
-            }
+            int actual = game.CardsLeft();
+            
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -172,21 +161,14 @@ namespace Kings_Card_Game_Test
             //arange
             Boolean expectedResult = true;
             Game game = new Game();
-            game.setCardName("Ace Of Spades");
-            game.SetDecks(2);
+            game.SetDecks(1);
             
 
             //act
-            Boolean result = game.AddToExcludeCardList(game.getCardName());
+            game.ExcludeCard(form);
 
             //assert
-            Boolean actual = false;
-            if (result == true && !game.ShowRemainingCards().Contains(game.getCardName())
-                && game.getUsedCards().Contains(game.getCardName()) && game.getCardsUsedCount() == 2
-                && game.CardsLeft() == 102 && game.ShowExcludedCards().Contains(game.getCardName()))
-            {
-                actual = true;
-            }
+            
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
