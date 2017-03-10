@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
@@ -37,21 +38,33 @@ namespace Kings_Card_Game
         {
             return OrignalDeckOfCards;
         }
-        public int getCardsLeft()
+        public int CardsLeft()
         {
             return this.cardsLeft;
         }
-        public double getNumberOfDecks()
+        public double NumberOfDecks()
         {
             return numberOfDecks;
         }
-        public List<string> getExcludedCards()
+        public ComboBox ShowExcludedCards(ComboBox combo)
         {
-            return ExcludedCards;
+            int i = 0;
+            foreach (string x in ExcludedCards)
+            {
+                combo.Items.Insert(i, x);
+                i++;
+            }
+            return combo;
         }
-        public List<string> remainingCards()
+        public ComboBox ShowRemainingCards(ComboBox combo)
         {
-            return DeckOfCards;
+            int i = 0;
+            foreach (string x in DeckOfCards)
+            {
+                combo.Items.Insert(i, x);
+                i++;
+            }
+            return combo;
         }
         public int getCardsUsedCount()
         {
@@ -77,7 +90,7 @@ namespace Kings_Card_Game
         }
         
         //Methods
-        public void getNextCard()
+        public void NextCard()
         {
             index = random.Next(DeckOfCards.Count);
             if (cardsLeft != 0)
@@ -495,14 +508,14 @@ namespace Kings_Card_Game
                 }
             }
         }
-        public void setDecks(double num)
+        public void SetDecks(double num)
         {
             joinDecks(num);
             numberOfDecks = num;
             orignalNumberOfDecks = num;
             cardsLeft = Convert.ToInt16(numberOfDecks*52);
         }
-        public void addDeck(double num)
+        public void AddDeck(double num)
         {
             joinDecks(num);
             this.numberOfDecks = num + this.numberOfDecks;
@@ -520,9 +533,11 @@ namespace Kings_Card_Game
                     i++;
                 }
             }
+            MessageBox.Show("Deck Added", num + " Decks have been added.");
         }
-        public Boolean removeDeck(double num)
+        public void RemoveDeck(double num)
         {
+            Boolean result = false;
             if (this.numberOfDecks > num)
             {
                 this.numberOfDecks = this.numberOfDecks - num;
@@ -546,9 +561,16 @@ namespace Kings_Card_Game
                         j++;
                     }
                 }
-                return true;
+                result = true;
             }
-            return false;
+            if (result)
+            {
+                MessageBox.Show("Deck Removed", num + " Decks have been removed.");
+            }
+            else
+            {
+                MessageBox.Show("Error!", " Decks could not be removed as the number of decks to be removed was greater than the number of decks available.");
+            }
         }       
         public void reduceCardsLeft(int num)
         {
@@ -557,7 +579,7 @@ namespace Kings_Card_Game
             DeckOfCards.Remove(DeckOfCards[num]);
             updateCardsUsed(1);
         }
-        public Boolean excludeCard(string card)
+        public Boolean AddToExcludeCardList(string card)
         {
             Boolean fini = false;
             while (fini == false)
@@ -577,7 +599,7 @@ namespace Kings_Card_Game
             }
             return fini;
         }
-        public Boolean restartGame()
+        public Boolean ResetGameDetails()
         {
             this.cardsUsed = 0;
             this.cardsLeft = Convert.ToInt16(orignalNumberOfDecks * 52);
@@ -588,28 +610,48 @@ namespace Kings_Card_Game
             joinDecks(orignalNumberOfDecks);
             return true;
         }    
-        public Boolean undoExclusion(string card)
+        public void UndoExclusionOfCard(Form form)
         {
+            Boolean result = false;
             int i = 0;
-            while (i <= UsedCards.Count())
+            Undo_Card_Exclusion uCard = new Undo_Card_Exclusion();
+            uCard.comboCard = ShowExcludedCards(uCard.comboCard);
+            if (uCard.ShowDialog(form) == DialogResult.OK)
             {
-                if (UsedCards.Contains(card))
+                string card = uCard.comboCard.SelectedItem.ToString();
+                if (!uCard.comboCard.SelectedItem.Equals(null))
                 {
-                    DeckOfCards.Add(card);
-                    UsedCards.Remove(card);
-                    cardsLeft++;
-                    updateCardsUsed(-1);
+                    while (i <= UsedCards.Count())
+                    {
+                        if (UsedCards.Contains(card))
+                        {
+                            DeckOfCards.Add(card);
+                            UsedCards.Remove(card);
+                            cardsLeft++;
+                            updateCardsUsed(-1);
+                        }
+                        i++;
+                    }
+                    if (!UsedCards.Contains(card))
+                    {
+                        ExcludedCards.Remove(card);
+                        result = true;
+                    }
+                    if (result)
+                    {
+                        MessageBox.Show("Exclusion Undone",
+                            "The card " + card + " has been added back to the deck");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error!",
+                            "The card " + card + " counld not be added back to the deck");
+                    }
                 }
-                i++;
-            }
-            if (!UsedCards.Contains(card))
-            {
-                ExcludedCards.Remove(card);
-                return true;
             }
             else
             {
-                return false;
+                uCard.Dispose();
             }
         }
         public void updateCardsUsed(int num)
@@ -619,6 +661,41 @@ namespace Kings_Card_Game
             {
                 numberOfDecks = numberOfDecks - 0.5;
                 cardsUsed = 0;
+            }
+        }
+
+        public void ExcludeCard(Form form)
+        {
+            Exclude_Cards eCard = new Exclude_Cards();
+            eCard.comboCard = ShowRemainingCards(eCard.comboCard);
+            if (eCard.ShowDialog(form) == DialogResult.OK)
+            {
+                if (!eCard.comboCard.SelectedItem.Equals(null))
+                {
+                    Boolean result = AddToExcludeCardList(eCard.comboCard.SelectedItem.ToString());
+                    if (result)
+                    {
+                        MessageBox.Show("Card Excluded", "All occurences of " + eCard.comboCard.SelectedItem.ToString() + " have been removed.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error!", "The card " + eCard.comboCard.SelectedItem.ToString() + "could not be removed.");
+                    }
+                }
+            }
+            else
+            {
+                eCard.Dispose();
+            }
+        }
+        public void SetExcludedCards(DataGridView grid)
+        {
+            Boolean result;
+            int i = 0;
+            while (i < grid.RowCount - 1)
+            {
+                result = AddToExcludeCardList(grid.Rows[i].Cells[0].Value.ToString());
+                i++;
             }
         }
     }

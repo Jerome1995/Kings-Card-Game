@@ -13,13 +13,13 @@ namespace Kings_Card_Game_Test
         {
             //arange
             string expectedResult = "Ace Of Spades";
-            Card card = new Card();
+            Game game = new Game();
 
             //act
-            card.setCardName("Ace Of Spades");
+            game.setCardName("Ace Of Spades");
 
             //assert
-            string actual = card.getCardName();
+            string actual = game.getCardName();
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -27,13 +27,13 @@ namespace Kings_Card_Game_Test
         {
             //arange
             string expectedResult = "Drink For 2 Seconds";
-            Card card = new Card();
+            Game game = new Game();
 
             //act
-            card.setCardRule("Drink For 2 Seconds");
+            game.setCardRule("Drink For 2 Seconds");
 
             //assert
-            string actual = card.getCardRule();
+            string actual = game.getCardRule();
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -41,13 +41,13 @@ namespace Kings_Card_Game_Test
         {
             //arange
             string expectedResult = "C:\\desktop\\image.png";
-            Card card = new Card();
+            Game game = new Game();
 
             //act
-            card.setImagePath("C:\\desktop\\image.png");
+            game.setImagePath("C:\\desktop\\image.png");
 
             //assert
-            string actual = card.getImagePath();
+            string actual = game.getImagePath();
             Assert.AreEqual(expectedResult, actual);
         }
     }
@@ -60,17 +60,16 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
-            Card card = new Card();
+            Game game = new Game();
             List<string> list = new List<string>();
-            list.AddRange(deck.getOrignalDeck());
-            deck.setDecks(1);
+            list.AddRange(game.getOrignalDeck());
+            game.SetDecks(1);
 
             //act
-            card = deck.getNextCard();
+            game.NextCard();
 
             //assert
-            Boolean actual = list.Contains(card.getCardName());
+            Boolean actual = list.Contains(game.getCardName());
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -78,13 +77,13 @@ namespace Kings_Card_Game_Test
         {
             //arange
             int expectedResult = 104;
-            Deck deck = new Deck();
+            Game game = new Game();
 
             //act
-            deck.joinDecks(2);
+            game.joinDecks(2);
 
             //assert
-            int actual = deck.remainingCards().Count;
+            int actual = game.ShowRemainingCards().Count;
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -92,14 +91,14 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
+            Game game = new Game();
             
             //act
-            deck.setDecks(2);
+            game.SetDecks(2);
 
             //assert
             Boolean actual = false;
-            if (deck.getNumberOfDecks() == 2 && deck.getCardsLeft() == 104)
+            if (game.NumberOfDecks() == 2 && game.CardsLeft() == 104)
             {
                 actual = true;
             }
@@ -110,15 +109,15 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
-            deck.setDecks(2);
+            Game game = new Game();
+            game.SetDecks(2);
 
             //act
-            deck.addDeck(2);
+            game.AddDeck(2);
 
             //assert
             Boolean actual = false;
-            if (deck.getNumberOfDecks() == 4 && deck.getCardsLeft() == 208)
+            if (game.NumberOfDecks() == 4 && game.CardsLeft() == 208)
             {
                 actual = true;
             }
@@ -129,15 +128,15 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
-            deck.setDecks(3);
+            Game game = new Game();
+            game.SetDecks(3);
 
             //act
-            Boolean result = deck.removeDeck(1);
+            Boolean result = game.RemoveDeck(1);
 
             //assert
             Boolean actual = false;
-            if (result == true && deck.getNumberOfDecks() == 2 && deck.getCardsLeft() == 104)
+            if (result == true && game.NumberOfDecks() == 2 && game.CardsLeft() == 104)
             {
                 actual = true;
             }
@@ -148,21 +147,20 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
-            Card card = new Card();
-            deck.setDecks(2);
+            Game game = new Game();
+            game.SetDecks(2);
             List<string> list = new List<string>();
-            list = deck.remainingCards();
-            card.setCardName(list[2]);
+            list = game.ShowRemainingCards();
+            game.setCardName(list[2]);
 
             //act
-            deck.reduceCardsLeft(2);
+            game.reduceCardsLeft(2);
 
             //assert
             Boolean actual = false;
-            if (deck.getCardsLeft() == 103 && deck.getCardsUsedCount() == 1 
-                && !deck.remainingCards()[2].Equals(card.getCardName())
-                && deck.getUsedCards().Contains(card.getCardName()) == true)
+            if (game.CardsLeft() == 103 && game.getCardsUsedCount() == 1 
+                && !game.ShowRemainingCards()[2].Equals(game.getCardName())
+                && game.getUsedCards().Contains(game.getCardName()) == true)
             {
                 actual = true;
             }
@@ -173,20 +171,19 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
-            Card card = new Card();
-            card.setCardName("Ace Of Spades");
-            deck.setDecks(2);
+            Game game = new Game();
+            game.setCardName("Ace Of Spades");
+            game.SetDecks(2);
             
 
             //act
-            Boolean result = deck.excludeCard(card.getCardName());
+            Boolean result = game.AddToExcludeCardList(game.getCardName());
 
             //assert
             Boolean actual = false;
-            if (result == true && !deck.remainingCards().Contains(card.getCardName())
-                && deck.getUsedCards().Contains(card.getCardName()) && deck.getCardsUsedCount() == 2
-                && deck.getCardsLeft() == 102 && deck.getExcludedCards().Contains(card.getCardName()))
+            if (result == true && !game.ShowRemainingCards().Contains(game.getCardName())
+                && game.getUsedCards().Contains(game.getCardName()) && game.getCardsUsedCount() == 2
+                && game.CardsLeft() == 102 && game.ShowExcludedCards().Contains(game.getCardName()))
             {
                 actual = true;
             }
@@ -197,19 +194,19 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Deck deck = new Deck();
-            deck.setDecks(2);
-            deck.addDeck(2);
-            deck.excludeCard("Ace Of Spades");
+            Game game = new Game();
+            game.SetDecks(2);
+            game.AddDeck(2);
+            game.AddToExcludeCardList("Ace Of Spades");
 
             //act
-            Boolean result = deck.restartGame();
+            Boolean result = game.ResetGameDetails();
 
             //assert
             Boolean actual = false;
-            if (result == true && deck.getNumberOfDecks() == 2 && deck.remainingCards().Count == 104
-                && deck.getExcludedCards().Count == 0 && deck.getUsedCards().Count == 0 && deck.getCardsLeft() == 104
-                && deck.getCardsUsedCount() == 0)
+            if (result == true && game.NumberOfDecks() == 2 && game.ShowRemainingCards().Count == 104
+                && game.ShowExcludedCards().Count == 0 && game.getUsedCards().Count == 0 && game.CardsLeft() == 104
+                && game.getCardsUsedCount() == 0)
             {
                 actual = true;
             }
@@ -221,18 +218,18 @@ namespace Kings_Card_Game_Test
             //arange
             Boolean expectedResult = true;
             string card = "Ace Of Spades";
-            Deck deck = new Deck();
-            deck.setDecks(2);
-            deck.excludeCard(card);
+            Game game = new Game();
+            game.SetDecks(2);
+            game.AddToExcludeCardList(card);
             
             //act
-            Boolean result = deck.undoExclusion(card);
+            Boolean result = game.undoExclusion(card);
 
             //assert
             Boolean actual = false;
-            if (result == true && deck.remainingCards().Contains(card) && !deck.getUsedCards().Contains(card) 
-                && !deck.getExcludedCards().Contains(card) && deck.getCardsLeft() == 104
-                && deck.getCardsUsedCount() == 0)
+            if (result == true && game.ShowRemainingCards().Contains(card) && !game.getUsedCards().Contains(card) 
+                && !game.ShowExcludedCards().Contains(card) && game.CardsLeft() == 104
+                && game.getCardsUsedCount() == 0)
             {
                 actual = true;
             }
@@ -243,14 +240,14 @@ namespace Kings_Card_Game_Test
         {
             //arange
             int expectedResult = 2;
-            Deck deck = new Deck();
+            Game game = new Game();
             
 
             //act
-            deck.updateCardsUsed(2);
+            game.updateCardsUsed(2);
 
             //assert
-            int actual = deck.getCardsUsedCount();
+            int actual = game.getCardsUsedCount();
             Assert.AreEqual(expectedResult, actual);
         }
     }
@@ -263,16 +260,16 @@ namespace Kings_Card_Game_Test
         {
             //arange
             string expectedResult = "Jerome_3";
-            Players player = new Players();
+            Game game = new Game();
 
 
             //act
-            player.addPlayer("Jerome");
-            player.addPlayer("Jerome");
-            player.addPlayer("Jerome");
+            game.addPlayerToList("Jerome");
+            game.addPlayerToList("Jerome");
+            game.addPlayerToList("Jerome");
 
             //assert
-            string actual = player.nextPlayer("Jerome_2");
+            string actual = game.NextPlayer("Jerome_2");
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -280,12 +277,12 @@ namespace Kings_Card_Game_Test
         {
             //arange
             string expectedResult = "Jerome";
-            Players player = new Players();
-            player.addPlayer("John");
-            player.addPlayer("Jerome");
+            Game game = new Game();
+            game.addPlayerToList("John");
+            game.addPlayerToList("Jerome");
 
             //act
-            string actual = player.nextPlayer("John");
+            string actual = game.NextPlayer("John");
 
             //assert
             Assert.AreEqual(expectedResult, actual);
@@ -295,12 +292,12 @@ namespace Kings_Card_Game_Test
         {
             //arange
             int expectedResult = 2;
-            Players player = new Players();
-            player.addPlayer("Jerome");
-            player.addPlayer("John");
+            Game game = new Game();
+            game.addPlayerToList("Jerome");
+            game.addPlayerToList("John");
 
             //act
-            int actual = player.getPlayerAmount();
+            int actual = game.PlayerAmount();
 
             //assert
             Assert.AreEqual(expectedResult, actual);
@@ -310,17 +307,17 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Players player = new Players();
-            player.addPlayer("Jerome");
-            player.addPlayer("John");
-            player.addPlayer("Patrick");
+            Game game = new Game();
+            game.addPlayerToList("Jerome");
+            game.addPlayerToList("John");
+            game.addPlayerToList("Patrick");
 
             //act
-            Boolean result = player.removePlayer("Patrick");
+            Boolean result = game.RemovePlayer(this);
 
             //assert
             Boolean actual = false;
-            if (result == true && player.getPlayerAmount() == 2)
+            if (result == true && game.PlayerAmount() == 2)
             {
                 actual = true;
             }
@@ -331,16 +328,16 @@ namespace Kings_Card_Game_Test
         {
             //arange
             Boolean expectedResult = true;
-            Players player = new Players();
-            player.addPlayer("Jxrome");
-            player.addPlayer("Patrick");
+            Game game = new Game();
+            game.addPlayerToList("Jxrome");
+            game.addPlayerToList("Patrick");
 
             //act
-            Boolean result = player.changePlayerName("Jxrome", "Jerome");
+            Boolean result = game.changePlayerName("Jxrome", "Jerome");
             
             //assert
             Boolean actual = false;
-            if (result == true && player.getPlayerAmount() == 2 && player.getPlayer().Equals("Jerome"))
+            if (result == true && game.PlayerAmount() == 2 && game.FirstPlayer().Equals("Jerome"))
             {
                 actual = true;
             }
