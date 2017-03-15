@@ -37,10 +37,6 @@ namespace Kings_Card_Game
             setPlayerList(playerList);
             
         }       
-
-
-       
-        
        
        //Game Methods
         public string RestartGame()

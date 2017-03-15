@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Kings_Card_Game;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Kings_Card_Game_Test
 {
@@ -156,7 +157,7 @@ namespace Kings_Card_Game_Test
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
-        public void ExcludeCard_Test()
+        public void AddToExcludeCardList_Test()
         {
             //arange
             Boolean expectedResult = true;
@@ -165,10 +166,9 @@ namespace Kings_Card_Game_Test
             
 
             //act
-            game.ExcludeCard(form);
+            Boolean actual = game.AddToExcludeCardList("Ace Of Spades");
 
             //assert
-            
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -186,16 +186,15 @@ namespace Kings_Card_Game_Test
 
             //assert
             Boolean actual = false;
-            if (result == true && game.NumberOfDecks() == 2 && game.ShowRemainingCards().Count == 104
-                && game.ShowExcludedCards().Count == 0 && game.getUsedCards().Count == 0 && game.CardsLeft() == 104
-                && game.getCardsUsedCount() == 0)
+            if (result == true && game.NumberOfDecks() == 2 && game.getCardsUsedCount() == 0
+                && game.getUsedCards().Count == 0 && game.CardsLeft() == 104)
             {
                 actual = true;
             }
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
-        public void UndoExclusion_Test()
+        public void UndoExclusionOfCard_Test()
         {
             //arange
             Boolean expectedResult = true;
@@ -203,21 +202,22 @@ namespace Kings_Card_Game_Test
             Game game = new Game();
             game.SetDecks(2);
             game.AddToExcludeCardList(card);
+            Kings form = new Kings(game);
+
             
             //act
-            Boolean result = game.undoExclusion(card);
+            game.UndoExclusionOfCard(form);
 
             //assert
             Boolean actual = false;
-            if (result == true && game.ShowRemainingCards().Contains(card) && !game.getUsedCards().Contains(card) 
-                && !game.ShowExcludedCards().Contains(card) && game.CardsLeft() == 104
-                && game.getCardsUsedCount() == 0)
+            if (!game.getUsedCards().Contains(card))
             {
                 actual = true;
             }
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
+
         public void UpdateCardsUsed_Test()
         {
             //arange
@@ -238,7 +238,7 @@ namespace Kings_Card_Game_Test
     public class PlayerTests
     {
         [TestMethod]
-        public void AddPlayer_Test()
+        public void AddPlayerToList_Test()
         {
             //arange
             string expectedResult = "Jerome_3";
