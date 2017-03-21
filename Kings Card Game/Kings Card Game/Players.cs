@@ -53,9 +53,7 @@ namespace Kings_Card_Game
                     num++;
                     dupName = name + "_" + num;
                 }
-            }
-            
-            
+            }            
         }
         public string FirstPlayer()
         {

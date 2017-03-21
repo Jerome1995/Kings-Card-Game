@@ -25,7 +25,8 @@ namespace Kings_Card_Game
             setPlayerList(new List<string>());
         }
 
-        public Game(string newPlayer, double numDeck, int cardsLeft, Card card, List<String> exCards, List<string> playerList, string cardname, string rule, string path)
+        public Game(string newPlayer, double numDeck, int cardsLeft, Card card, 
+            List<String> exCards, List<string> playerList, string cardname, string rule, string path)
         {
             setPlayerName(newPlayer);
             setCardName(cardname);
