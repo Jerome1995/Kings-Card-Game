@@ -494,6 +494,7 @@ namespace Kings_Card_Game
         public void joinDecks(double num)
         {
             int i = 0, j = 0;
+            cardsLeft = Convert.ToInt16(num * 52);
             while (i < num)
             {
                 DeckOfCards.AddRange(OrignalDeckOfCards);
@@ -513,7 +514,7 @@ namespace Kings_Card_Game
             joinDecks(num);
             numberOfDecks = num;
             orignalNumberOfDecks = num;
-            cardsLeft = Convert.ToInt16(numberOfDecks*52);
+            
         }
         public void AddDeck(double num)
         {

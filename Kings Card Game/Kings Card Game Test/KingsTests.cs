@@ -284,46 +284,5 @@ namespace Kings_Card_Game_Test
             //assert
             Assert.AreEqual(expectedResult, actual);
         }
-        [TestMethod]
-        public void RemovePlayer_Test()
-        {
-            //arange
-            Boolean expectedResult = true;
-            Game game = new Game();
-            game.addPlayerToList("Jerome");
-            game.addPlayerToList("John");
-            game.addPlayerToList("Patrick");
-
-            //act
-            Boolean result = game.RemovePlayer(this);
-
-            //assert
-            Boolean actual = false;
-            if (result == true && game.PlayerAmount() == 2)
-            {
-                actual = true;
-            }
-            Assert.AreEqual(expectedResult, actual);
-        }
-        [TestMethod]
-        public void ChangePlayerName_Test()
-        {
-            //arange
-            Boolean expectedResult = true;
-            Game game = new Game();
-            game.addPlayerToList("Jxrome");
-            game.addPlayerToList("Patrick");
-
-            //act
-            Boolean result = game.changePlayerName("Jxrome", "Jerome");
-            
-            //assert
-            Boolean actual = false;
-            if (result == true && game.PlayerAmount() == 2 && game.FirstPlayer().Equals("Jerome"))
-            {
-                actual = true;
-            }
-            Assert.AreEqual(expectedResult, actual);
-        }
     }
 }
