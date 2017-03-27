@@ -97,14 +97,21 @@ namespace Kings_Card_Game
             Remove_Player playername = new Remove_Player();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
-                if (playerList.Remove(playername.txtPlayerName.Text))
+                if (playername.txtPlayerName.Text.Equals(""))
                 {
-                    MessageBox.Show("Player Removed", "The player " + playername.txtPlayerName.Text + " has been removed from the game");
+                    MessageBox.Show("Please enter a valid name in the text box!");
                 }
                 else
                 {
-                    MessageBox.Show("Error!", "The player " + playername.txtPlayerName.Text + " could not be removed.");
-                }
+                    if (playerList.Remove(playername.txtPlayerName.Text))
+                    {
+                        MessageBox.Show("Player Removed", "The player " + playername.txtPlayerName.Text + " has been removed from the game");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error!", "The player " + playername.txtPlayerName.Text + " could not be removed.");
+                    }
+                }                
             }
             else
             {
@@ -114,34 +121,38 @@ namespace Kings_Card_Game
         public void ChangePlayerName(Form form)
         {
             Boolean result = false;
-            
-
-
             Change_Player_Name playernames = new Change_Player_Name();
             if (playernames.ShowDialog(form) == DialogResult.OK)
             {
-                i = 0;
-                while (i <= playerList.Count)
+                if (playernames.txtOldName.Text.Equals("") || playernames.txtNewName.Equals(""))
                 {
-                    if (playerList[i].Equals(playernames.txtOldName.Text))
-                    {
-                        playerList.RemoveAt(i);
-                        addPlayerToList(playernames.txtNewName.Text);
-                        result = true;
-                    }
-                    else
-                    {
-                        i++;
-                    }
-                }
-                if (result == true)
-                {
-                    MessageBox.Show("Player Name Changed!", "The player name " + playernames.txtOldName.Text + " has been changed to " + playernames.txtNewName.Text);
+                    MessageBox.Show("Both text boxes need to have values! Please try again!");
                 }
                 else
                 {
-                    MessageBox.Show("Error!", "The name of player " + playernames.txtOldName.Text + "could not be changed.");
-                }
+                    i = 0;
+                    while (i <= playerList.Count)
+                    {
+                        if (playerList[i].Equals(playernames.txtOldName.Text))
+                        {
+                            playerList.RemoveAt(i);
+                            addPlayerToList(playernames.txtNewName.Text);
+                            result = true;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                    if (result == true)
+                    {
+                        MessageBox.Show("Player Name Changed!", "The player name " + playernames.txtOldName.Text + " has been changed to " + playernames.txtNewName.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error!", "The name of player " + playernames.txtOldName.Text + "could not be changed.");
+                    }
+                }                
             }
             else
             {
@@ -153,8 +164,16 @@ namespace Kings_Card_Game
             Add_Player playername = new Add_Player();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
-                addPlayerToList(playername.txtPlayerName.Text);
-                MessageBox.Show("Player Added", "The player " + playername.txtPlayerName.Text + " has been added.");
+                if (playername.txtPlayerName.Text.Equals(""))
+                {
+                    MessageBox.Show("A valid name has not been entered! Try Again!");
+                }
+                else
+                {
+                    addPlayerToList(playername.txtPlayerName.Text);
+                    MessageBox.Show("Player Added", "The player " + playername.txtPlayerName.Text + " has been added.");
+                }
+                
             }
             else
             {

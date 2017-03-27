@@ -74,6 +74,7 @@
             "1 Deck",
             "2 Deck",
             "3 Deck"});
+            this.comboDeck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDeck.FormattingEnabled = true;
             this.comboDeck.Items.AddRange(new object[] {
             "1.5",

@@ -41,6 +41,7 @@
             "1 Deck",
             "2 Deck",
             "3 Deck"});
+            this.comboCard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCard.FormattingEnabled = true;
             this.comboCard.Items.AddRange(new object[] {
             "Ace Of Spades",

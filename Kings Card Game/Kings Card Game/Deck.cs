@@ -299,10 +299,10 @@ namespace Kings_Card_Game
             Undo_Card_Exclusion uCard = new Undo_Card_Exclusion();
             uCard.comboCard = ShowExcludedCards(uCard.comboCard);
             if (uCard.ShowDialog(form) == DialogResult.OK)
-            {
-                string card = uCard.comboCard.SelectedItem.ToString();
-                if (!uCard.comboCard.SelectedItem.Equals(null))
+            {                
+                if (uCard.comboCard.SelectedItem != null)
                 {
+                    string card = uCard.comboCard.SelectedItem.ToString();
                     while (i <= UsedCards.Count())
                     {
                         if (UsedCards.Contains(card))
@@ -352,7 +352,7 @@ namespace Kings_Card_Game
             eCard.comboCard = ShowRemainingCards(eCard.comboCard);
             if (eCard.ShowDialog(form) == DialogResult.OK)
             {
-                if (!eCard.comboCard.SelectedItem.Equals(null))
+                if (eCard.comboCard.SelectedItem != null)
                 {
                     Boolean result = AddToExcludeCardList(eCard.comboCard.SelectedItem.ToString());
                     if (result)

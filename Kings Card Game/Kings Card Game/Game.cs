@@ -68,8 +68,15 @@ namespace Kings_Card_Game
             Add_Player playername = new Add_Player();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
-                addToDataGrid(playername.txtPlayerName.Text,grid);
-                button.Visible = true;
+                if (playername.txtPlayerName.Text.Equals(""))
+                {
+                    MessageBox.Show("A valid name has not been entered! Try Again!");
+                }
+                else
+                {
+                    addToDataGrid(playername.txtPlayerName.Text, grid);
+                    button.Visible = true;
+                }                
             }
             else
             {
@@ -81,14 +88,21 @@ namespace Kings_Card_Game
             Set_Decks deckAmount = new Set_Decks();
             if (deckAmount.ShowDialog(form) == DialogResult.OK)
             {
-                if (grid.RowCount > 0)
+                if (deckAmount.comboDeck.Text.Equals(""))
                 {
-                    grid.Rows[0].Cells[0].Value = deckAmount.comboDeck.Text;
-                    buttonOne.Visible = true;
-                    buttonTwo.Visible = true;
+                    MessageBox.Show("A valid number of Decks has not been entered! Please Try Again!");
                 }
-                addToDataGrid(deckAmount.comboDeck.Text, grid);
-                grid.AllowUserToAddRows = false;                
+                else
+                {
+                    if (grid.RowCount > 0)
+                    {
+                        grid.Rows[0].Cells[0].Value = deckAmount.comboDeck.Text;
+                        buttonOne.Visible = true;
+                        buttonTwo.Visible = true;
+                    }
+                    addToDataGrid(deckAmount.comboDeck.Text, grid);
+                    grid.AllowUserToAddRows = false; 
+                }                               
             }
             else
             {
