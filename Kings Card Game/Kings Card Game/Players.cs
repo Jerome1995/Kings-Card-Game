@@ -118,7 +118,7 @@ namespace Kings_Card_Game
                     if (playerList[i].Equals(playernames.txtOldName.Text))
                     {
                         playerList.RemoveAt(i);
-                        playerList.Insert(i, playernames.txtNewName.Text);
+                        addPlayerToList(playernames.txtNewName.Text);
                         result = true;
                     }
                     else
