@@ -65,6 +65,7 @@
             // 
             // setNewNameButton
             // 
+            this.setNewNameButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.setNewNameButton.Font = new System.Drawing.Font("Century", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setNewNameButton.Location = new System.Drawing.Point(139, 149);
             this.setNewNameButton.Name = "setNewNameButton";
@@ -93,6 +94,7 @@
             // 
             // Change_Player_Name
             // 
+            this.AcceptButton = this.setNewNameButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;

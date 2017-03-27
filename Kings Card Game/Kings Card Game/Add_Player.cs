@@ -17,12 +17,6 @@ namespace Kings_Card_Game
         {
             InitializeComponent();
         }
-
-        private void Add_Player_Load(object sender, EventArgs e)
-        {
-            addPlayerButton.Focus();
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();

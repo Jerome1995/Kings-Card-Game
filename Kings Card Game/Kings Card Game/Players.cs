@@ -62,23 +62,31 @@ namespace Kings_Card_Game
         }
         public string NextPlayer(string previouisName)
         {
-            i = 0;
-            while (i <= playerList.Count)
-            {
-                if (playerList[i].Equals(previouisName))
+            if (playerList.Contains(previouisName))
                 {
-                    if (i == playerList.Count-1)
+                    i = 0;
+                    while (i <= playerList.Count)
                     {
-                        return playerList[0];
+
+                        if (playerList[i].Equals(previouisName))
+                        {
+                            if (i == playerList.Count - 1)
+                            {
+                                return playerList[0];
+                            }
+                            return playerList[i + 1];
+                        }
+                        else
+                        {
+                            i++;
+                        }
                     }
-                    return playerList[i + 1];
+                    return "Unknown";           
                 }
-                else
-                {
-                    i++;
-                }
+            else
+            {
+                return FirstPlayer();
             }
-            return "Unknown";
         }
         public int PlayerAmount()
         {

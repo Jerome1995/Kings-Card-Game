@@ -33,73 +33,73 @@ namespace Kings_Card_Game
         };
         Dictionary<string, string> CardRule = new Dictionary<string, string>()
         {
-            {"Ace Of Spades","Waterfall: All players drink until player on their right stops drinking. Current player starts!"},
-            {"Two Of Spades","For You: Current player picks another player to drink for two seconds!"},
-            {"Three Of Spades","For Me: Current player drinks for two seconds!"},
-            {"Four Of Spades","Girls: All girls drink for two seconds!"},
-            {"Five Of Spades","Never Have I Ever: Current player names something they have not done and other players must drink if"},
-            {"Six Of Spades","Guys: Boys drink for two seconds!"},
-            {"Seven Of Spades","Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
-            {"Eight Of Spades","Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!"},
-            {"Nine Of Spades","Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
+            {"Ace Of Spades","WATERFALL: All players drink until player on their right stops drinking. Current player starts!"},
+            {"Two Of Spades","FOR YOU: Current player picks another player to drink for two seconds!"},
+            {"Three Of Spades","FOR ME: Current player drinks for two seconds!"},
+            {"Four Of Spades","GIRLS: All girls drink for two seconds!"},
+            {"Five Of Spades","NEVER HAVE I EVER: Current player names something they have not done and other players must drink if"},
+            {"Six Of Spades","GUYS: Boys drink for two seconds!"},
+            {"Seven Of Spades","HEAVAN: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
+            {"Eight Of Spades","PICK A MATE: Current player picks another player to drink everytime they drink for the rest of the game!"},
+            {"Nine Of Spades","RHYME: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                                 "to make mistake must drink for two seconds!"},
-            {"Ten Of Spades","Category: Current player picks a category, in a clockwise rotation other players will name things related" +
+            {"Ten Of Spades","CATEGORY: Current player picks a category, in a clockwise rotation other players will name things related" +
                                 "to this category. First player to make a mistake will drink for 2 seconds!"},
-            {"Ace Of Clubs","Waterfall: All players drink until player on their right stops drinking. Current player starts!"},
-            {"Two Of Clubs","For You: Current player picks another player to drink for two seconds!"},
-            {"Three Of Clubs","For Me: Current player drinks for two seconds!"},
-            {"Four Of Clubs","Girls: All girls drink for two seconds!"},
-            {"Five Of Clubs","Never Have I Ever: Current player names something they have not done and other players must drink if" +
+            {"Ace Of Clubs","WATERFALL: All players drink until player on their right stops drinking. Current player starts!"},
+            {"Two Of Clubs","FOR YOU: Current player picks another player to drink for two seconds!"},
+            {"Three Of Clubs","FOR ME: Current player drinks for two seconds!"},
+            {"Four Of Clubs","GIRLS: All girls drink for two seconds!"},
+            {"Five Of Clubs","NEVER HAVE I EVER: Current player names something they have not done and other players must drink if" +
                             "they have done it!"},
-            {"Six Of Clubs","Guys: Boys drink for two seconds!"},
-            {"Seven Of Clubs","Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
-            {"Eight Of Clubs","Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!"},
-            {"Nine Of Clubs","Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
+            {"Six Of Clubs","GUYS: Boys drink for two seconds!"},
+            {"Seven Of Clubs","HEAVAN: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
+            {"Eight Of Clubs","PICK A MATE: Current player picks another player to drink everytime they drink for the rest of the game!"},
+            {"Nine Of Clubs","RHYME: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                             "to make mistake must drink for two seconds!"},
-            {"Ten Of Clubs","Category: Current player picks a category, in a clockwise rotation other players will name things related" +
+            {"Ten Of Clubs","CATEGORY: Current player picks a category, in a clockwise rotation other players will name things related" +
                             "to this category. First player to make a mistake will drink for 2 seconds!"},
-            {"Ace Of Hearts","Waterfall: All players drink until player on their right stops drinking. Current player starts!"},
-            {"Two Of Hearts","For You: Current player picks another player to drink for two seconds!"},
-            {"Three Of Hearts","For Me: Current player drinks for two seconds!"},
-            {"Four Of Hearts","Girls: All girls drink for two seconds!"},
-            {"Five Of Hearts","Never Have I Ever: Current player names something they have not done and other players must drink if" +
+            {"Ace Of Hearts","WATERFALL: All players drink until player on their right stops drinking. Current player starts!"},
+            {"Two Of Hearts","FOR YOU: Current player picks another player to drink for two seconds!"},
+            {"Three Of Hearts","FOR ME: Current player drinks for two seconds!"},
+            {"Four Of Hearts","GIRLS: All girls drink for two seconds!"},
+            {"Five Of Hearts","NEVER HAVE I EVER: Current player names something they have not done and other players must drink if" +
                             "they have done it!"},
-            {"Six Of Hearts","Guys: Boys drink for two seconds!"},
-            {"Seven Of Hearts","Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
-            {"Eight Of Hearts","Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!"},
-            {"Nine Of Hearts","Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
+            {"Six Of Hearts","GUYS: Boys drink for two seconds!"},
+            {"Seven Of Hearts","HEAVAN: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
+            {"Eight Of Hearts","PICK A MATE: Current player picks another player to drink everytime they drink for the rest of the game!"},
+            {"Nine Of Hearts","RHYME: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                             "to make mistake must drink for two seconds!"},
-            {"Ten Of Hearts","Category: Current player picks a category, in a clockwise rotation other players will name things related" +
+            {"Ten Of Hearts","CATEGORY: Current player picks a category, in a clockwise rotation other players will name things related" +
                             "to this category. First player to make a mistake will drink for 2 seconds!"},
-            {"Ace Of Diamonds","Waterfall: All players drink until player on their right stops drinking. Current player starts!"},
-            {"Two Of Diamonds","For You: Current player picks another player to drink for two seconds!"},
-            {"Three Of Diamonds","For Me: Current player drinks for two seconds!"},
-            {"Four Of Diamonds","Girls: All girls drink for two seconds!"},
-            {"Five Of Diamonds","Never Have I Ever: Current player names something they have not done and other players must drink if" +
+            {"Ace Of Diamonds","WATERFALL: All players drink until player on their right stops drinking. Current player starts!"},
+            {"Two Of Diamonds","FOR YOU: Current player picks another player to drink for two seconds!"},
+            {"Three Of Diamonds","FOR ME: Current player drinks for two seconds!"},
+            {"Four Of Diamonds","GIRLS: All girls drink for two seconds!"},
+            {"Five Of Diamonds","NEVER HAVE I EVER: Current player names something they have not done and other players must drink if" +
                             "they have done it!"},
-            {"Six Of Diamonds","Guys: Boys drink for two seconds!"},
-            {"Seven Of Diamonds","Heaven: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
-            {"Eight Of Diamonds","Pick A Mate: Current player picks another player to drink everytime they drink for the rest of the game!"},
-            {"Nine Of Diamonds","Rhyme: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
+            {"Six Of Diamonds","GUYS: Boys drink for two seconds!"},
+            {"Seven Of Diamonds","HEAVAN: All players reach for the sky, last player to raise his hand drinks for 2 seconds!"},
+            {"Eight Of Diamonds","PICK A MATE: Current player picks another player to drink everytime they drink for the rest of the game!"},
+            {"Nine Of Diamonds","RHYME: Current player says a word, in clockwise rotation other players must name words that rhyme, first" +
                             "to make mistake must drink for two seconds!"},
-            {"Ten Of Diamonds","Category: Current player picks a category, in a clockwise rotation other players will name things related" +
+            {"Ten Of Diamonds","CATEGORY: Current player picks a category, in a clockwise rotation other players will name things related" +
                             "to this category. First player to make a mistake will drink for 2 seconds!"},
-            {"Jack Of Clubs","Make A Rule: Current player is allowed to make a rule that all other players must follow!"},
-            {"Queen Of Clubs","Question Master: Current player becomes the question master, any player that answers his/her question" +
+            {"Jack Of Clubs","MAKE A RULE: Current player is allowed to make a rule that all other players must follow!"},
+            {"Queen Of Clubs","QUESTION MASTER: Current player becomes the question master, any player that answers his/her question" +
                                 "must drink for 2 seconds!"},
-            {"King Of Clubs","Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"},
-            {"Jack Of Spades","Make A Rule: Current player is allowed to make a rule that all other players must follow!"},
-            {"Queen Of Spades","Question Master: Current player becomes the question master, any player that answers his/her question" +
+            {"King Of Clubs","CHALICE: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"},
+            {"Jack Of Spades","MAKE A RULE: Current player is allowed to make a rule that all other players must follow!"},
+            {"Queen Of Spades","QUESTION MASTER: Current player becomes the question master, any player that answers his/her question" +
                                 "must drink for 2 seconds!"},
-            {"King Of Spades","Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"},
-            {"Jack Of Hearts","Make A Rule: Current player is allowed to make a rule that all other players must follow!"},
-            {"Queen Of Hearts","Question Master: Current player becomes the question master, any player that answers his/her question" +
+            {"King Of Spades","CHALICE: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"},
+            {"Jack Of Hearts","MAKE A RULE: Current player is allowed to make a rule that all other players must follow!"},
+            {"Queen Of Hearts","QUESTION MASTER: Current player becomes the question master, any player that answers his/her question" +
                                 "must drink for 2 seconds!"},
-            {"King Of Hearts","Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"},
-            {"Jack Of Diamonds","Make A Rule: Current player is allowed to make a rule that all other players must follow!"},
-            {"Queen Of Diamonds","Question Master: Current player becomes the question master, any player that answers his/her question" +
+            {"King Of Hearts","CHALICE: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"},
+            {"Jack Of Diamonds","MAKE A RULE: Current player is allowed to make a rule that all other players must follow!"},
+            {"Queen Of Diamonds","QUESTION MASTER: Current player becomes the question master, any player that answers his/her question" +
                                 "must drink for 2 seconds!"},
-            {"King Of Diamonds","Chalice: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"}                                    
+            {"King Of Diamonds","CHALICE: Current player puts a bit of his/her drink in an empty glass, player with last king must drink from the glass!"}                                    
         };
 
 
@@ -176,7 +176,7 @@ namespace Kings_Card_Game
         public void joinDecks(double num)
         {
             int i = 0, j = 0;
-            cardsLeft = Convert.ToInt16(num * 52);
+            cardsLeft += Convert.ToInt16(num * 52);
             while (i < num)
             {
                 DeckOfCards.AddRange(OrignalDeckOfCards);
@@ -202,7 +202,6 @@ namespace Kings_Card_Game
         {
             joinDecks(num);
             this.numberOfDecks = num + this.numberOfDecks;
-            this.cardsLeft = this.cardsLeft + Convert.ToInt16(num*52);
             int i = 0;
             while (i < ExcludedCards.Count)
             {

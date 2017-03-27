@@ -16,7 +16,5 @@ namespace Kings_Card_Game
         {
             InitializeComponent();
         }
-
-   
     }
 }
