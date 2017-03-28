@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kings_Card_Game.Properties;
 
 namespace Kings_Card_Game
 {
@@ -16,98 +10,99 @@ namespace Kings_Card_Game
         public Kings(Game game)
         {
             InitializeComponent();
-            this.game = game;
+            _game = game;
         }
         
         //Variables
-        private Game game;
+        private Game _game;
 
         //Methods
         public void CardDetails()
         {
-            txtCardName.Text = game.getCardName();
-            txtCardRule.Text = game.getCardRule();
-            txtCardsLeft.Text = game.CardsLeft().ToString();
-            txtDecksLeft.Text = game.NumberOfDecks().ToString();
-            cardBox.ImageLocation = @"Images\" + game.getImagePath() + ".png";
+            txtCardName.Text = _game.GetCardName();
+            txtCardRule.Text = _game.GetCardRule();
+            txtCardsLeft.Text = _game.CardsLeft().ToString();
+            // ReSharper disable once SpecifyACultureInStringConversionExplicitly
+            txtDecksLeft.Text = _game.NumberOfDecks().ToString();
+            cardBox.ImageLocation = @"Images\" + _game.GetImagePath() + Resources.PNG;
         }
         public void PlayerDetails()
         {
-            txtPlayerName.Text = game.NextPlayer(txtPlayerName.Text);
-            txtPlayerAmount.Text = game.PlayerAmount().ToString();
+            txtPlayerName.Text = _game.NextPlayer(txtPlayerName.Text);
+            txtPlayerAmount.Text = _game.PlayerAmount().ToString();
         }
 
         //Events
         private void Kings_Load(object sender, EventArgs e)
         {
-            game.NextCard();
+            _game.NextCard();
             CardDetails();
-            txtPlayerName.Text = game.FirstPlayer();
-            txtPlayerAmount.Text = game.PlayerAmount().ToString();
+            txtPlayerName.Text = _game.FirstPlayer();
+            txtPlayerAmount.Text = _game.PlayerAmount().ToString();
             
             cardBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void nextCardButton_Click(object sender, EventArgs e)
         {
-            game.NextCard();
+            _game.NextCard();
             CardDetails();
             PlayerDetails();
         }
         private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            Welcome_Screen frm = new Welcome_Screen();
-            game = new Game();
+            WelcomeScreen frm = new WelcomeScreen();
+            _game = new Game();
             frm.Show();
 
         }
         private void gameDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            Game_Details frm = new Game_Details();
-            game = new Game();
+            GameDetails frm = new GameDetails();
+            _game = new Game();
             frm.Show();
         }
         private void addPlayerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            game.AddPlayer(this);
+            _game.AddPlayer(this);
         }
         private void removePlayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.RemovePlayer(this);
+            _game.RemovePlayer(this);
         }
         private void changePlayerNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.ChangePlayerName(this);
+            _game.ChangePlayerName(this);
         }
         private void halfDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.AddDeck(0.5);
+            _game.AddDeck(0.5);
             CardDetails();
         }
         private void oneDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.AddDeck(1);
+            _game.AddDeck(1);
             CardDetails();
         }
         private void twoDeckToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.AddDeck(2);
+            _game.AddDeck(2);
             CardDetails();
         }
         private void chooseCardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           game.ExcludeCard(this);
+           _game.ExcludeCard(this);
            CardDetails();
         }
         private void undoExclusionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            game.UndoExclusionOfCard(this);
+            _game.UndoExclusionOfCard(this);
             CardDetails();
         }
         private void restartGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtPlayerName.Text = game.RestartGame();
+            txtPlayerName.Text = _game.RestartGame();
             CardDetails();
         }
 

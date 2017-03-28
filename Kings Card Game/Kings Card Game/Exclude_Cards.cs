@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
-    public partial class Exclude_Cards : Form
+    public partial class ExcludeCards : Form
     {
-        public Exclude_Cards()
+        public ExcludeCards()
         {
             InitializeComponent();
         }

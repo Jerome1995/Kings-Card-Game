@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Game_Details
+    partial class GameDetails
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -230,7 +233,7 @@
             this.Controls.Add(this.addPlayerButton);
             this.Controls.Add(this.setDecksButton);
             this.Controls.Add(this.excludeCardsButton);
-            this.Name = "Game_Details";
+            this.Name = "GameDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kings";
             ((System.ComponentModel.ISupportInitialize)(this.grdPlayer)).EndInit();
@@ -245,20 +248,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Button excludeCardsButton;
-        private System.Windows.Forms.Button setDecksButton;
-        private System.Windows.Forms.Button addPlayerButton;
-        private System.Windows.Forms.DataGridView grdPlayer;
-        private System.Windows.Forms.DataGridView grdExcludedCards;
-        private System.Windows.Forms.DataGridView grdDecks;
-        private System.Windows.Forms.Button startGameButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MenuStrip menuKings;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem welcomeScreenToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number_Of_Decks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Player_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Excluded_Cards;
+        private Button excludeCardsButton;
+        private Button setDecksButton;
+        private Button addPlayerButton;
+        private DataGridView grdPlayer;
+        private DataGridView grdExcludedCards;
+        private DataGridView grdDecks;
+        private Button startGameButton;
+        private Label label1;
+        private Label label2;
+        private MenuStrip menuKings;
+        private ToolStripMenuItem homeToolStripMenuItem;
+        private ToolStripMenuItem welcomeScreenToolStripMenuItem;
+        private DataGridViewTextBoxColumn Number_Of_Decks;
+        private DataGridViewTextBoxColumn Player_Name;
+        private DataGridViewTextBoxColumn Excluded_Cards;
     }
 }

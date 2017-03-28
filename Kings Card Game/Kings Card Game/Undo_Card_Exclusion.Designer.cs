@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Undo_Card_Exclusion
+    partial class UndoCardExclusion
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -78,7 +81,7 @@
             this.Controls.Add(this.comboCard);
             this.Controls.Add(this.UndoExclusionButton);
             this.Controls.Add(this.lbSelectCard);
-            this.Name = "Undo_Card_Exclusion";
+            this.Name = "UndoCardExclusion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Undo Card Exclusion";
             this.ResumeLayout(false);
@@ -87,9 +90,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button UndoExclusionButton;
-        private System.Windows.Forms.Label lbSelectCard;
-        public System.Windows.Forms.ComboBox comboCard;
+        private Button UndoExclusionButton;
+        private Label lbSelectCard;
+        public ComboBox comboCard;
 
     }
 }

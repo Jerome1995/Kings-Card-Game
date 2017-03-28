@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kings_Card_Game.Properties
-{
-
-
+namespace Kings_Card_Game.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,320 @@ namespace Kings_Card_Game.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kings_Card_Game.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card Excluded.
+        /// </summary>
+        internal static string Card_Excluded_Header {
+            get {
+                return ResourceManager.GetString("Card Excluded Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The card .
+        /// </summary>
+        internal static string Card_Identifier {
+            get {
+                return ResourceManager.GetString("Card Identifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Name Changed!.
+        /// </summary>
+        internal static string Change_Player_Name_Header {
+            get {
+                return ResourceManager.GetString("Change Player Name Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both text boxes need to have values! Please try again!.
+        /// </summary>
+        internal static string Change_Player_Name_Message {
+            get {
+                return ResourceManager.GetString("Change Player Name Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  has been changed to .
+        /// </summary>
+        internal static string Changed_Confirm {
+            get {
+                return ResourceManager.GetString("Changed Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to could not be changed..
+        /// </summary>
+        internal static string Changed_Fail {
+            get {
+                return ResourceManager.GetString("Changed Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deck Added.
+        /// </summary>
+        internal static string Deck_Added {
+            get {
+                return ResourceManager.GetString("Deck Added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Decks have been added..
+        /// </summary>
+        internal static string Deck_Added_Description {
+            get {
+                return ResourceManager.GetString("Deck Added Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Decks have been removed..
+        /// </summary>
+        internal static string Deck_Removed_Confirm {
+            get {
+                return ResourceManager.GetString("Deck Removed Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Decks could not be removed as the number of decks to be removed was greater than the number of decks available..
+        /// </summary>
+        internal static string Deck_Removed_Fail {
+            get {
+                return ResourceManager.GetString("Deck Removed Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deck Removed.
+        /// </summary>
+        internal static string Deck_Removed_Heading {
+            get {
+                return ResourceManager.GetString("Deck Removed Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error!.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to could not be removed..
+        /// </summary>
+        internal static string Exclude_Card_Fail {
+            get {
+                return ResourceManager.GetString("Exclude Card Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All occurences of .
+        /// </summary>
+        internal static string Exclude_Card_Part1 {
+            get {
+                return ResourceManager.GetString("Exclude Card Part1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  have been removed..
+        /// </summary>
+        internal static string Exclude_Card_Part2 {
+            get {
+                return ResourceManager.GetString("Exclude Card Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The game and the decks have been reset.
+        /// </summary>
+        internal static string Game_Reset_Confirm {
+            get {
+                return ResourceManager.GetString("Game Reset Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The game has not been reset.
+        /// </summary>
+        internal static string Game_Reset_Fail {
+            get {
+                return ResourceManager.GetString("Game Reset Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Reset.
+        /// </summary>
+        internal static string Game_Reset_Header {
+            get {
+                return ResourceManager.GetString("Game Reset Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Added.
+        /// </summary>
+        internal static string Player_Added {
+            get {
+                return ResourceManager.GetString("Player Added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The player .
+        /// </summary>
+        internal static string Player_Identifier {
+            get {
+                return ResourceManager.GetString("Player Identifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  has been removed from the game.
+        /// </summary>
+        internal static string Player_Removed_Confirm {
+            get {
+                return ResourceManager.GetString("Player Removed Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  could not be removed..
+        /// </summary>
+        internal static string Player_Removed_Fail {
+            get {
+                return ResourceManager.GetString("Player Removed Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Removed.
+        /// </summary>
+        internal static string Player_Removed_Header {
+            get {
+                return ResourceManager.GetString("Player Removed Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .png.
+        /// </summary>
+        internal static string PNG {
+            get {
+                return ResourceManager.GetString("PNG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  has been added back to the deck.
+        /// </summary>
+        internal static string Undo_Exclusion_Confirm {
+            get {
+                return ResourceManager.GetString("Undo Exclusion Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  counld not be added back to the deck.
+        /// </summary>
+        internal static string Undo_Exclusion_Fail {
+            get {
+                return ResourceManager.GetString("Undo Exclusion Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exclusion Undone.
+        /// </summary>
+        internal static string Undo_Exclusion_Header {
+            get {
+                return ResourceManager.GetString("Undo Exclusion Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid name in the text box!.
+        /// </summary>
+        internal static string Valid_Name {
+            get {
+                return ResourceManager.GetString("Valid Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A valid name has not been entered! Try Again!.
+        /// </summary>
+        internal static string Valid_Name_Fail {
+            get {
+                return ResourceManager.GetString("Valid Name Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A valid number of Decks has not been entered! Please Try Again!.
+        /// </summary>
+        internal static string Valid_Number_Of_Decks_Fail {
+            get {
+                return ResourceManager.GetString("Valid Number Of Decks Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  has been added..
+        /// </summary>
+        internal static string Was_Added {
+            get {
+                return ResourceManager.GetString("Was Added", resourceCulture);
             }
         }
     }

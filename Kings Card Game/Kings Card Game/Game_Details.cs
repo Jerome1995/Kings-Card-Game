@@ -1,38 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kings_Card_Game
 {
-    public partial class Game_Details : Form
+    public partial class GameDetails : Form
     {
-        public Game_Details()
+        public GameDetails()
         {
             InitializeComponent();
         }
         //Forms
-        private Welcome_Screen welcomeFrm = new Welcome_Screen();
-        private Kings kingFrm;
+        private WelcomeScreen _welcomeFrm = new WelcomeScreen();
+        private Kings _kingFrm;
 
         //Variables
         
-        public Game game = new Game();
+        public Game Game = new Game();
 
         //Methods
         public void CreateGame()
         {                
-            game.SetPlayers(grdPlayer);
-            game.SetDecks(Double.Parse(grdDecks.Rows[0].Cells[0].Value.ToString()));
-            game.SetExcludedCards(grdExcludedCards);
-            kingFrm = new Kings(game);
-            kingFrm.Show();
+            Game.SetPlayers(grdPlayer);
+            Game.SetDecks(Double.Parse(grdDecks.Rows[0].Cells[0].Value.ToString()));
+            Game.SetExcludedCards(grdExcludedCards);
+            _kingFrm = new Kings(Game);
+            _kingFrm.Show();
             Hide();
         }      
 
@@ -40,21 +32,21 @@ namespace Kings_Card_Game
         private void welcomeScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            welcomeFrm = new Welcome_Screen();
-            welcomeFrm.Closed += (s, args) => this.Close();
-            welcomeFrm.Show();
+            _welcomeFrm = new WelcomeScreen();
+            _welcomeFrm.Closed += (s, args) => Close();
+            _welcomeFrm.Show();
         }
         private void addPlayerButton_Click(object sender, EventArgs e)
         {
-            game.AddPlayerDialogBox(grdPlayer, this, setDecksButton);
+            Game.AddPlayerDialogBox(grdPlayer, this, setDecksButton);
         }
         private void setDecksButton_Click(object sender, EventArgs e)
         {
-            game.SetDecksDialogBox(grdDecks, this, excludeCardsButton, startGameButton);
+            Game.SetDecksDialogBox(grdDecks, this, excludeCardsButton, startGameButton);
         }
         private void excludeCardsButton_Click(object sender, EventArgs e)
         {
-            game.ExcludeCardsDialogBox(grdExcludedCards, this);
+            Game.ExcludeCardsDialogBox(grdExcludedCards, this);
         }
         private void startGameButton_Click(object sender, EventArgs e)
         {

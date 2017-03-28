@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
     partial class Kings
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -386,37 +389,37 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox cardBox;
-        private System.Windows.Forms.RichTextBox txtCardName;
-        private System.Windows.Forms.RichTextBox txtCardRule;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbCardRule;
-        private System.Windows.Forms.Label lcCardName;
-        private System.Windows.Forms.Button nextCardButton;
-        private System.Windows.Forms.RichTextBox txtCardsLeft;
-        private System.Windows.Forms.RichTextBox txtDecksLeft;
-        private System.Windows.Forms.Label lbDecksLeft;
-        private System.Windows.Forms.Label lbCardsLeft;
-        private System.Windows.Forms.MenuStrip menuKings;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addMemberToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addPlayerToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem removePlayerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addDeckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem excludeCardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem welcomeScreenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gameDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem halfDeckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oneDeckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem twoDeckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chooseCardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changePlayerNameToolStripMenuItem;
-        private System.Windows.Forms.Label lbPlayerName;
-        private System.Windows.Forms.RichTextBox txtPlayerName;
-        private System.Windows.Forms.Label lbPlayerAmount;
-        private System.Windows.Forms.RichTextBox txtPlayerAmount;
-        private System.Windows.Forms.ToolStripMenuItem undoExclusionToolStripMenuItem;
+        private PictureBox cardBox;
+        private RichTextBox txtCardName;
+        private RichTextBox txtCardRule;
+        private Label label1;
+        private Label lbCardRule;
+        private Label lcCardName;
+        private Button nextCardButton;
+        private RichTextBox txtCardsLeft;
+        private RichTextBox txtDecksLeft;
+        private Label lbDecksLeft;
+        private Label lbCardsLeft;
+        private MenuStrip menuKings;
+        private ToolStripMenuItem homeToolStripMenuItem;
+        private ToolStripMenuItem addMemberToolStripMenuItem;
+        private ToolStripMenuItem addPlayerToolStripMenuItem1;
+        private ToolStripMenuItem removePlayerToolStripMenuItem;
+        private ToolStripMenuItem addDeckToolStripMenuItem;
+        private ToolStripMenuItem excludeCardToolStripMenuItem;
+        private ToolStripMenuItem restartToolStripMenuItem;
+        private ToolStripMenuItem welcomeScreenToolStripMenuItem;
+        private ToolStripMenuItem gameDetailsToolStripMenuItem;
+        private ToolStripMenuItem halfDeckToolStripMenuItem;
+        private ToolStripMenuItem oneDeckToolStripMenuItem;
+        private ToolStripMenuItem twoDeckToolStripMenuItem;
+        private ToolStripMenuItem chooseCardToolStripMenuItem;
+        private ToolStripMenuItem restartGameToolStripMenuItem;
+        private ToolStripMenuItem changePlayerNameToolStripMenuItem;
+        private Label lbPlayerName;
+        private RichTextBox txtPlayerName;
+        private Label lbPlayerAmount;
+        private RichTextBox txtPlayerAmount;
+        private ToolStripMenuItem undoExclusionToolStripMenuItem;
     }
 }

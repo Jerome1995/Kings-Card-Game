@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Remove_Player
+    partial class RemovePlayer
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -86,7 +89,7 @@
             this.Controls.Add(this.lbEnterPlayer);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.removePlayerButton);
-            this.Name = "Remove_Player";
+            this.Name = "RemovePlayer";
             this.Text = "Remove Player";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,9 +98,9 @@
 
         #endregion
 
-        public System.Windows.Forms.RichTextBox txtPlayerName;
-        private System.Windows.Forms.Label lbEnterPlayer;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button removePlayerButton;
+        public RichTextBox txtPlayerName;
+        private Label lbEnterPlayer;
+        private Button cancelButton;
+        private Button removePlayerButton;
     }
 }

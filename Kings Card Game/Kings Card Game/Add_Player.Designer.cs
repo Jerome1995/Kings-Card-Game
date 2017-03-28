@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Add_Player
+    partial class AddPlayer
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -87,7 +90,7 @@
             this.Controls.Add(this.lbEnterPlayer);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addPlayerButton);
-            this.Name = "Add_Player";
+            this.Name = "AddPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Player";
             this.ResumeLayout(false);
@@ -97,9 +100,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button addPlayerButton;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Label lbEnterPlayer;
-        public System.Windows.Forms.RichTextBox txtPlayerName;
+        private Button addPlayerButton;
+        private Button cancelButton;
+        private Label lbEnterPlayer;
+        public RichTextBox txtPlayerName;
     }
 }

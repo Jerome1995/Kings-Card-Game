@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Exclude_Cards
+    partial class ExcludeCards
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -145,7 +148,7 @@
             this.Controls.Add(this.lbExcludeCard);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.excludeCardButton);
-            this.Name = "Exclude_Cards";
+            this.Name = "ExcludeCards";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exclude Cards";
             this.Load += new System.EventHandler(this.Exclude_Cards_Load);
@@ -156,9 +159,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbExcludeCard;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button excludeCardButton;
-        public System.Windows.Forms.ComboBox comboCard;
+        private Label lbExcludeCard;
+        private Button cancelButton;
+        private Button excludeCardButton;
+        public ComboBox comboCard;
     }
 }

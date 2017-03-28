@@ -1,41 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kings_Card_Game.Properties;
 
 namespace Kings_Card_Game
 {
    public class Game : Players
     {
        //Variables
-        private List<string> selectedCards = new List<string>();
+        private readonly List<string> _selectedCards = new List<string>();
 
        //Constructors
         public Game()
         {
-            setPlayerName("");
-            setCardName("");
-            setCardRule("");
-            setImagePath("");
-            setNumberOfDecks(0);
-            setCardsLeft(0);
-            setExcludedCards(new List<string>());
-            setPlayerList(new List<string>());
+            SetPlayerName("");
+            SetCardName("");
+            SetCardRule("");
+            SetImagePath("");
+            SetNumberOfDecks(0);
+            SetCardsLeft(0);
+            SetExcludedCards(new List<string>());
+            SetPlayerList(new List<string>());
         }
 
-        public Game(string newPlayer, double numDeck, int cardsLeft, Card card, 
+        public Game(string newPlayer, double numDeck, int cardsLeft, 
             List<String> exCards, List<string> playerList, string cardname, string rule, string path)
         {
-            setPlayerName(newPlayer);
-            setCardName(cardname);
-            setCardRule(rule);
-            setImagePath(path);
-            setNumberOfDecks(numDeck);
-            setCardsLeft(cardsLeft);
-            setExcludedCards(exCards);
-            setPlayerList(playerList);
+            SetPlayerName(newPlayer);
+            SetCardName(cardname);
+            SetCardRule(rule);
+            SetImagePath(path);
+            SetNumberOfDecks(numDeck);
+            SetCardsLeft(cardsLeft);
+            SetExcludedCards(exCards);
+            SetPlayerList(playerList);
             
         }       
        
@@ -45,16 +43,13 @@ namespace Kings_Card_Game
             Boolean result = ResetGameDetails();
             if (result)
             {
-                MessageBox.Show("Game Reset", "The game and the decks have been reset");
+                MessageBox.Show(Resources.Game_Reset_Header, Resources.Game_Reset_Confirm);
                 return FirstPlayer();
             }
-            else
-            {
-                MessageBox.Show("Error!", "The game has not been reset");
-                return "Unknown";
-            }
+            MessageBox.Show(Resources.Error, Resources.Game_Reset_Fail);
+            return "Unknown";
         }
-        public void addToDataGrid(string name, DataGridView grid)
+        public void AddToDataGrid(string name, DataGridView grid)
         {
             if (name != string.Empty)
             {
@@ -65,16 +60,16 @@ namespace Kings_Card_Game
         }
         public void AddPlayerDialogBox(DataGridView grid, Form form, Button button)
         {
-            Add_Player playername = new Add_Player();
+            AddPlayer playername = new AddPlayer();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
                 if (playername.txtPlayerName.Text.Equals(""))
                 {
-                    MessageBox.Show("A valid name has not been entered! Try Again!");
+                    MessageBox.Show(Resources.Valid_Name_Fail);
                 }
                 else
                 {
-                    addToDataGrid(playername.txtPlayerName.Text, grid);
+                    AddToDataGrid(playername.txtPlayerName.Text, grid);
                     button.Visible = true;
                 }                
             }
@@ -85,12 +80,12 @@ namespace Kings_Card_Game
         }
         public void SetDecksDialogBox(DataGridView grid, Form form, Button buttonOne, Button buttonTwo)
         {
-            Set_Decks deckAmount = new Set_Decks();
+            SetDecks deckAmount = new SetDecks();
             if (deckAmount.ShowDialog(form) == DialogResult.OK)
             {
                 if (deckAmount.comboDeck.Text.Equals(""))
                 {
-                    MessageBox.Show("A valid number of Decks has not been entered! Please Try Again!");
+                    MessageBox.Show(Resources.Valid_Number_Of_Decks_Fail);
                 }
                 else
                 {
@@ -100,7 +95,7 @@ namespace Kings_Card_Game
                         buttonOne.Visible = true;
                         buttonTwo.Visible = true;
                     }
-                    addToDataGrid(deckAmount.comboDeck.Text, grid);
+                    AddToDataGrid(deckAmount.comboDeck.Text, grid);
                     grid.AllowUserToAddRows = false; 
                 }                               
             }
@@ -111,14 +106,14 @@ namespace Kings_Card_Game
         }
         public void ExcludeCardsDialogBox(DataGridView grid, Form form)
         {
-            Exclude_Cards exCards = new Exclude_Cards();
+            ExcludeCards exCards = new ExcludeCards();
             
             if (exCards.ShowDialog(form) == DialogResult.OK)
             {
-                if (selectedCards.Contains(exCards.comboCard.Text) == false)
+                if (_selectedCards.Contains(exCards.comboCard.Text) == false)
                 {
-                    selectedCards.Add(exCards.comboCard.Text);
-                    addToDataGrid(exCards.comboCard.Text, grid);                    
+                    _selectedCards.Add(exCards.comboCard.Text);
+                    AddToDataGrid(exCards.comboCard.Text, grid);                    
                 } 
             }
             else

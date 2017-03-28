@@ -114,4 +114,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Deck Added" xml:space="preserve">
+    <value>Deck Added</value>
+  </data>
+  <data name="Deck Added Description" xml:space="preserve">
+    <value> Decks have been added.</value>
+  </data>
+  <data name="Deck Removed Heading" xml:space="preserve">
+    <value>Deck Removed</value>
+  </data>
+  <data name="Deck Removed Confirm" xml:space="preserve">
+    <value> Decks have been removed.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="Deck Removed Fail" xml:space="preserve">
+    <value> Decks could not be removed as the number of decks to be removed was greater than the number of decks available.</value>
+  </data>
+  <data name="Undo Exclusion Header" xml:space="preserve">
+    <value>Exclusion Undone</value>
+  </data>
+  <data name="Card Identifier" xml:space="preserve">
+    <value>The card </value>
+  </data>
+  <data name="Undo Exclusion Confirm" xml:space="preserve">
+    <value> has been added back to the deck</value>
+  </data>
+  <data name="Undo Exclusion Fail" xml:space="preserve">
+    <value> counld not be added back to the deck</value>
+  </data>
+  <data name="Card Excluded Header" xml:space="preserve">
+    <value>Card Excluded</value>
+  </data>
+  <data name="Exclude Card Part1" xml:space="preserve">
+    <value>All occurences of </value>
+  </data>
+  <data name="Exclude Card Part2" xml:space="preserve">
+    <value> have been removed.</value>
+  </data>
+  <data name="Exclude Card Fail" xml:space="preserve">
+    <value>could not be removed.</value>
+  </data>
+  <data name="Game Reset Header" xml:space="preserve">
+    <value>Game Reset</value>
+  </data>
+  <data name="Game Reset Confirm" xml:space="preserve">
+    <value>The game and the decks have been reset</value>
+  </data>
+  <data name="Game Reset Fail" xml:space="preserve">
+    <value>The game has not been reset</value>
+  </data>
+  <data name="Valid Name Fail" xml:space="preserve">
+    <value>A valid name has not been entered! Try Again!</value>
+  </data>
+  <data name="Valid Number Of Decks Fail" xml:space="preserve">
+    <value>A valid number of Decks has not been entered! Please Try Again!</value>
+  </data>
+  <data name="Valid Name" xml:space="preserve">
+    <value>Please enter a valid name in the text box!</value>
+  </data>
+  <data name="Player Removed Header" xml:space="preserve">
+    <value>Player Removed</value>
+  </data>
+  <data name="Player Identifier" xml:space="preserve">
+    <value>The player </value>
+  </data>
+  <data name="Player Removed Confirm" xml:space="preserve">
+    <value> has been removed from the game</value>
+  </data>
+  <data name="Player Removed Fail" xml:space="preserve">
+    <value> could not be removed.</value>
+  </data>
+  <data name="Change Player Name Message" xml:space="preserve">
+    <value>Both text boxes need to have values! Please try again!</value>
+  </data>
+  <data name="Change Player Name Header" xml:space="preserve">
+    <value>Player Name Changed!</value>
+  </data>
+  <data name="Changed Confirm" xml:space="preserve">
+    <value> has been changed to </value>
+  </data>
+  <data name="Changed Fail" xml:space="preserve">
+    <value>could not be changed.</value>
+  </data>
+  <data name="Player Added" xml:space="preserve">
+    <value>Player Added</value>
+  </data>
+  <data name="Was Added" xml:space="preserve">
+    <value> has been added.</value>
+  </data>
+  <data name="PNG" xml:space="preserve">
+    <value>.png</value>
+  </data>
 </root>

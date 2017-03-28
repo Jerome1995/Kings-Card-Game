@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Set_Decks
+    partial class SetDecks
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -97,7 +100,7 @@
             this.Controls.Add(this.lbSetDeck);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.setDeckButton);
-            this.Name = "Set_Decks";
+            this.Name = "SetDecks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Decks";
             this.Load += new System.EventHandler(this.Set_Decks_Load);
@@ -108,9 +111,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbSetDeck;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button setDeckButton;
-        public System.Windows.Forms.ComboBox comboDeck;
+        private Label lbSetDeck;
+        private Button cancelButton;
+        private Button setDeckButton;
+        public ComboBox comboDeck;
     }
 }

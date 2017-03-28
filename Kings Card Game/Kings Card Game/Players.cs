@@ -1,52 +1,50 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kings_Card_Game.Properties;
 
 namespace Kings_Card_Game
 {
     public abstract class Players : Deck
     {
         //Variables
-        private string playerName;
-        private List<String> playerList = new List<string>();
-        private int i = 0;
+        private string _playerName;
+        private List<String> _playerList = new List<string>();
+        private int _i;
 
         //Setters
-        public void setPlayerName(string name)
+        public void SetPlayerName(string name)
         {
-            this.playerName = name;
+            _playerName = name;
         }
-        public void setPlayerList(List<string> list)
+        public void SetPlayerList(List<string> list)
         {
-            this.playerList = list;
+            _playerList = list;
         }
         //Getters 
-        public string getPlayerName()
+        public string GetPlayerName()
         {
-            return playerName;
+            return _playerName;
         }
-        public List<string> getPlayerList()
+        public List<string> GetPlayerList()
         {
-            return playerList;
+            return _playerList;
         }
 
         //Methods
-        public void addPlayerToList(string name)
+        public void AddPlayerToList(string name)
         {
             string dupName = name;
-            i = 0;
+            _i = 0;
             int num = 1;
-            while (i <= playerList.Count)
+            while (_i <= _playerList.Count)
             {
-                int count = playerList.Count(j => j.Equals(dupName));
+                int count = _playerList.Count(j => j.Equals(dupName));
                 if (count == 0)
                 {
-                    playerList.Add(dupName);
-                    i = playerList.Count + 1;
+                    _playerList.Add(dupName);
+                    _i = _playerList.Count + 1;
                 }
                 else
                 {
@@ -57,59 +55,52 @@ namespace Kings_Card_Game
         }
         public string FirstPlayer()
         {
-            playerName = playerList[0];
-            return playerName;
+            _playerName = _playerList[0];
+            return _playerName;
         }
         public string NextPlayer(string previouisName)
         {
-            if (playerList.Contains(previouisName))
+            if (_playerList.Contains(previouisName))
                 {
-                    i = 0;
-                    while (i <= playerList.Count)
+                    _i = 0;
+                    while (_i <= _playerList.Count)
                     {
-
-                        if (playerList[i].Equals(previouisName))
+                        if (_playerList[_i].Equals(previouisName))
                         {
-                            if (i == playerList.Count - 1)
+                            if (_i == _playerList.Count - 1)
                             {
-                                return playerList[0];
+                                return _playerList[0];
                             }
-                            return playerList[i + 1];
+                            return _playerList[_i + 1];
                         }
-                        else
-                        {
-                            i++;
-                        }
+                        _i++;
                     }
                     return "Unknown";           
                 }
-            else
-            {
-                return FirstPlayer();
-            }
+            return FirstPlayer();
         }
         public int PlayerAmount()
         {
-            return playerList.Count();
+            return _playerList.Count;
         }
         public void RemovePlayer(Form form)
         {
-            Remove_Player playername = new Remove_Player();
+            RemovePlayer playername = new RemovePlayer();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
                 if (playername.txtPlayerName.Text.Equals(""))
                 {
-                    MessageBox.Show("Please enter a valid name in the text box!");
+                    MessageBox.Show(Resources.Valid_Name);
                 }
                 else
                 {
-                    if (playerList.Remove(playername.txtPlayerName.Text))
+                    if (_playerList.Remove(playername.txtPlayerName.Text))
                     {
-                        MessageBox.Show("Player Removed", "The player " + playername.txtPlayerName.Text + " has been removed from the game");
+                        MessageBox.Show(Resources.Player_Removed_Header, Resources.Player_Identifier + playername.txtPlayerName.Text + Resources.Player_Removed_Confirm);
                     }
                     else
                     {
-                        MessageBox.Show("Error!", "The player " + playername.txtPlayerName.Text + " could not be removed.");
+                        MessageBox.Show(Resources.Error, Resources.Player_Identifier + playername.txtPlayerName.Text + Resources.Player_Removed_Fail);
                     }
                 }                
             }
@@ -121,36 +112,36 @@ namespace Kings_Card_Game
         public void ChangePlayerName(Form form)
         {
             Boolean result = false;
-            Change_Player_Name playernames = new Change_Player_Name();
+            ChangePlayerName playernames = new ChangePlayerName();
             if (playernames.ShowDialog(form) == DialogResult.OK)
             {
-                if (playernames.txtOldName.Text.Equals("") || playernames.txtNewName.Equals(""))
+                if (playernames.txtOldName.Text.Equals("") || playernames.txtNewName.Text.Equals(""))
                 {
-                    MessageBox.Show("Both text boxes need to have values! Please try again!");
+                    MessageBox.Show(Resources.Change_Player_Name_Message);
                 }
                 else
                 {
-                    i = 0;
-                    while (i <= playerList.Count)
+                    _i = 0;
+                    while (_i <= _playerList.Count)
                     {
-                        if (playerList[i].Equals(playernames.txtOldName.Text))
+                        if (_playerList[_i].Equals(playernames.txtOldName.Text))
                         {
-                            playerList.RemoveAt(i);
-                            addPlayerToList(playernames.txtNewName.Text);
+                            _playerList.RemoveAt(_i);
+                            AddPlayerToList(playernames.txtNewName.Text);
                             result = true;
                         }
                         else
                         {
-                            i++;
+                            _i++;
                         }
                     }
-                    if (result == true)
+                    if (result)
                     {
-                        MessageBox.Show("Player Name Changed!", "The player name " + playernames.txtOldName.Text + " has been changed to " + playernames.txtNewName.Text);
+                        MessageBox.Show(Resources.Change_Player_Name_Header, Resources.Player_Identifier + playernames.txtOldName.Text + Resources.Changed_Confirm + playernames.txtNewName.Text);
                     }
                     else
                     {
-                        MessageBox.Show("Error!", "The name of player " + playernames.txtOldName.Text + "could not be changed.");
+                        MessageBox.Show(Resources.Error, Resources.Player_Identifier + playernames.txtOldName.Text + Resources.Changed_Fail);
                     }
                 }                
             }
@@ -161,17 +152,17 @@ namespace Kings_Card_Game
         }
         public void AddPlayer(Form form)
         {
-            Add_Player playername = new Add_Player();
+            AddPlayer playername = new AddPlayer();
             if (playername.ShowDialog(form) == DialogResult.OK)
             {
                 if (playername.txtPlayerName.Text.Equals(""))
                 {
-                    MessageBox.Show("A valid name has not been entered! Try Again!");
+                    MessageBox.Show(Resources.Valid_Name_Fail);
                 }
                 else
                 {
-                    addPlayerToList(playername.txtPlayerName.Text);
-                    MessageBox.Show("Player Added", "The player " + playername.txtPlayerName.Text + " has been added.");
+                    AddPlayerToList(playername.txtPlayerName.Text);
+                    MessageBox.Show(Resources.Player_Added, Resources.Player_Identifier + playername.txtPlayerName.Text + Resources.Was_Added);
                 }
                 
             }
@@ -185,7 +176,7 @@ namespace Kings_Card_Game
             int i = 0;
             while (i < grid.RowCount - 1)
             {
-                addPlayerToList(grid.Rows[i].Cells[0].Value.ToString());
+                AddPlayerToList(grid.Rows[i].Cells[0].Value.ToString());
                 i++;
             }
         }

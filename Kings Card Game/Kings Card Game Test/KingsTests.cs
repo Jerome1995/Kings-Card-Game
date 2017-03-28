@@ -1,8 +1,7 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Kings_Card_Game;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using Kings_Card_Game;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kings_Card_Game_Test
 {
@@ -17,10 +16,10 @@ namespace Kings_Card_Game_Test
             Game game = new Game();
 
             //act
-            game.setCardName("Ace Of Spades");
+            game.SetCardName("Ace Of Spades");
 
             //assert
-            string actual = game.getCardName();
+            string actual = game.GetCardName();
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -31,10 +30,10 @@ namespace Kings_Card_Game_Test
             Game game = new Game();
 
             //act
-            game.setCardRule("Drink For 2 Seconds");
+            game.SetCardRule("Drink For 2 Seconds");
 
             //assert
-            string actual = game.getCardRule();
+            string actual = game.GetCardRule();
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -45,10 +44,10 @@ namespace Kings_Card_Game_Test
             Game game = new Game();
 
             //act
-            game.setImagePath("C:\\desktop\\image.png");
+            game.SetImagePath("C:\\desktop\\image.png");
 
             //assert
-            string actual = game.getImagePath();
+            string actual = game.GetImagePath();
             Assert.AreEqual(expectedResult, actual);
         }
     }
@@ -63,14 +62,14 @@ namespace Kings_Card_Game_Test
             Boolean expectedResult = true;
             Game game = new Game();
             List<string> list = new List<string>();
-            list.AddRange(game.getOrignalDeck());
+            list.AddRange(game.GetOrignalDeck());
             game.SetDecks(1);
 
             //act
             game.NextCard();
 
             //assert
-            Boolean actual = list.Contains(game.getCardName());
+            Boolean actual = list.Contains(game.GetCardName());
             Assert.AreEqual(expectedResult, actual);
         }
         [TestMethod]
@@ -81,7 +80,7 @@ namespace Kings_Card_Game_Test
             Game game = new Game();
 
             //act
-            game.joinDecks(2);
+            game.JoinDecks(2);
 
             //assert
             int actual = game.CardsLeft();
@@ -149,7 +148,7 @@ namespace Kings_Card_Game_Test
             
 
             //act
-            game.reduceCardsLeft(1);
+            game.ReduceCardsLeft(1);
 
             //assert
             int actual = game.CardsLeft();
@@ -186,8 +185,8 @@ namespace Kings_Card_Game_Test
 
             //assert
             Boolean actual = false;
-            if (result == true && game.NumberOfDecks() == 2 && game.getCardsUsedCount() == 0
-                && game.getUsedCards().Count == 0 && game.CardsLeft() == 104)
+            if (result && game.NumberOfDecks() == 2 && game.GetCardsUsedCount() == 0
+                && game.GetUsedCards().Count == 0 && game.CardsLeft() == 104)
             {
                 actual = true;
             }
@@ -210,7 +209,7 @@ namespace Kings_Card_Game_Test
 
             //assert
             Boolean actual = false;
-            if (!game.getUsedCards().Contains(card))
+            if (!game.GetUsedCards().Contains(card))
             {
                 actual = true;
             }
@@ -226,10 +225,10 @@ namespace Kings_Card_Game_Test
             
 
             //act
-            game.updateCardsUsed(2);
+            game.UpdateCardsUsed(2);
 
             //assert
-            int actual = game.getCardsUsedCount();
+            int actual = game.GetCardsUsedCount();
             Assert.AreEqual(expectedResult, actual);
         }
     }
@@ -246,9 +245,9 @@ namespace Kings_Card_Game_Test
 
 
             //act
-            game.addPlayerToList("Jerome");
-            game.addPlayerToList("Jerome");
-            game.addPlayerToList("Jerome");
+            game.AddPlayerToList("Jerome");
+            game.AddPlayerToList("Jerome");
+            game.AddPlayerToList("Jerome");
 
             //assert
             string actual = game.NextPlayer("Jerome_2");
@@ -260,8 +259,8 @@ namespace Kings_Card_Game_Test
             //arange
             string expectedResult = "Jerome";
             Game game = new Game();
-            game.addPlayerToList("John");
-            game.addPlayerToList("Jerome");
+            game.AddPlayerToList("John");
+            game.AddPlayerToList("Jerome");
 
             //act
             string actual = game.NextPlayer("John");
@@ -275,8 +274,8 @@ namespace Kings_Card_Game_Test
             //arange
             int expectedResult = 2;
             Game game = new Game();
-            game.addPlayerToList("Jerome");
-            game.addPlayerToList("John");
+            game.AddPlayerToList("Jerome");
+            game.AddPlayerToList("John");
 
             //act
             int actual = game.PlayerAmount();

@@ -1,11 +1,14 @@
-﻿namespace Kings_Card_Game
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Kings_Card_Game
 {
-    partial class Change_Player_Name
+    partial class ChangePlayerName
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -105,7 +108,7 @@
             this.Controls.Add(this.txtNewName);
             this.Controls.Add(this.lbNewName);
             this.Controls.Add(this.lbSelectPlayerName);
-            this.Name = "Change_Player_Name";
+            this.Name = "ChangePlayerName";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Player Name";
             this.ResumeLayout(false);
@@ -115,11 +118,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbSelectPlayerName;
-        private System.Windows.Forms.Label lbNewName;
-        private System.Windows.Forms.Button setNewNameButton;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.RichTextBox txtNewName;
-        public System.Windows.Forms.RichTextBox txtOldName;
+        private Label lbSelectPlayerName;
+        private Label lbNewName;
+        private Button setNewNameButton;
+        private Label label1;
+        public RichTextBox txtNewName;
+        public RichTextBox txtOldName;
     }
 }
